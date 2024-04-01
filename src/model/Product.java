@@ -1,12 +1,7 @@
 package model;
 
 public class Product {
-    //Enumerations
-    private enum ProductType {
-        FOOD,
-        CRAFT
-    }
-    
+
     //Attributes
     private String name;
     private double naturePercent;

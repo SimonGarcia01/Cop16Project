@@ -3,20 +3,6 @@ package model;
 import java.util.Calendar;
 
 public class Place {
-    
-    //Enumerations
-    private enum PlaceType {
-        PROTECTED_AREA,
-        NATIONAL_PARK,
-        PRIVATE_AREA
-    }
-
-    private enum Department{
-        CHOCO,
-        VALLE,
-        CAUCA,
-        NARINO
-    }
 
     //Attributes
     private String name;

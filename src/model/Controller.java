@@ -1,8 +1,5 @@
 package model;
 
-import model.Community.Challenge;
-import model.Community.CommunityType;
-
 public class Controller {
     
     //Attributes
@@ -13,25 +10,26 @@ public class Controller {
 
 
     //Methods
+
     //Main Methods
     public String registerCommunity(String name, String representantName, String representantPhone, 
-    int population, Challenge challenge, CommunityType type){
+    int population,  int intChallenge, int intType){
         String message = "";
 
         boolean duplicate = searchCommunity(name);
 
         if(duplicate){
-            message = "Ya existe una comunidad con ese nombre.";
+            message = "A community with that name already exists.";
         } else {
 
             int space = availableCommunity();
 
             if (space == -1){
-                message = "There is no more space to register a new community";
+                message = "There is no more space to register a new community.";
             } else {
                 communities[space] = new Community(name, representantName, representantPhone, 
-                population, challenge, type);
-                message = "The community has been registered successfully";
+                population, intChallenge, intType);
+                message = "The community has been registered successfully.";
             }
 
         }
@@ -45,7 +43,7 @@ public class Controller {
         boolean duplicate = false;
 
         for (Community community : communities) {
-            if (community.getName().equals(name)) {
+            if (community != null && community.getName().equals(name)) {
                 duplicate = true;
             }
         }
@@ -66,12 +64,12 @@ public class Controller {
 
     //Displaying enumerations
     public String displayChallengeTypes(){
-        String message = "Available challenge: \n";
+        String message = "Available challenges: \n\t";
 
         String[] challenges = Community.getChallenges();
     
         for (int i = 0; i < challenges.length; i++) {
-            message += (i + 1) + ". " + challenges[i] + "\n";
+            message += (i + 1) + ". " + challenges[i] + "\n\t";
         }
     
         // Return the constructed message
@@ -79,12 +77,12 @@ public class Controller {
     }
 
     public String displayCommunityTypes(){
-        String message = "Available comunity types:\n";
+        String message = "Available community types:\n\t";
 
         String[] communityTypes = Community.getCommunityTypes();
     
         for (int i = 0; i < communityTypes.length; i++) {
-            message += (i + 1) + ". " + communityTypes[i] + "\n";
+            message += (i + 1) + ". " + communityTypes[i] + "\n\t";
         }
     
         // Return the constructed message
@@ -93,6 +91,9 @@ public class Controller {
 
     //Constructor
     public Controller(){
+
+        this.communities = new Community[3];
+        this.places = new Place[3];
 
     }
 

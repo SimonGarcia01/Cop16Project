@@ -1,20 +1,6 @@
 package model;
 
 public class Community {
-    
-    //Enumerations
-    private enum Challenge{
-        HOSPITALS,
-        SCHOOLS,
-        WATER,
-        FOOD
-    }
-
-    private enum CommunityType {
-        AFROCOLOMBIAN,
-        INDIGENOUS,
-        RAIZAL
-    }
 
     //Attributes
     private String name;
@@ -30,39 +16,28 @@ public class Community {
     //Methods
 
     //To get the info from enumerations
-    public static String[] getChallenges() {
-        Challenge[] challenges = Challenge.values();
-        String[] challengeString = new String[challenges.length];
-
-        for (int i = 0; i < challenges.length; i++) {
-            challengeString[i] = challenges[i].toString();
-        }
-
-        return challengeString;
+    public static String[] getChallenges(){
+        return Challenge.getChallenges();
     }
-    
-    public static String[] getCommunityTypes() {
-        CommunityType[] types = CommunityType.values();
-        String[] typeString = new String[types.length];
 
-        for (int i = 0; i < types.length; i++) {
-            typeString[i] = types[i].toString();
-        }
-
-        return typeString;
+    public static String[] getCommunityTypes(){
+        return CommunityType.getCommunityTypes();
     }
 
     //Constructor
     public Community(String name, String representantName, String representantPhone, 
-    int population, Challenge challenge, CommunityType type) {
+    int population, int intChallenge, int intType) {
         this.name = name;
         this.representantName = representantName;
         this.representantPhone = representantPhone;
         this.population = population;
-        this.challenge = challenge;
-        this.type = type;
+        this.challenge = Challenge.intToChallenge(intChallenge);
+        this.type = CommunityType.intToCommunityType(intType);
         this.products = new Product[20];
     }
+
+    //Enumeration selection
+
 
     //Setters and Getters
     public String getName() {

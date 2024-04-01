@@ -1,12 +1,6 @@
 package model;
 
 public class Species {
-
-    //Enumerations
-    private enum SpeciesType{
-        FAUNA,
-        FLORA
-    }
     
     //Attributes
     private String name;

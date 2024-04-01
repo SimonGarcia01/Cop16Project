@@ -171,13 +171,18 @@ public class Main{
 
         System.out.println(controller.displayChallengeTypes());
         System.out.print("Enter the biggest challenge: ");
-        int challenge = sk.nextInt();
+        int intChallenge = sk.nextInt();
         sk.nextLine();
 
-
-        System.out.println("Enter the type of community: ");
-        int type = sk.nextInt();
+        System.out.println(controller.displayCommunityTypes());
+        System.out.print("Enter the type of community: ");
+        int intType = sk.nextInt();
         sk.nextLine();
+
+        String message = controller.registerCommunity(name, representantName, representantPhone, 
+        population, intChallenge, intType);
+
+        System.out.println(message);
 
 
         
