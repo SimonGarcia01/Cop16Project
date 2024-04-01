@@ -3,14 +3,14 @@ package model;
 public class Community {
     
     //Enumerations
-    public enum Challenge{
+    private enum Challenge{
         HOSPITALS,
         SCHOOLS,
         WATER,
         FOOD
     }
 
-    public enum CommunityType {
+    private enum CommunityType {
         AFROCOLOMBIAN,
         INDIGENOUS,
         RAIZAL
@@ -29,6 +29,28 @@ public class Community {
 
     //Methods
 
+    //To get the info from enumerations
+    public static String[] getChallenges() {
+        Challenge[] challenges = Challenge.values();
+        String[] challengeString = new String[challenges.length];
+
+        for (int i = 0; i < challenges.length; i++) {
+            challengeString[i] = challenges[i].toString();
+        }
+
+        return challengeString;
+    }
+    
+    public static String[] getCommunityTypes() {
+        CommunityType[] types = CommunityType.values();
+        String[] typeString = new String[types.length];
+
+        for (int i = 0; i < types.length; i++) {
+            typeString[i] = types[i].toString();
+        }
+
+        return typeString;
+    }
 
     //Constructor
     public Community(String name, String representantName, String representantPhone, 
@@ -75,6 +97,7 @@ public class Community {
         this.population = population;
     }
 
+    //To get the challenge from a community
     public Challenge getChallenge() {
         return challenge;
     }

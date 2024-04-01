@@ -36,6 +36,7 @@ public class Main{
                         switch(adminOption){
                             case 1:
                                 //Register a community
+                                registerCommunity(controller);
                                 break;
                             case 2:
                                 //Register a place
@@ -108,6 +109,7 @@ public class Main{
 
     }
 
+    //Menu methods
     public static int generalMenu(){
         int option = 0;
 
@@ -148,5 +150,36 @@ public class Main{
 		sk.nextLine();
 
         return option;
+    }
+
+    //Administrative menu methods
+    public static void registerCommunity(Controller controller){
+        System.out.println("REGISTERING A COMMUNITY");
+        
+        System.out.print("Enter the community's name: ");
+        String name = sk.nextLine();
+
+        System.out.print("Enter the representant's name: ");
+        String representantName = sk.nextLine();
+
+        System.out.print("Enter the representant's phone number: " );
+        String representantPhone = sk.nextLine();
+
+        System.out.print("Enter the population: ");
+        int population = sk.nextInt();
+        sk.nextLine();
+
+        System.out.println(controller.displayChallengeTypes());
+        System.out.print("Enter the biggest challenge: ");
+        int challenge = sk.nextInt();
+        sk.nextLine();
+
+
+        System.out.println("Enter the type of community: ");
+        int type = sk.nextInt();
+        sk.nextLine();
+
+
+        
     }
 }

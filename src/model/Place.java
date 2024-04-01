@@ -5,13 +5,13 @@ import java.util.Calendar;
 public class Place {
     
     //Enumerations
-    public enum PlaceType {
+    private enum PlaceType {
         PROTECTED_AREA,
         NATIONAL_PARK,
         PRIVATE_AREA
     }
 
-    public enum Department{
+    private enum Department{
         CHOCO,
         VALLE,
         CAUCA,

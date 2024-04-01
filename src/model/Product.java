@@ -2,7 +2,7 @@ package model;
 
 public class Product {
     //Enumerations
-    public enum ProductType {
+    private enum ProductType {
         FOOD,
         CRAFT
     }

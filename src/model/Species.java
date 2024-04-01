@@ -3,7 +3,7 @@ package model;
 public class Species {
 
     //Enumerations
-    public enum SpeciesType{
+    private enum SpeciesType{
         FAUNA,
         FLORA
     }
