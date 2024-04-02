@@ -96,6 +96,7 @@ public class Main{
                     break;
                 case 9:
                     //Exit the program
+                    System.out.println("EXITING PROGRAM...");
                     generalLoop = false;
                     break;
                 
@@ -109,7 +110,25 @@ public class Main{
 
     }
 
-    //Menu methods
+    //MENU METHODS
+
+    /**
+	 * <p><b>generalMenu</b></p>
+	* <b>Description:</b> prints the general menu and then registers the chosen option.
+	*	
+	* <p><b>Preconditions:</b></p>
+	* <ul>
+	* 	<li> {@code NONE}: No preconditions.</li>
+	* </ul>
+	*
+	* <p><b>Postconditions:</b></p>
+	* <ul>
+	* 	<li>The general menu is printed and the chosen option is returned.</li>
+	* </ul>
+	*
+	* @return The option chosen from the menu.
+	*/
+
     public static int generalMenu(){
         int option = 0;
 
@@ -124,6 +143,23 @@ public class Main{
         return option;
     }
     
+    /**
+	 * <p><b>adminMenu</b></p>
+	* <b>Description:</b> prints the administrative menu and then registers the chosen option.
+	*	
+	* <p><b>Preconditions:</b></p>
+	* <ul>
+	* 	<li> {@code NONE}: No preconditions.</li>
+	* </ul>
+	*
+	* <p><b>Postconditions:</b></p>
+	* <ul>
+	* 	<li>The administrative menu is printed and the chosen option is returned.</li>
+	* </ul>
+	*
+	* @return The option chosen from the menu.
+	*/
+
     public static int adminMenu(){
         int option = 0;
 
@@ -137,6 +173,23 @@ public class Main{
 
         return option;
     }
+
+    /**
+	* <p><b>gueryMenu</b></p>
+	* <b>Description:</b> prints the query menu and then registers the chosen option.
+	*	
+	* <p><b>Preconditions:</b></p>
+	* <ul>
+	* 	<li> {@code NONE}: No preconditions.</li>
+	* </ul>
+	*
+	* <p><b>Postconditions:</b></p>
+	* <ul>
+	* 	<li>The query menu is printed and the chosen option is returned.</li>
+	* </ul>
+	*
+	* @return The option chosen from the menu.
+	*/
 
     public static int queryMenu(){
         int option = 0;
@@ -152,7 +205,24 @@ public class Main{
         return option;
     }
 
-    //Administrative menu methods
+    //ADMINISTRATIVE MENU METHODS
+
+    /**
+	* <p><b>registerCommunity</b></p>
+	* <b>Description:</b> The method prints and registers all the necessary information to register a community. It will print 2 separate small menus to chose the Challenge and CommunityType.
+	*	
+	* <p><b>Preconditions:</b></p>
+	* <ul>
+	* 	<li> {@code controller}: The controller must have been created.</li>
+	* </ul>
+	*
+	* <p><b>Postconditions:</b></p>
+	* <ul>
+	* 	<li> A message stating if the community was successfully registered or not. If the community is not registered, the appropiate messages will be returned.</li>
+	* </ul>
+	*
+	* @param controller The general controller of the application. 
+	*/    
     public static void registerCommunity(Controller controller){
         System.out.println("REGISTERING A COMMUNITY");
         
@@ -187,4 +257,5 @@ public class Main{
 
         
     }
+
 }
