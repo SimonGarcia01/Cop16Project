@@ -104,7 +104,7 @@ public class Controller {
 	* @param intCommunity int the represents one of the options of the existing communities.
     * @param placeName The name of the place.
     * @param area The area that the place covers in km2.
-    * @param inagurationDate Date the the place is going to be inaugurated.
+    * @param inaugurationDate Date the the place is going to be inaugurated.
     * @param photo URL of a photo of the place. 
     * @param resources The amount of money that is invested in a places.
     * @param intDepartment int that represents one of the possible departments to be chosen from.
@@ -471,6 +471,22 @@ public class Controller {
 
     //SETTERS AND GETTERS
     
+    /**
+    * <p><b>getCommunities</b></p>
+    * <b>Description:</b> Retrieves the array of communities saved in controller.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Array} of communities must be in place beforehand.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>An array of communities is returned containing all available communities.</li>
+    * </ul>
+    * 
+    * @return The array of communities (including nulls if there are any).
+    */
     public Community[] getCommunities() {
         return communities;
     }
