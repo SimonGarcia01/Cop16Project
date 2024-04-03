@@ -38,21 +38,21 @@ public enum ProductType {
 
     //CHANGE AN INT TO A PRODUCTTYPE
     /**
-    * <p><b>intToPlaceType</b></p>
+    * <p><b>intToProductType</b></p>
     * <b>Description:</b> Takes in the selected option from the list of literals (printed as descriptions) and then runs a switch to return the value as a literal from the enumeration.
     * 
     * <p><b>Preconditions:</b></p>
     * <ul>
-    *   <li>{@code intType} must be an int between 1 and 3.</li>
+    *   <li>{@code intType} must be an int between 1 and 2.</li>
     * </ul>
     * 
     * <p><b>Postconditions:</b></p>
     * <ul>
-    *   <li>A PlaceType literal is returned associated to the list of literals.</li>
+    *   <li>A ProductType literal is returned associated with the list of literals.</li>
     * </ul>
     * 
-    * @param intType An int that the user entered to choose one of the PlaceType types.
-    * @return PlaceType literal associated to the list of PlaceType descriptions.
+    * @param intType An int that the user entered to choose one of the ProductType types.
+    * @return ProductType literal associated with the list of ProductType descriptions.
     */
     public static ProductType intToProductType(int intType){
         ProductType productType = null;
@@ -70,11 +70,43 @@ public enum ProductType {
 
 
     //CONSTRUCTOR
+    /**
+    * <p><b>ProductType</b></p>
+    * <b>Description:</b> Initializes the ProductType literals with an associated String description.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code description} There should be an associated attribute for the description and the literals must have their descriptions.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The literals inside ProductType are initialized with associated descriptions.</li>
+    * </ul>
+    * 
+    * @param description String that comes from the ProductType literal list.  
+    */
     private ProductType(String description){
         this.description = description;
     }
 
     //GETTER
+    /**
+    * <p><b>getDescription</b></p>
+    * <b>Description:</b> Extracts the description associated with the ProductType's literal in the enumeration.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code literals} must have an associated description.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A string that holds the description to a literal is returned.</li>
+    * </ul>
+    * 
+    * @return A String with the description of a ProductType literal.
+    */
     public String getDescription(){
         return description;
     }

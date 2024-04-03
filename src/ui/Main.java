@@ -279,7 +279,8 @@ public class Main{
 	*
 	* <p><b>Postconditions:</b></p>
 	* <ul>
-	* 	<li> A message stating if the place was successfully registered or not. If the place was not registered, the appropiate messages will be returned.</li>
+	* 	<li>If there is not one registered community, an error message will be printed and the method will skip itself.</li>	
+    * 	<li> A message stating if the place was successfully registered or not. If the place was not registered, the appropiate messages will be returned.</li>
 	* </ul>
 	*
 	* @param controller The general controller of the application. 
@@ -355,6 +356,29 @@ public class Main{
         }
     }
 
+
+    /**
+	* <p><b>addProduct</b></p>
+	* <b>Description:</b>The method starts by checking if there is atleast one registered community (showing an error if there isn't), 
+    * then it prints and registers all the necessary information to add a product to a community. 
+    * It will print 2 menus: 
+    * <ul>
+    *   <li> To select an existing community.</li>
+    *   <li> To select the product type.</li>
+	*</ul>
+	* <p><b>Preconditions:</b></p>
+	* <ul>
+	* 	<li> {@code controller}: The controller must have been created.</li>
+	* </ul>
+	*
+	* <p><b>Postconditions:</b></p>
+	* <ul>
+	* 	<li>If there is not one registered community, an error message will be printed and the method will skip itself.</li>
+	* 	<li>A message stating if the product was successfully registered or not. If the place was not registered, the appropiate messages will be returned.</li>
+	* </ul>
+	*
+	* @param controller The general controller of the application. 
+	*/  
     public static void addProduct(Controller controller){
         System.out.println("REGISTERING A PLACE");
 

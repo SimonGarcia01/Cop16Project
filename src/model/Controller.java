@@ -147,54 +147,41 @@ public class Controller {
         return message;
     }
 
-    //TO ADD A NEW PRODUCT
-    /**
-	* <p><b>registerCommunty</b></p>
-	* <b>Description:</b> Initializes and creates an instance of Community, saves it in the communities array and returns a success message. 
-    * First, it is checked if there is a community with the same name already stored. If there is a dupicate it returns a duplicate message.
-	* Second, It checks if there is space to store a new Community in the array. If there is no space a no space message will be returend.
-    *
-	* <p><b>Preconditions:</b></p>
-	* <ul>
-	* 	<li> {@code name} must be a String.</li>
-	* 	<li> {@code representantName} must be a String.</li> 
-	* 	<li> {@code representantPhone} must be a String.</li>   
-	* 	<li> {@code population} must be an int.</li>
-	* 	<li> {@code intChallenge} must be an int between 1 and 4.</li>
-	* 	<li> {@code population} must be an int between 1 and 3.</li>
-	* </ul>
-	*
-	* <p><b>Postconditions:</b></p>
-	* <ul>
-	* 	<li>An instance of Community is created with all the necessary parameters, stored in the communities array and a success message is returned.</li>
-    * 	<li>If there is a community with the same name already stored, a duplicate message is returned instead.</li>
-	* 	<li>If there is no space to store a new community in the array, a no space message will be returned.</li>
-	* </ul>
-	*
-	* @param name The name of the Community.
-    * @param representantName The name of the person that represents the community.
-    * @param representantPhone The phone number of the community's representant.
-    * @param population The number of people that live in the community.
-    * @param intChallenge The chosen option from the list of Challenge descriptions.
-    * @param intType The chosen option from the list of CommunityType descriptions.
-    *
-    * @return A message stating if the community was registered successfully or not (stating the reason if it wasn't successfull).
-	*/        
+/**
+* <p><b>addProduct</b></p>
+* <b>Description:</b> Associates a new product with the specified community and returns a success message. 
+* First, it retrieves the community based on the provided index.
+* Then, it creates a new Product instance using the provided parameters.
+* Finally, it associates the new product with the specified community.
+*
+* <p><b>Preconditions:</b></p>
+* <ul>
+*   <li>{@code intCommunity} must be an int representing an existing community.</li>
+*   <li>{@code productName} must be a non-null String.</li> 
+*   <li>{@code naturePercent} must be a double.</li>   
+*   <li>{@code handcraft} must be "yes" or "no" String.</li>
+*   <li>{@code intProductType} must be an int representing the type of the product.</li>
+* </ul>
+* 
+* <p><b>Postconditions:</b></p>
+* <ul>
+*   <li>A Product instance is created with all the necessary parameters, associated with the specified community, and a success message is returned.</li>
+* </ul>
+* 
+* @param intCommunity The index of the community where the product will be associated.
+* @param productName The name of the product.
+* @param naturePercent The percentage of natural products used to make the product.
+* @param handcraft Stating if the product was handcrafted or not
+* @param intProductType The type of the product.
+* @return A message stating if the product was added successfully or not. The appropiate message is returned after other checks in the {@link Community#addProduct(Product)} 
+*/
     public String addProduct(int intCommunity, String productName, double naturePercent, 
     String handcraft, int intProductType){
         String message = "";
 
-        boolean oneCommunity = oneMinCommunity();
-
-        if(oneCommunity){
             Community productCommunity = intToCommunity(intCommunity);
-
             Product newProduct = new Product(productName, naturePercent, handcraft, intProductType);
-
             message = productCommunity.addProduct(newProduct);
-        } else {
-            message = "There is no community to select from. Register one, please.";
-        }
 
         return message;
     }
@@ -447,23 +434,23 @@ public class Controller {
         return message;
     }
 
-        /**
-	* <p><b>displayCommunityTypes</b></p>
-	* <b>Description:</b> Concatenates and returns a string that holds all the descriptions that represent every CommunityType literal. 
-    * It will loop, put a number and extract the String communityTypes that holds all the descriptions.
-	*	
-	* <p><b>Preconditions:</b></p>
-	* <ul>
-    *   <li> {@code literals} and {@code descriptions} must have been initialized and the getDescription method must be in place.</li>
-	* </ul>
-	*
-	* <p><b>Postconditions:</b></p>
-	* <ul>
-	* 	<li>A String holding all the numbered descriptions in order will be returned.</li>
-	* </ul>
-	*
-	* @return A String that holds all the numbered descriptions of the CommunityType enumeration.
-	*/     
+    /**
+    * <p><b>displayProductTypes</b></p>
+    * <b>Description:</b> Concatenates and returns a string that holds all the descriptions that represent every ProductType literal. 
+    * It will loop through the product types, put a number, and extract the String array containing all the descriptions.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code literals} and {@code descriptions} must have been initialized and the {@code getDescription} method must be in place.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A String holding all the numbered descriptions in order will be returned.</li>
+    * </ul>
+    * 
+    * @return A String that holds all the numbered descriptions of the ProductType enumeration.
+    */
     public String displayProductTypes(){
         String message = "Types of products:\n\t";
 

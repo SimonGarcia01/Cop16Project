@@ -12,21 +12,21 @@ public class Product {
     //Methods
 
     /**
-	* <p><b>getCommunityTypes</b></p>
-	* <b>Description:</b> Extracts the array from CommunityType holding every description associated to a Challenge literal and returns it.
-	*	
-	* <p><b>Preconditions:</b></p>
-	* <ul>
-	* 	<li> {@code getCommunityTypes} method in CommunityType must be in place.</li>
-	* </ul>
-	*
-	* <p><b>Postconditions:</b></p>
-	* <ul>
-	* 	<li>An String array is returned holding the descriptions of every Literal. </li>
-	* </ul>
-	*
-	* @return A string[] holding all the descriptions representing the CommunityType literals.
-	*/    
+    * <p><b>getProductTypes</b></p>
+    * <b>Description:</b> Extracts the array from ProductType holding every description associated with a ProductType literal and returns it.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code getProductTypes} method in ProductType must be in place.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A String array is returned holding the descriptions of every Literal.</li>
+    * </ul>
+    * 
+    * @return A string[] holding all the descriptions representing the ProductType literals.
+    */ 
     public static String[] getProductTypes(){
         return ProductType.getProductTypes();
     }
@@ -41,6 +41,23 @@ public class Product {
 
 
     //SETTERS AND GETTERS
+    
+    /**
+    * <p><b>getName</b></p>
+    * <b>Description:</b> Allows the extraction of the name from a Product instance as a String.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Null} search can't be done on a null object. Null Pointer Exception.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A String containing the name of a Product instance is returned.</li>
+    * </ul>
+    * 
+    * @return A String with the name of a Product instance.
+    */
     public String getName() {
         return name;
     }
