@@ -61,16 +61,16 @@ public enum Department {
         Department department = null;
         switch(intDepartment){
             case 1:
-                department = Department.CHOCO;
+                department = CHOCO;
                 break;
             case 2:
-                department = Department.VALLE;
+                department = VALLE;
                 break;
             case 3:
-                department = Department.CAUCA;
+                department = CAUCA;
                 break;
             case 4:
-                department = Department.NARINO;
+                department = NARINO;
         }
 
         return department;

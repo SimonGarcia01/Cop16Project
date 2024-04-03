@@ -60,13 +60,13 @@ public enum CommunityType {
         CommunityType communityType = null;
         switch(intType){
             case 1:
-                communityType = CommunityType.AFRO;
+                communityType = AFRO;
                 break;
             case 2:
-                communityType = CommunityType.INDIGENOUS;
+                communityType = INDIGENOUS;
                 break;
             case 3:
-                communityType = CommunityType.RAIZAL;
+                communityType = RAIZAL;
                 break;
         }
 

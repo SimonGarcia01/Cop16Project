@@ -47,6 +47,7 @@ public class Main{
                                 break;
                             case 3:
                                 //Add a product to a commmunity
+                                addProduct(controller);
                                 break;
                             case 4:
                                 //delete a product from a community
@@ -264,7 +265,7 @@ public class Main{
 
     /**
 	* <p><b>registerPlace</b></p>
-	* <b>Description:</b> The method prints and registers all the necessary information to register a place. 
+	* <b>Description:</b>The method starts by checking if there is atleast one registered community (showing an error if there isn't), then it prints and registers all the necessary information to register a place. 
     * It will print 3 menus: 
     * <ul>
     *   <li> To select an existing community.</li>
@@ -286,65 +287,118 @@ public class Main{
     public static void registerPlace(Controller controller){
         System.out.println("REGISTERING A PLACE");
         
-        int intCommunity = 0;
-        if(controller.getCommunities()[0]!=null){
-            System.out.println("Available communities to associate to a place:");
-            for(int i = 0; i < controller.getCommunities().length; i++){
-                if(controller.getCommunities()[i]!=null){
-                    System.out.print("\t"+(i+1) + ". " + controller.getCommunities()[i].getName() + "\n");
+        boolean existingCommunity = controller.oneMinCommunity();
+
+        if (existingCommunity){
+
+            int intCommunity = 0;
+            if(controller.getCommunities()[0]!=null){
+                System.out.println("Available communities to associate to a place:");
+                for(int i = 0; i < controller.getCommunities().length; i++){
+                    if(controller.getCommunities()[i]!=null){
+                        System.out.print("\t"+(i+1) + ". " + controller.getCommunities()[i].getName() + "\n");
+                    }
                 }
+                System.out.print("Enter the number that correspondes to the caregiving community: ");
+                intCommunity = sk.nextInt();
+                sk.nextLine();
+            }else{
+                System.out.println("There are no registered communities.");
             }
-            System.out.print("Enter the number that correspondes to the caregiving community: ");
-            intCommunity = sk.nextInt();
+
+            System.out.print("Enter the name of the place: ");
+            String placeName = sk.nextLine();
+
+            System.out.print("Enter the area (km^2): ");
+            int area = sk.nextInt();
             sk.nextLine();
-        }else{
-            System.out.println("There are no registered communities.");
 
+            System.out.print("Enter the URL for the photo: ");
+            String photo = sk.nextLine();
+
+            System.out.print("Enter the amount of resources destined to the place: ");
+            double resources = sk.nextDouble();
+            sk.nextLine();
+
+            System.out.println(controller.displayDepartments());
+            System.out.print("Enter the department the place is located in: ");
+            int intDepartment = sk.nextInt();
+            sk.nextLine();
+
+            System.out.println(controller.displayPlaceTypes());
+            System.out.print("Enter the type of place: ");
+            int intType = sk.nextInt();
+            sk.nextLine();
+
+            System.out.print("Enter the date of inauguration (dd/mm/aaaa): ");
+            //get the date as a string with the format dd/mm/aaaa
+            String inaugurationDateString = sk.nextLine();
+            //create a calendar instance so i can then save the time in it
+            Calendar inaugurationDate = Calendar.getInstance();
+            //create a simpledateformat to change the String info to date format
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            //now change the Calendar expiration date using the transformed date format
+            try {
+                //Had to use parce exception because it said so...
+                inaugurationDate.setTime(sdf.parse(inaugurationDateString));
+            } catch (ParseException e) {
+                System.out.println("The format was incorrect, use: dd/MM/yyyy.");
+                return;
+            }
+
+            String message = controller.registerPlace(intCommunity, placeName, area, inaugurationDate, 
+            photo, resources, intDepartment, intType);
+
+            System.out.println(message);
+        } else {
+            System.out.println("There are no registered communities to associate to a place. Please enter one.");
+        }
+    }
+
+    public static void addProduct(Controller controller){
+        System.out.println("REGISTERING A PLACE");
+
+        boolean existingCommunity = controller.oneMinCommunity();
+
+        if (existingCommunity){
+
+            int intCommunity = 0;
+            if(controller.getCommunities()[0]!=null){
+                System.out.println("Available communities to add a product:");
+                for(int i = 0; i < controller.getCommunities().length; i++){
+                    if(controller.getCommunities()[i]!=null){
+                        System.out.print("\t"+(i+1) + ". " + controller.getCommunities()[i].getName() + "\n");
+                    }
+                }
+                System.out.print("Enter the number that correspondes to the community: ");
+                intCommunity = sk.nextInt();
+                sk.nextLine();
+            }else{
+                System.out.println("There are no registered communities.");
+            }
+
+            System.out.print("Enter the name of the product: ");
+            String productName = sk.nextLine();
+
+            System.out.print("Enter the percentage of natural products used to make the product: ");
+            double naturePercent = sk.nextDouble();
+            sk.nextLine();
+
+            System.out.print("Was the product handcrafted? (yes/no): ");
+            String handcraft = sk.nextLine();
+
+            System.out.println(controller.displayProductTypes());
+            System.out.print("Enter one of the numbers that represents the type of product: ");
+            int intProductType = sk.nextInt();
+            sk.nextLine();
+
+            String message = controller.addProduct(intCommunity, productName, naturePercent, handcraft, intProductType);
+
+            System.out.println(message); 
+        } else {
+            System.out.println("There are no registered communities to add a product. Please enter one.");
         }
 
-        System.out.print("Enter the name of the place: ");
-        String placeName = sk.nextLine();
-
-        System.out.print("Enter the area (km^2): ");
-        int area = sk.nextInt();
-        sk.nextLine();
-
-        System.out.print("Enter the URL for the photo: ");
-        String photo = sk.nextLine();
-
-        System.out.print("Enter the amount of resources destined to the place: ");
-        double resources = sk.nextDouble();
-
-        System.out.println(controller.displayDepartments());
-        System.out.print("Enter the department the place is located in: ");
-        int intDepartment = sk.nextInt();
-        sk.nextLine();
-
-        System.out.println(controller.displayPlaceTypes());
-        System.out.print("Enter the type of place: ");
-        int intType = sk.nextInt();
-        sk.nextLine();
-
-        System.out.print("Enter the date of inauguration (dd/mm/aaaa): ");
-		//get the date as a string with the format dd/mm/aaaa
-		String inaugurationDateString = sk.nextLine();
-		//create a calendar instance so i can then save the time in it
-		Calendar inaugurationDate = Calendar.getInstance();
-		//create a simpledateformat to change the String info to date format
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		//now change the Calendar expiration date using the transformed date format
-		try {
-			//Had to use parce exception because it said so...
-            inaugurationDate.setTime(sdf.parse(inaugurationDateString));
-        } catch (ParseException e) {
-            System.out.println("The format was incorrect, use: dd/MM/yyyy.");
-            return;
-        }
-
-        String message = controller.registerPlace(intCommunity, placeName, area, inaugurationDate, 
-        photo, resources, intDepartment, intType);
-
-        System.out.println(message);
     }
 
 }

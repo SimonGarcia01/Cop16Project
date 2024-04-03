@@ -60,16 +60,16 @@ public enum Challenge {
         Challenge challenge = null;
         switch(intChallenge){
             case 1:
-                challenge = Challenge.HOSPITALS;
+                challenge = HOSPITALS;
                 break;
             case 2:
-                challenge = Challenge.SCHOOLS;
+                challenge = SCHOOLS;
                 break;
             case 3:
-                challenge = Challenge.WATER;
+                challenge = WATER;
                 break;
             case 4:
-                challenge = Challenge.FOOD;
+                challenge = FOOD;
                 break;
         }
 

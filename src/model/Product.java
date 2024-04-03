@@ -11,16 +11,36 @@ public class Product {
 
     //Methods
 
-    //Constructor
-    public Product(String name, double naturePercent, String handcraft, ProductType type) {
+    /**
+	* <p><b>getCommunityTypes</b></p>
+	* <b>Description:</b> Extracts the array from CommunityType holding every description associated to a Challenge literal and returns it.
+	*	
+	* <p><b>Preconditions:</b></p>
+	* <ul>
+	* 	<li> {@code getCommunityTypes} method in CommunityType must be in place.</li>
+	* </ul>
+	*
+	* <p><b>Postconditions:</b></p>
+	* <ul>
+	* 	<li>An String array is returned holding the descriptions of every Literal. </li>
+	* </ul>
+	*
+	* @return A string[] holding all the descriptions representing the CommunityType literals.
+	*/    
+    public static String[] getProductTypes(){
+        return ProductType.getProductTypes();
+    }
+
+    //CONSTRUCTOR
+    public Product(String name, double naturePercent, String handcraft, int intType) {
         this.name = name;
         this.naturePercent = naturePercent;
         this.handcraft = handcraft;
-        this.type = type;
+        this.type = ProductType.intToProductType(intType);
     }
 
 
-    //Setters and Getters
+    //SETTERS AND GETTERS
     public String getName() {
         return name;
     }

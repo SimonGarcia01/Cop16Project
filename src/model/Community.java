@@ -15,6 +15,30 @@ public class Community {
 
     //Methods
 
+
+    public String addProduct(Product newProduct){
+        String message = "";
+
+        boolean duplicate = searchProduct(newProduct.getName());
+
+        if(duplicate){
+            message = "A product with that name already exist within the community.";
+        } else {
+
+            int space = availableProduct();
+
+            if (space == -1){
+                message = "There is no more space to register a new product within the community.";
+            } else {
+                this.products[space] = newProduct;
+                message = "The place has been registered successfully.";
+            }
+
+        }
+
+        return message;
+    }
+
     //TO GET THE INFO FROM ENUMERATIONS
 
     /**
@@ -56,6 +80,94 @@ public class Community {
     public static String[] getCommunityTypes(){
         return CommunityType.getCommunityTypes();
     }
+
+    /**
+	* <p><b>getCommunityTypes</b></p>
+	* <b>Description:</b> Extracts the array from CommunityType holding every description associated to a Challenge literal and returns it.
+	*	
+	* <p><b>Preconditions:</b></p>
+	* <ul>
+	* 	<li> {@code getCommunityTypes} method in CommunityType must be in place.</li>
+	* </ul>
+	*
+	* <p><b>Postconditions:</b></p>
+	* <ul>
+	* 	<li>An String array is returned holding the descriptions of every Literal. </li>
+	* </ul>
+	*
+	* @return A string[] holding all the descriptions representing the CommunityType literals.
+	*/    
+    public static String[] getProductTypes(){
+        return Product.getProductTypes();
+    }
+
+
+
+    //SEARCH METHODS
+
+    /**
+	* <p><b>searchPlace</b></p>
+	* <b>Description:</b> Verifies if the entered place name already exists in the array of places. 
+    * It will loop along all the existing places.
+	*	
+	* <p><b>Preconditions:</b></p>
+	* <ul>
+    *   <li> {@code Array} holding the Communities must already exist.</li>
+	* 	<li> {@code name} has to be a String.</li>
+	* </ul>
+	*
+	* <p><b>Postconditions:</b></p>
+	* <ul>
+	* 	<li>A boolean stating if a duplicate was found or not.</li>
+	* </ul>
+	*
+	* @param name the String entered for the place that wants to be registered. 
+	* @return A boolean showing if there is a duplicate or not.
+	*/
+
+    public boolean searchProduct(String productName){
+
+        boolean duplicate = false;
+
+        for (Product product : products) {
+            if (product != null && product.getName().equals(productName)) {
+                duplicate = true;
+            }
+        }
+
+        return duplicate;
+    }
+
+    //AVAILABLE SPACE METHODS
+
+    /**
+	* <p><b>availablePlace</b></p>
+	* <b>Description:</b> Verifies if there is an empty space in the array of places in order to save another place afterwards. 
+    * It will loop and check that every element is equals to Null and then return the index of the last Null element.
+    * If there are no null elements, it will return a -1.
+	*	
+	* <p><b>Preconditions:</b></p>
+	* <ul>
+    *   <li> {@code Array} holding the places must already exist.</li>
+	* </ul>
+	*
+	* <p><b>Postconditions:</b></p>
+	* <ul>
+	* 	<li> An int holding the last null element position in the places array will be returned. If there is no null element left -1 will be returned instead.</li>
+	* </ul>
+	*
+	* @return An int holding the index of the last null element in the places array (if there is no more space a -1 will be returned).
+	*/    
+    public int availableProduct(){
+        for (int i = 0; i < this.products.length; i++) {
+            if (this.products[i] == null) {
+                return i;
+            }
+        }
+        //If there is no more space, a -1 will be returned
+        return -1;
+    }   
+
 
     //CONSTRUCTOR
     /**

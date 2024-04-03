@@ -60,13 +60,13 @@ public enum PlaceType {
         PlaceType placeType = null;
         switch(intType){
             case 1:
-                placeType = PlaceType.PROTECTED;
+                placeType = PROTECTED;
                 break;
             case 2:
-                placeType = PlaceType.NATIONAL;
+                placeType = NATIONAL;
                 break;
             case 3:
-                placeType = PlaceType.PRIVATE;
+                placeType = PRIVATE;
                 break;
         }
 
