@@ -51,6 +51,7 @@ public class Main{
                                 break;
                             case 4:
                                 //delete a product from a community
+                                deleteProduct(controller);
                                 break;
                             case 5:
                                 //Add a species to a place
@@ -292,20 +293,10 @@ public class Main{
 
         if (existingCommunity){
 
-            int intCommunity = 0;
-            if(controller.getCommunities()[0]!=null){
-                System.out.println("Available communities to associate to a place:");
-                for(int i = 0; i < controller.getCommunities().length; i++){
-                    if(controller.getCommunities()[i]!=null){
-                        System.out.print("\t"+(i+1) + ". " + controller.getCommunities()[i].getName() + "\n");
-                    }
-                }
-                System.out.print("Enter the number that correspondes to the caregiving community: ");
-                intCommunity = sk.nextInt();
-                sk.nextLine();
-            }else{
-                System.out.println("There are no registered communities.");
-            }
+            System.out.println(controller.displayCommunities());
+            System.out.print("Enter the number that correspondes to the caregiving community: ");
+            int intCommunity = sk.nextInt();
+            sk.nextLine();
 
             System.out.print("Enter the name of the place: ");
             String placeName = sk.nextLine();
@@ -386,20 +377,10 @@ public class Main{
 
         if (existingCommunity){
 
-            int intCommunity = 0;
-            if(controller.getCommunities()[0]!=null){
-                System.out.println("Available communities to add a product:");
-                for(int i = 0; i < controller.getCommunities().length; i++){
-                    if(controller.getCommunities()[i]!=null){
-                        System.out.print("\t"+(i+1) + ". " + controller.getCommunities()[i].getName() + "\n");
-                    }
-                }
-                System.out.print("Enter the number that correspondes to the community: ");
-                intCommunity = sk.nextInt();
-                sk.nextLine();
-            }else{
-                System.out.println("There are no registered communities.");
-            }
+            System.out.println(controller.displayCommunities());
+            System.out.print("Enter the number that correspondes to the community: ");
+            int intCommunity = sk.nextInt();
+            sk.nextLine();
 
             System.out.print("Enter the name of the product: ");
             String productName = sk.nextLine();
@@ -422,6 +403,39 @@ public class Main{
         } else {
             System.out.println("There are no registered communities to add a product. Please enter one.");
         }
+
+    }
+
+    public static void deleteProduct(Controller controller){
+    System.out.println("DELETING A PRODUCT");
+
+    boolean existingCommunity = controller.oneMinCommunity();
+
+    if (existingCommunity){
+
+        System.out.println(controller.displayCommunities());
+        System.out.print("Enter the number that correspondes to the community: ");
+        int intCommunity = sk.nextInt();
+        sk.nextLine();
+
+        boolean existingProduct = controller.oneMinProduct(controller.intToCommunity(intCommunity));
+
+        if(existingProduct){
+            int intProduct = 0;
+            System.out.println(controller.displayProducts(controller.intToCommunity(intCommunity)));
+            System.out.print("Enter the name of the product: ");
+            intProduct = sk.nextInt();
+            sk.nextLine();
+    
+            String message = controller.deleteProduct(intCommunity, intProduct);
+    
+            System.out.println(message);
+        } else {
+            System.out.println("There are no registered products inside this community. Please add one.");
+        }
+    } else {
+        System.out.println("There are no registered communities to delete a product from. Please enter one.");
+    }
 
     }
 

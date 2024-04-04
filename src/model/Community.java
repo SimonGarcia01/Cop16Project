@@ -51,14 +51,41 @@ public class Community {
             if (space == -1){
                 message = "There is no more space to register a new product within the community.";
             } else {
-                this.products[space] = newProduct;
-                message = "The place has been registered successfully.";
+                products[space] = newProduct;
+                message = "The product has been added successfully to the community's inventory.";
             }
 
         }
 
         return message;
     }
+
+    //CHANGE AN INT TO A COMMUNITY
+    /**
+	* <p><b>intToCommunity</b></p>
+	* <b>Description:</b> Takes in the selected option from the list of communities and then extracts the community in the communities array.
+	*	
+	* <p><b>Preconditions:</b></p>
+	* <ul>
+	* 	<li> {@code intType} must be an int within the range of communities printed.</li>
+	* </ul>
+	*
+	* <p><b>Postconditions:</b></p>
+	* <ul>
+	* 	<li> A community is returned that was associated to the entered option.</li>
+	* </ul>
+	*
+	* @param intCommunity an int that the user entered to choose one of the communities.
+    * @return The community that was selected from the community list. 
+	*/   
+    public String deleteProduct(int intProduct){
+        String message = "";
+
+        products[intProduct-1]=null;
+        message = "Product deleted Successfully from the community.";
+
+        return message;
+    }   
 
     //TO GET THE INFO FROM ENUMERATIONS
 
@@ -161,27 +188,27 @@ public class Community {
 
     //AVAILABLE SPACE METHODS
 
-/**
-* <p><b>availableProduct</b></p>
-* <b>Description:</b> Verifies if there is an empty space in the array of products in order to save another product afterwards. 
-* It will loop through the products array and check if each element is equal to null. If an element is null, it returns the index of that element.
-* If there are no null elements, it will return -1.
-* 
-* <p><b>Preconditions:</b></p>
-* <ul>
-*   <li>{@code Array} holding the products must already exist.</li>
-* </ul>
-* 
-* <p><b>Postconditions:</b></p>
-* <ul>
-*   <li>An int holding the index of the last null element in the products array will be returned. If there is no more space, -1 will be returned instead.</li>
-* </ul>
-* 
-* @return An int holding the index of the last null element in the products array (if there is no more space, -1 will be returned).
-*/
+    /**
+    * <p><b>availableProduct</b></p>
+    * <b>Description:</b> Verifies if there is an empty space in the array of products in order to save another product afterwards. 
+    * It will loop through the products array and check if each element is equal to null. If an element is null, it returns the index of that element.
+    * If there are no null elements, it will return -1.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Array} holding the products must already exist.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>An int holding the index of the last null element in the products array will be returned. If there is no more space, -1 will be returned instead.</li>
+    * </ul>
+    * 
+    * @return An int holding the index of the last null element in the products array (if there is no more space, -1 will be returned).
+    */
     public int availableProduct(){
-        for (int i = 0; i < this.products.length; i++) {
-            if (this.products[i] == null) {
+        for (int i = 0; i < products.length; i++) {
+            if (products[i] == null) {
                 return i;
             }
         }
@@ -189,6 +216,63 @@ public class Community {
         return -1;
     }   
 
+    //SEARCH IF THERE IS ATLEAST ONE PRODUCT
+    /**
+	* <p><b>oneMinCommunity</b></p>
+	* <b>Description:</b> Will check if at least one community was registered already (first position of communities).
+	*	
+	* <p><b>Preconditions:</b></p>
+	* <ul>
+    *   <li> {@code Array} of communities must already exist. </li>
+	* </ul>
+	*
+	* <p><b>Postconditions:</b></p>
+	* <ul>
+	* 	<li>A boolean stating if the first position in the community array was occupied or not.</li>
+	* </ul>
+	*
+	* @return A boolean stating if the first position of communities is filled.
+	*/     
+    public boolean oneMinProduct() {
+        boolean oneProduct = false;
+
+        if(products[0] != null){
+            oneProduct = true;
+        }
+
+        return oneProduct;
+    }
+
+    //DISPLAY ALL CURRENTLY SAVED PRODUCTS
+    /**
+    * <p><b>displayProductTypes</b></p>
+    * <b>Description:</b> Concatenates and returns a string that holds all the descriptions that represent every ProductType literal. 
+    * It will loop through the product types, put a number, and extract the String array containing all the descriptions.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code literals} and {@code descriptions} must have been initialized and the {@code getDescription} method must be in place.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A String holding all the numbered descriptions in order will be returned.</li>
+    * </ul>
+    * 
+    * @return A String that holds all the numbered descriptions of the ProductType enumeration.
+    */
+    public String displayProducts(){
+        String message = "Products within the Community:\n\t";
+
+        for(int i = 0; i < products.length; i++){
+
+            if(products[i]!=null){
+                message += (i + 1) + ". " + products[i].getName() + "\n\t";
+            }
+        }
+
+        return message;
+    }
 
     //CONSTRUCTOR
     /**

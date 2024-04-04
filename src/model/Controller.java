@@ -147,34 +147,34 @@ public class Controller {
         return message;
     }
 
-/**
-* <p><b>addProduct</b></p>
-* <b>Description:</b> Associates a new product with the specified community and returns a success message. 
-* First, it retrieves the community based on the provided index.
-* Then, it creates a new Product instance using the provided parameters.
-* Finally, it associates the new product with the specified community.
-*
-* <p><b>Preconditions:</b></p>
-* <ul>
-*   <li>{@code intCommunity} must be an int representing an existing community.</li>
-*   <li>{@code productName} must be a non-null String.</li> 
-*   <li>{@code naturePercent} must be a double.</li>   
-*   <li>{@code handcraft} must be "yes" or "no" String.</li>
-*   <li>{@code intProductType} must be an int representing the type of the product.</li>
-* </ul>
-* 
-* <p><b>Postconditions:</b></p>
-* <ul>
-*   <li>A Product instance is created with all the necessary parameters, associated with the specified community, and a success message is returned.</li>
-* </ul>
-* 
-* @param intCommunity The index of the community where the product will be associated.
-* @param productName The name of the product.
-* @param naturePercent The percentage of natural products used to make the product.
-* @param handcraft Stating if the product was handcrafted or not
-* @param intProductType The type of the product.
-* @return A message stating if the product was added successfully or not. The appropiate message is returned after other checks in the {@link Community#addProduct(Product)} 
-*/
+    /**
+    * <p><b>addProduct</b></p>
+    * <b>Description:</b> Associates a new product with the specified community and returns a success message. 
+    * First, it retrieves the community based on the provided index.
+    * Then, it creates a new Product instance using the provided parameters.
+    * Finally, it associates the new product with the specified community.
+    *
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code intCommunity} must be an int representing an existing community.</li>
+    *   <li>{@code productName} must be a non-null String.</li> 
+    *   <li>{@code naturePercent} must be a double.</li>   
+    *   <li>{@code handcraft} must be "yes" or "no" String.</li>
+    *   <li>{@code intProductType} must be an int representing the type of the product.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A Product instance is created with all the necessary parameters, associated with the specified community, and a success message is returned.</li>
+    * </ul>
+    * 
+    * @param intCommunity The index of the community where the product will be associated.
+    * @param productName The name of the product.
+    * @param naturePercent The percentage of natural products used to make the product.
+    * @param handcraft Stating if the product was handcrafted or not
+    * @param intProductType The type of the product.
+    * @return A message stating if the product was added successfully or not. The appropiate message is returned after other checks in the {@link Community#addProduct(Product)} 
+    */
     public String addProduct(int intCommunity, String productName, double naturePercent, 
     String handcraft, int intProductType){
         String message = "";
@@ -185,6 +185,45 @@ public class Controller {
 
         return message;
     }
+
+
+    /**
+    * <p><b>deleteProduct</b></p>
+    * <b>Description:</b> Associates a new product with the specified community and returns a success message. 
+    * First, it retrieves the community based on the provided index.
+    * Then, it creates a new Product instance using the provided parameters.
+    * Finally, it associates the new product with the specified community.
+    *
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code intCommunity} must be an int representing an existing community.</li>
+    *   <li>{@code productName} must be a non-null String.</li> 
+    *   <li>{@code naturePercent} must be a double.</li>   
+    *   <li>{@code handcraft} must be "yes" or "no" String.</li>
+    *   <li>{@code intProductType} must be an int representing the type of the product.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A Product instance is created with all the necessary parameters, associated with the specified community, and a success message is returned.</li>
+    * </ul>
+    * 
+    * @param intCommunity The index of the community where the product will be associated.
+    * @param productName The name of the product.
+    * @param naturePercent The percentage of natural products used to make the product.
+    * @param handcraft Stating if the product was handcrafted or not
+    * @param intProductType The type of the product.
+    * @return A message stating if the product was added successfully or not. The appropiate message is returned after other checks in the {@link Community#addProduct(Product)} 
+    */
+public String deleteProduct(int intCommunity, int intProduct){
+    String message = "";
+
+        Community productCommunity = intToCommunity(intCommunity);
+        message = productCommunity.deleteProduct(intProduct);
+
+    return message;
+}
+
 
     //SEARCH METHODS
 
@@ -464,7 +503,55 @@ public class Controller {
         return message;
     }
 
-    //SEARCH IF AT LEAST ONE COMMUNITY IS REGISTERED
+    /**
+    * <p><b>displayProductTypes</b></p>
+    * <b>Description:</b> Concatenates and returns a string that holds all the descriptions that represent every ProductType literal. 
+    * It will loop through the product types, put a number, and extract the String array containing all the descriptions.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code literals} and {@code descriptions} must have been initialized and the {@code getDescription} method must be in place.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A String holding all the numbered descriptions in order will be returned.</li>
+    * </ul>
+    * 
+    * @return A String that holds all the numbered descriptions of the ProductType enumeration.
+    */
+    public String displayCommunities(){
+        String message = "Available communities: ";
+        for(int i = 0; i < communities.length; i++){
+            if(communities[i]!=null){
+                System.out.print("\t"+(i+1) + ". " + communities[i].getName() + "\n");
+            }
+        }
+        return message;
+    }
+
+    /**
+    * <p><b>displayProductTypes</b></p>
+    * <b>Description:</b> Concatenates and returns a string that holds all the descriptions that represent every ProductType literal. 
+    * It will loop through the product types, put a number, and extract the String array containing all the descriptions.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code literals} and {@code descriptions} must have been initialized and the {@code getDescription} method must be in place.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A String holding all the numbered descriptions in order will be returned.</li>
+    * </ul>
+    * 
+    * @return A String that holds all the numbered descriptions of the ProductType enumeration.
+    */
+    public String displayProducts(Community community){
+        return community.displayProducts();
+    }
+
+    //SEARCH IF AT LEAST ONE OF SOMETHING IS REGISTERED
     /**
 	* <p><b>oneMinCommunity</b></p>
 	* <b>Description:</b> Will check if at least one community was registered already (first position of communities).
@@ -484,12 +571,37 @@ public class Controller {
     public boolean oneMinCommunity() {
         boolean oneCommunity = false;
 
-        if (this.communities[0] != null) {
+        if (communities[0] != null) {
             oneCommunity = true;
         } 
     
         return oneCommunity;
     }
+
+    /**
+	* <p><b>oneMinCommunity</b></p>
+	* <b>Description:</b> Will check if at least one community was registered already (first position of communities).
+	*	
+	* <p><b>Preconditions:</b></p>
+	* <ul>
+    *   <li> {@code Array} of communities must already exist. </li>
+	* </ul>
+	*
+	* <p><b>Postconditions:</b></p>
+	* <ul>
+	* 	<li>A boolean stating if the first position in the community array was occupied or not.</li>
+	* </ul>
+	*
+	* @return A boolean stating if the first position of communities is filled.
+	*/     
+    public boolean oneMinProduct(Community community) {
+        boolean oneProduct = false;
+
+        oneProduct = community.oneMinProduct();
+    
+        return oneProduct;
+    }
+
 
     //CHANGE AN INT TO A COMMUNITY
     /**
@@ -532,8 +644,8 @@ public class Controller {
 	*/
     public Controller(){
 
-        this.communities = new Community[3];
-        this.places = new Place[3];
+        this.communities = new Community[50];
+        this.places = new Place[200];
 
     }
 
