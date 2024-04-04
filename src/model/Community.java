@@ -15,6 +15,7 @@ public class Community {
 
     //Methods
 
+    //ADD A PRODUCT TO A COMMUNITY
     /**
     * <p><b>addProduct</b></p>
     * <b>Description:</b> Uses the entered product to then save in the producs array and returns a success message. 
