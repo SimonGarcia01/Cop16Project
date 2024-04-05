@@ -15,42 +15,66 @@ public class Controller {
 
     //MAIN METHODS
     //ADMINISTRATIVE MENU
-
-    /**
-	* <p><b>registerCommunty</b></p>
-	* <b>Description:</b> Initializes and creates an instance of Community, saves it in the communities array and returns a success message. 
-    * First, it is checked if there is a community with the same name already stored. If there is a dupicate it returns a duplicate message.
-	* Second, It checks if there is space to store a new Community in the array. If there is no space a no space message will be returend.
+    
+    //EDITTT
+/**
+    * <p><b>registerCommunity</b></p>
+    * <b>Description:</b> Initializes and creates an instance of Community, saves it in the communities array, and returns a success message. 
+    * First, it is checked if there is a community with the same name already stored. If there is a duplicate, it returns a duplicate message.
+    * Second, it checks if there is space to store a new Community in the array. If there is no space, a no space message will be returned.
+    * Additionally, it constructs a String array to represent the challenges the community faces based on the provided yes/no inputs.
     *
-	* <p><b>Preconditions:</b></p>
-	* <ul>
-	* 	<li> {@code name} must be a String.</li>
-	* 	<li> {@code representantName} must be a String.</li> 
-	* 	<li> {@code representantPhone} must be a String.</li>   
-	* 	<li> {@code population} must be an int.</li>
-	* 	<li> {@code intChallenge} must be an int between 1 and 4.</li>
-	* 	<li> {@code population} must be an int between 1 and 3.</li>
-	* </ul>
-	*
-	* <p><b>Postconditions:</b></p>
-	* <ul>
-	* 	<li>An instance of Community is created with all the necessary parameters, stored in the communities array and a success message is returned.</li>
-    * 	<li>If there is a community with the same name already stored, a duplicate message is returned instead.</li>
-	* 	<li>If there is no space to store a new community in the array, a no space message will be returned.</li>
-	* </ul>
-	*
-	* @param name The name of the Community.
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *     <li>{@code name} must be a String.</li>
+    *     <li>{@code representantName} must be a String.</li> 
+    *     <li>{@code representantPhone} must be a String.</li>   
+    *     <li>{@code population} must be an int.</li>
+    *     <li>{@code hospitals} must be a String ("yes" or "no").</li>
+    *     <li>{@code schools} must be a String ("yes" or "no").</li>
+    *     <li>{@code water} must be a String ("yes" or "no").</li>
+    *     <li>{@code food} must be a String ("yes" or "no").</li>
+    *     <li>{@code intType} must be an int between 1 and 3.</li>
+    * </ul>
+    *
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *     <li>An instance of Community is created with all the necessary parameters, stored in the communities array, and a success message is returned.</li>
+    *     <li>If there is a community with the same name already stored, a duplicate message is returned instead.</li>
+    *     <li>If there is no space to store a new community in the array, a no space message will be returned.</li>
+    *     <li>A String array is constructed representing the challenges faced by the community based on the provided yes/no inputs.</li>
+    * </ul>
+    *
+    * @param name The name of the Community.
     * @param representantName The name of the person that represents the community.
     * @param representantPhone The phone number of the community's representant.
     * @param population The number of people that live in the community.
-    * @param intChallenge The chosen option from the list of Challenge descriptions.
+    * @param hospitals Whether the community has an absence of hospitals ("yes" or "no").
+    * @param schools Whether the community has a lack of schools ("yes" or "no").
+    * @param water Whether the community has inadequate access to clean water ("yes" or "no").
+    * @param food Whether the community has insufficient access to food ("yes" or "no").
     * @param intType The chosen option from the list of CommunityType descriptions.
-    *
-    * @return A message stating if the community was registered successfully or not (stating the reason if it wasn't successfull).
-	*/    
+    * @return A message stating if the community was registered successfully or not (stating the reason if it wasn't successful).
+    */
     public String registerCommunity(String name, String representantName, String representantPhone, 
-    int population,  int intChallenge, int intType){
+    int population, String hospitals, String schools, String water, String food, int intType){
         String message = "";
+
+        int chosenChallenges[] = new int[4];
+            
+        if(hospitals.equalsIgnoreCase("yes")) {
+            chosenChallenges[0] = 1; 
+        }
+        if(schools.equalsIgnoreCase("yes")) {
+            chosenChallenges[1] = 2; 
+        }
+        if(water.equalsIgnoreCase("yes")) {
+            chosenChallenges[2] = 3; 
+        }
+        if(food.equalsIgnoreCase("yes")) {
+            chosenChallenges[3] = 4; 
+        }
+
 
         boolean duplicate = searchCommunity(name);
 
@@ -64,7 +88,7 @@ public class Controller {
                 message = "There is no more space to register a new community.";
             } else {
                 communities[space] = new Community(name, representantName, representantPhone, 
-                population, intChallenge, intType);
+                population, chosenChallenges, intType);
                 message = "The community has been registered successfully.";
             }
 

@@ -7,7 +7,7 @@ public class Community {
     private String representantName;
     private String representantPhone;
     private int population;
-    private Challenge challenge;
+    private Challenge[] challenges;
     private CommunityType type;
     
     //Relations
@@ -277,41 +277,51 @@ public class Community {
     }
 
     //CONSTRUCTOR
+
+
     /**
-	* <p><b>Communty</b></p>
-	* <b>Description:</b> Initializes and creates an instance of Community. 
-    * The name, representantName,representantPhone, and population are used exactly as they are entered.
-    * For intChallenge and intType, they are first converted to a Challenge and CommunityType literal first.
-	*	
-	* <p><b>Preconditions:</b></p>
-	* <ul>
-	* 	<li> {@code name} must be a String.</li>
-	* 	<li> {@code representantName} must be a String.</li> 
-	* 	<li> {@code representantPhone} must be a String.</li>   
-	* 	<li> {@code population} must be an int.</li>
-	* 	<li> {@code intChallenge} must be an int between 1 and 4.</li>
-	* 	<li> {@code population} must be an int between 1 and 3.</li>
-	* </ul>
-	*
-	* <p><b>Postconditions:</b></p>
-	* <ul>
-	* 	<li>An instance of Community is created with all the necessary parameters.</li>
-	* </ul>
-	*
-	* @param name The name of the Community.
+    * <p><b>Community</b></p>
+    * <b>Description:</b> Initializes and creates an instance of Community. 
+    * The name, representantName, representantPhone, and population are used exactly as they are entered.
+    * For intType, it is first converted to a CommunityType literal.
+    * For the intChallenge array it is converted into a Challenges array.
+    *	
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *     <li>{@code name} must be a String.</li>
+    *     <li>{@code representantName} must be a String.</li> 
+    *     <li>{@code representantPhone} must be a String.</li>   
+    *     <li>{@code population} must be an int.</li>
+    *     <li>{@code chosenChallenges} must be an array of integers representing the selected challenges for the community (1 for selected, 0 for not selected).</li>
+    *     <li>{@code intType} must be an int between 1 and 3 representing the chosen option from the list of CommunityType descriptions.</li>
+    * </ul>
+    *
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *     <li>An instance of Community is created with all the necessary parameters.</li>
+    * </ul>
+    *
+    * @param name The name of the Community.
     * @param representantName The name of the person that represents the community.
     * @param representantPhone The phone number of the community's representant.
     * @param population The number of people that live in the community.
-    * @param intChallenge The chosen option from the list of Challenge descriptions.
+    * @param chosenChallenges An array representing the selected challenges for the community (1 for selected, 0 for not selected).
     * @param intType The chosen option from the list of CommunityType descriptions.
-	*/
+    */
     public Community(String name, String representantName, String representantPhone, 
-    int population, int intChallenge, int intType) {
+    int population, int[] chosenChallenges, int intType) {
         this.name = name;
         this.representantName = representantName;
         this.representantPhone = representantPhone;
         this.population = population;
-        this.challenge = Challenge.intToChallenge(intChallenge);
+
+        Challenge[] selectedChallenges = new Challenge[4];
+
+        for(int i = 0; i < chosenChallenges.length;i++){
+            selectedChallenges[i] = Challenge.intToChallenge(chosenChallenges[i]);
+        }
+
+        this.challenges = selectedChallenges;
         this.type = CommunityType.intToCommunityType(intType);
         this.products = new Product[20];
     }
@@ -368,12 +378,12 @@ public class Community {
     }
 
     //To get the challenge from a community
-    public Challenge getChallenge() {
-        return challenge;
+    public Challenge[] getChallenge() {
+        return challenges;
     }
 
-    public void setChallenge(Challenge challenge) {
-        this.challenge = challenge;
+    public void setChallenge(Challenge[] challenges) {
+        this.challenges = challenges;
     }
 
     public CommunityType getType() {

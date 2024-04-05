@@ -213,25 +213,27 @@ public class Main{
 
     //ADMINISTRATIVE MENU METHODS
 
+    //EDIT
     /**
-	* <p><b>registerCommunity</b></p>
-	* <b>Description:</b> The method prints and registers all the necessary information to register a community. It will print 2 separate small menus: 
-    *<ul>
-    *   <li>To choose the Challenge.</li>
-    *   <li>To choose the CommunityType</li>
-	*</ul>
-	* <p><b>Preconditions:</b></p>
-	* <ul>
-	* 	<li> {@code controller}: The controller must have been created.</li>
-	* </ul>
-	*
-	* <p><b>Postconditions:</b></p>
-	* <ul>
-	* 	<li> A message stating if the community was successfully registered or not. If the community is not registered, the appropiate messages will be returned.</li>
-	* </ul>
-	*
-	* @param controller The general controller of the application. 
-	*/    
+    * <p><b>registerCommunity</b></p>
+    * <b>Description:</b> The method prints and registers all the necessary information to register a community. 
+    * Since a community can face multiple challenges, every challenged will be entered as a yes or no question.
+    * It will print only one small menu: 
+    * <ul>
+    *    <li>To choose the CommunityType</li>
+    *</ul>
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *     <li>{@code controller}: The controller must have been created.</li>
+    * </ul>
+    *
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *     <li>A message stating if the community was successfully registered or not. If the community is not registered, the appropriate messages will be returned.</li>
+    * </ul>
+    *
+    * @param controller The general controller of the application.
+    */  
     public static void registerCommunity(Controller controller){
         System.out.println("REGISTERING A COMMUNITY");
         
@@ -247,11 +249,16 @@ public class Main{
         System.out.print("Enter the population: ");
         int population = sk.nextInt();
         sk.nextLine();
-
-        System.out.println(controller.displayChallengeTypes());
-        System.out.print("Enter the biggest challenge: ");
-        int intChallenge = sk.nextInt();
-        sk.nextLine();
+        
+        System.out.println("Problems of the Community:");
+        System.out.print("\n\tDoes the community have an absence of hospitals(yes/no): ");
+        String hospitals = sk.nextLine();
+        System.out.print("\n\tDoes the community have a lack of schools(yes/no): ");
+        String schools = sk.nextLine();
+        System.out.print("\n\tDoes the community has an inadequate access to clean water(yes/no): ");
+        String water = sk.nextLine();
+        System.out.print("\n\tDoes the community have an insufficient access to food(yes/no): ");
+        String food = sk.nextLine();
 
         System.out.println(controller.displayCommunityTypes());
         System.out.print("Enter the type of community: ");
@@ -259,7 +266,7 @@ public class Main{
         sk.nextLine();
 
         String message = controller.registerCommunity(name, representantName, representantPhone, 
-        population, intChallenge, intType);
+        population, hospitals, schools, water, food, intType);
 
         System.out.println(message);
     }
@@ -371,7 +378,7 @@ public class Main{
 	* @param controller The general controller of the application. 
 	*/  
     public static void addProduct(Controller controller){
-        System.out.println("REGISTERING A PLACE");
+        System.out.println("REGISTERING A PRODUCT TO A COMMUNITY:");
 
         boolean existingCommunity = controller.oneMinCommunity();
 
@@ -432,7 +439,7 @@ public class Main{
     * @param controller The general controller of the application. 
     */
     public static void deleteProduct(Controller controller){
-    System.out.println("DELETING A PRODUCT");
+    System.out.println("DELETING A PRODUCT FROM A COMMUNITY:");
 
     boolean existingCommunity = controller.oneMinCommunity();
 
