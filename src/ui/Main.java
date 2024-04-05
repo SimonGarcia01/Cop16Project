@@ -406,8 +406,31 @@ public class Main{
 
     }
 
-    
-
+    /**
+    * <p><b>deleteProduct</b></p>
+    * <b>Description:</b> This method facilitates the deletion of a product from a community. 
+    * It begins by verifying if at least one community is registered; if not, an error message is displayed and the method terminates.
+    * Then it checks if atleast one product is saved inside the community. If that the case, it throws an error and terminates the process.
+    * If communities exist, the user is prompted to select a community and then select the product to delete from two separate menus.
+    * It will print 2 menus: 
+    * <ul>
+    *   <li> To select an existing community.</li>
+    *   <li> To select the product from the selected community.</li>
+	*</ul>
+    *
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>The {@code controller} parameter must represent the general controller of the application.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>If there are no registered communities, an error message is displayed, and the method terminates without further action.</li>
+    *   <li>A message indicating whether the product was successfully deleted or not is printed.</li>
+    * </ul>
+    * 
+    * @param controller The general controller of the application. 
+    */
     public static void deleteProduct(Controller controller){
     System.out.println("DELETING A PRODUCT");
 

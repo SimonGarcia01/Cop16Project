@@ -189,40 +189,33 @@ public class Controller {
 
     /**
     * <p><b>deleteProduct</b></p>
-    * <b>Description:</b> Associates a new product with the specified community and returns a success message. 
-    * First, it retrieves the community based on the provided index.
-    * Then, it creates a new Product instance using the provided parameters.
-    * Finally, it associates the new product with the specified community.
-    *
+    * <b>Description:</b> Helps in the process of deleting a product from the specified community and returns a message indicating success or failure. 
+    * The method retrieves the community based on the provided index and passes is on to {@link Community#deleteProduct(int)} to actually delete it.
+    * 
     * <p><b>Preconditions:</b></p>
     * <ul>
     *   <li>{@code intCommunity} must be an int representing an existing community.</li>
-    *   <li>{@code productName} must be a non-null String.</li> 
-    *   <li>{@code naturePercent} must be a double.</li>   
-    *   <li>{@code handcraft} must be "yes" or "no" String.</li>
-    *   <li>{@code intProductType} must be an int representing the type of the product.</li>
+    *   <li>{@code intProduct} must be an int representing an existing product within the community.</li>
     * </ul>
     * 
     * <p><b>Postconditions:</b></p>
     * <ul>
-    *   <li>A Product instance is created with all the necessary parameters, associated with the specified community, and a success message is returned.</li>
+    *   <li>If the product is successfully deleted, a success message is returned.</li>
+    *   <li>If the specified community or product does not exist, an appropriate error message is returned.</li>
     * </ul>
     * 
-    * @param intCommunity The index of the community where the product will be associated.
-    * @param productName The name of the product.
-    * @param naturePercent The percentage of natural products used to make the product.
-    * @param handcraft Stating if the product was handcrafted or not
-    * @param intProductType The type of the product.
-    * @return A message stating if the product was added successfully or not. The appropiate message is returned after other checks in the {@link Community#addProduct(Product)} 
+    * @param intCommunity The index of the community from which the product will be deleted.
+    * @param intProduct The index of the product to be deleted within the community.
+    * @return A message indicating if the product was successfully deleted or not.
     */
-public String deleteProduct(int intCommunity, int intProduct){
-    String message = "";
+    public String deleteProduct(int intCommunity, int intProduct){
+        String message = "";
 
-        Community productCommunity = intToCommunity(intCommunity);
-        message = productCommunity.deleteProduct(intProduct);
+            Community productCommunity = intToCommunity(intCommunity);
+            message = productCommunity.deleteProduct(intProduct);
 
-    return message;
-}
+        return message;
+    }
 
 
     //SEARCH METHODS
@@ -259,7 +252,7 @@ public String deleteProduct(int intCommunity, int intProduct){
         return duplicate;
     }
 
-/**
+    /**
 	* <p><b>searchPlace</b></p>
 	* <b>Description:</b> Verifies if the entered place name already exists in the array of places. 
     * It will loop along all the existing places.
@@ -503,22 +496,25 @@ public String deleteProduct(int intCommunity, int intProduct){
         return message;
     }
 
+
+    //DISPLAYING LIST OF COMMUNITIES
     /**
-    * <p><b>displayProductTypes</b></p>
-    * <b>Description:</b> Concatenates and returns a string that holds all the descriptions that represent every ProductType literal. 
-    * It will loop through the product types, put a number, and extract the String array containing all the descriptions.
+    * <p><b>displayCommunities</b></p>
+    * <b>Description:</b> Concatenates and returns a string that holds all the names of the available communities. 
+    * It iterates through the communities array, appending the index and name of each community to the message.
+    * It makes sure that no null community is passed on to prevent a Null Exception.
     * 
     * <p><b>Preconditions:</b></p>
     * <ul>
-    *   <li>{@code literals} and {@code descriptions} must have been initialized and the {@code getDescription} method must be in place.</li>
+    *   <li>{@code communities} must have been initialized.</li>
     * </ul>
     * 
     * <p><b>Postconditions:</b></p>
     * <ul>
-    *   <li>A String holding all the numbered descriptions in order will be returned.</li>
+    *   <li>A string containing all the numbered names of the available communities is returned.</li>
     * </ul>
     * 
-    * @return A String that holds all the numbered descriptions of the ProductType enumeration.
+    * @return A string holding all the numbered names of the available communities.
     */
     public String displayCommunities(){
         String message = "Available communities: ";
@@ -530,22 +526,24 @@ public String deleteProduct(int intCommunity, int intProduct){
         return message;
     }
 
+    //DISPLAYING LIST OF PRODUCTS
     /**
-    * <p><b>displayProductTypes</b></p>
-    * <b>Description:</b> Concatenates and returns a string that holds all the descriptions that represent every ProductType literal. 
-    * It will loop through the product types, put a number, and extract the String array containing all the descriptions.
+    * <p><b>displayProducts</b></p>
+    * <b>Description:</b> Concatenates and returns a string that holds all the descriptions of products associated with the specified community.
+    * It delegates the task of displaying products to the {@link Community#displayProducts()} method by passing the selected community.
     * 
     * <p><b>Preconditions:</b></p>
     * <ul>
-    *   <li>{@code literals} and {@code descriptions} must have been initialized and the {@code getDescription} method must be in place.</li>
+    *   <li>The {@code community} parameter must be a valid instance of the Community class.</li>
     * </ul>
     * 
     * <p><b>Postconditions:</b></p>
     * <ul>
-    *   <li>A String holding all the numbered descriptions in order will be returned.</li>
+    *   <li>A string containing all the descriptions of products associated with the specified community is returned.</li>
     * </ul>
     * 
-    * @return A String that holds all the numbered descriptions of the ProductType enumeration.
+    * @param community The community whose products are to be displayed.
+    * @return A string holding all the names of products associated with the specified community.
     */
     public String displayProducts(Community community){
         return community.displayProducts();
@@ -579,21 +577,23 @@ public String deleteProduct(int intCommunity, int intProduct){
     }
 
     /**
-	* <p><b>oneMinCommunity</b></p>
-	* <b>Description:</b> Will check if at least one community was registered already (first position of communities).
-	*	
-	* <p><b>Preconditions:</b></p>
-	* <ul>
-    *   <li> {@code Array} of communities must already exist. </li>
-	* </ul>
-	*
-	* <p><b>Postconditions:</b></p>
-	* <ul>
-	* 	<li>A boolean stating if the first position in the community array was occupied or not.</li>
-	* </ul>
-	*
-	* @return A boolean stating if the first position of communities is filled.
-	*/     
+    * <p><b>oneMinProduct</b></p>
+    * <b>Description:</b> Checks if the specified community has at least one product registered.
+    * It delegates the task of checking to the {@link Community#oneMinProduct()} method by giving it the selected community.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>The {@code community} parameter must be a valid instance of the Community class.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A boolean value indicating whether the specified community has at least one product registered inse a communities inventory or not is returned.</li>
+    * </ul>
+    * 
+    * @param community The community to check for the existence of at least one product.
+    * @return A boolean indicating if the specified community has at least one product registered.
+    */   
     public boolean oneMinProduct(Community community) {
         boolean oneProduct = false;
 

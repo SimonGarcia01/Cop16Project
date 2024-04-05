@@ -14,7 +14,8 @@ public class Product {
     /**
     * <p><b>getProductTypes</b></p>
     * <b>Description:</b> Extracts the array from ProductType holding every description associated with a ProductType literal and returns it.
-    * 
+    * The method passes on the descriptios done by {@link ProductType#getProductTypes()}.
+    *
     * <p><b>Preconditions:</b></p>
     * <ul>
     *   <li>{@code getProductTypes} method in ProductType must be in place.</li>

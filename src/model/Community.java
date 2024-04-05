@@ -62,22 +62,22 @@ public class Community {
 
     //CHANGE AN INT TO A COMMUNITY
     /**
-	* <p><b>intToCommunity</b></p>
-	* <b>Description:</b> Takes in the selected option from the list of communities and then extracts the community in the communities array.
-	*	
-	* <p><b>Preconditions:</b></p>
-	* <ul>
-	* 	<li> {@code intType} must be an int within the range of communities printed.</li>
-	* </ul>
-	*
-	* <p><b>Postconditions:</b></p>
-	* <ul>
-	* 	<li> A community is returned that was associated to the entered option.</li>
-	* </ul>
-	*
-	* @param intCommunity an int that the user entered to choose one of the communities.
-    * @return The community that was selected from the community list. 
-	*/   
+    * <p><b>deleteProduct</b></p>
+    * <b>Description:</b> Deletes a product from the community based on the specified product index.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code intProduct} must be an int representing a valid index of a product within the community.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The product at the specified index is removed from the community, and a success message is returned.</li>
+    * </ul>
+    * 
+    * @param intProduct The index of the product to be deleted from the community.
+    * @return A message indicating that the product was successfully deleted.
+    */   
     public String deleteProduct(int intProduct){
         String message = "";
 
@@ -130,21 +130,22 @@ public class Community {
     }
 
     /**
-	* <p><b>getCommunityTypes</b></p>
-	* <b>Description:</b> Extracts the array from CommunityType holding every description associated to a Challenge literal and returns it.
-	*	
-	* <p><b>Preconditions:</b></p>
-	* <ul>
-	* 	<li> {@code getCommunityTypes} method in CommunityType must be in place.</li>
-	* </ul>
-	*
-	* <p><b>Postconditions:</b></p>
-	* <ul>
-	* 	<li>An String array is returned holding the descriptions of every Literal. </li>
-	* </ul>
-	*
-	* @return A string[] holding all the descriptions representing the CommunityType literals.
-	*/    
+    * <p><b>getProductTypes</b></p>
+    * <b>Description:</b> Retrieves an array containing descriptions of all product types available.
+    * The String[] is retrieved from {@link Product#getProductTypes()}.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code getProductTypes} method in the {@link Product} class must be implemented.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A String array holding all the descriptions representing the product types is returned.</li>
+    * </ul>
+    * 
+    * @return A string[] holding all the descriptions representing the product types.
+    */  
     public static String[] getProductTypes(){
         return Product.getProductTypes();
     }
@@ -218,21 +219,21 @@ public class Community {
 
     //SEARCH IF THERE IS ATLEAST ONE PRODUCT
     /**
-	* <p><b>oneMinCommunity</b></p>
-	* <b>Description:</b> Will check if at least one community was registered already (first position of communities).
-	*	
-	* <p><b>Preconditions:</b></p>
-	* <ul>
-    *   <li> {@code Array} of communities must already exist. </li>
-	* </ul>
-	*
-	* <p><b>Postconditions:</b></p>
-	* <ul>
-	* 	<li>A boolean stating if the first position in the community array was occupied or not.</li>
-	* </ul>
-	*
-	* @return A boolean stating if the first position of communities is filled.
-	*/     
+    * <p><b>oneMinProduct</b></p>
+    * <b>Description:</b> Checks if at least one product was registered already.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Array} of products must already exist.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A boolean value indicating if the first position in the products array is occupied or not is returned.</li>
+    * </ul>
+    * 
+    * @return {@code true} if the first position of the products array is filled, {@code false} otherwise.
+    */      
     public boolean oneMinProduct() {
         boolean oneProduct = false;
 
@@ -245,21 +246,22 @@ public class Community {
 
     //DISPLAY ALL CURRENTLY SAVED PRODUCTS
     /**
-    * <p><b>displayProductTypes</b></p>
-    * <b>Description:</b> Concatenates and returns a string that holds all the descriptions that represent every ProductType literal. 
-    * It will loop through the product types, put a number, and extract the String array containing all the descriptions.
+    * <p><b>displayProducts</b></p>
+    * <b>Description:</b> Concatenates and returns a string that holds all the descriptions of the products within the community.
+    * It iterates through the products array, assigns a number to each product, and extracts the product names.
+    * It makes sure that no null product is passed on to prevent a Null Exception.
     * 
     * <p><b>Preconditions:</b></p>
     * <ul>
-    *   <li>{@code literals} and {@code descriptions} must have been initialized and the {@code getDescription} method must be in place.</li>
+    *   <li> {@code products} must be in place and initialized.</li>
     * </ul>
     * 
     * <p><b>Postconditions:</b></p>
     * <ul>
-    *   <li>A String holding all the numbered descriptions in order will be returned.</li>
+    *   <li>A String holding all the numbered product names in order will be returned.</li>
     * </ul>
     * 
-    * @return A String that holds all the numbered descriptions of the ProductType enumeration.
+    * @return A String containing all the numbered product names within the community.
     */
     public String displayProducts(){
         String message = "Products within the Community:\n\t";
