@@ -242,35 +242,33 @@ public class Controller {
     }
 
     /**
-    * <p><b>addProduct</b></p>
-    * <b>Description:</b> Associates a new product with the specified community and returns a success message. 
-    * First, it retrieves the community based on the provided index.
-    * Then, it creates a new Product instance using the provided parameters.
-    * Finally, it associates the new product with the specified community.
+    * <p><b>addSpecies</b></p>
+    * <b>Description:</b> Associates a new species with the specified place and returns a success message. 
+    * First, it retrieves the place based on the provided index so the method can be passed on to the appropiate place.
     *
     * <p><b>Preconditions:</b></p>
     * <ul>
-    *   <li>{@code intCommunity} must be an int representing an existing community.</li>
-    *   <li>{@code productName} must be a non-null String.</li> 
-    *   <li>{@code naturePercent} must be a double.</li>   
-    *   <li>{@code handcraft} must be "yes" or "no" String.</li>
-    *   <li>{@code intProductType} must be an int representing the type of the product.</li>
+    *   <li>{@code intPlace} must be an int representing an existing place.</li>
+    *   <li>{@code name} must be a non-null String.</li> 
+    *   <li>{@code photo} must be a non-null String representing a URL of a photo.</li>
+    *   <li>{@code localPop} must be an int representing the local population of the species.</li>
+    *   <li>{@code intSpeciesType} must be an int between 1 and 2.</li>
     * </ul>
     * 
     * <p><b>Postconditions:</b></p>
     * <ul>
-    *   <li>A Product instance is created with all the necessary parameters, associated with the specified community, and a success message is returned.</li>
+    *   <li>A Species instance is created with all the necessary parameters, associated with the specified place, and a success message is returned.</li>
     * </ul>
     * 
-    * @param intCommunity The index of the community where the product will be associated.
-    * @param productName The name of the product.
-    * @param naturePercent The percentage of natural products used to make the product.
-    * @param handcraft Stating if the product was handcrafted or not
-    * @param intProductType The type of the product.
-    * @return A message stating if the product was added successfully or not. The appropiate message is returned after other checks in the {@link Community#addProduct(Product)} 
+    * @param intPlace The index of the place where the species will be associated.
+    * @param name The name of the species.
+    * @param photo The URL of a photo of the species.
+    * @param localPop The local population of the species.
+    * @param intSpeciesType The type of the species (fauna or flora).
+    * @return A message stating if the species was added successfully or not. The appropriate message is returned after other checks ared donein the {@link Place#addSpecies(String, String, int, int)} method.
     */
-    public String addSpecies(int intPlace, String name, String photo, 
-    int localPop, int intSpeciesType){
+    public String addSpecies(int intPlace, String name, String photo, int localPop, 
+    int intSpeciesType){
         Place speciesPlace = intToPlace(intPlace);
         String message = speciesPlace.addSpecies(name, photo, localPop, intSpeciesType);
         return message;
@@ -770,22 +768,22 @@ public class Controller {
 
     //CHANGE AN INT TO A PLACE
     /**
-	* <p><b>intToCommunity</b></p>
-	* <b>Description:</b> Takes in the selected option from the list of communities and then extracts the community in the communities array.
-	*	
-	* <p><b>Preconditions:</b></p>
-	* <ul>
-	* 	<li> {@code intType} must be an int within the range of communities printed.</li>
-	* </ul>
-	*
-	* <p><b>Postconditions:</b></p>
-	* <ul>
-	* 	<li> A community is returned that was associated to the entered option.</li>
-	* </ul>
-	*
-	* @param intCommunity an int that the user entered to choose one of the communities.
-    * @return The community that was selected from the community list. 
-	*/   
+    * <p><b>intToPlace</b></p>
+    * <b>Description:</b> Retrieves the place associated with the selected option from the list of places.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code intPlace} must be an int within the range of places printed.</li>
+    * </ul>
+    *
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The place associated with the entered option is returned.</li>
+    * </ul>
+    *
+    * @param intPlace An int representing the selected option from the list of places.
+    * @return The place that corresponds to the selected option from the list of places. 
+    */   
     public Place intToPlace(int intPlace){
         Place place = places[intPlace-1];
     

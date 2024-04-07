@@ -471,6 +471,31 @@ public class Main{
 
     }
 
+    /**
+    * <p><b>addSpecies</b></p>
+    * <b>Description:</b> This method starts by checking if there is at least one registered place. 
+    * If there isn't, it displays an error message and the method is terminated. 
+    * Otherwise, it prompts the user to select an existing place and enters the species information, including name, photo URL, 
+    * local population, and species type, to add a new species to the selected place.
+    * It will print 2 menus: 
+    * <ul>
+    *   <li> To select an existing place.</li>
+    *   <li> To select the species type of the entered species.</li>
+	*</ul>
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *     <li>{@code controller} must have been instantiated.</li>
+    * </ul>
+    *
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *     <li>If there are no registered places, an error message is printed, and the method exits.</li>
+    *     <li>A message stating whether the species was successfully added or not is printed. If the species was not successfully added, appropriate error messages are displayed.</li>
+    * </ul>
+    *
+    * @param controller The general controller of the application.
+    */
     public static void addSpecies(Controller controller){
         System.out.println("ADDING A SPECIES TO A PLACE:");
         
