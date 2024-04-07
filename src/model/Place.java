@@ -57,7 +57,7 @@ public class Place {
                 message = "There is no more space to register a new species within the place.";
             } else {
                 species[space] = new Species(name, photo, localPop, intSpeciesType);
-                message = "The product has been added successfully to the community's inventory.";
+                message = "The species has been added successfully to the place's list.";
             }
 
         }
@@ -127,7 +127,7 @@ public class Place {
         return Species.getSpeciesTypes();
     }
 
-       
+
     //SEARCH METHODS
     /**
     * <p><b>searchProduct</b></p>

@@ -604,10 +604,10 @@ public class Controller {
     * @return A string holding all the numbered names of the available communities.
     */
     public String displayCommunities(){
-        String message = "Available communities: ";
+        String message = "Available communities: \n";
         for(int i = 0; i < communities.length; i++){
             if(communities[i]!=null){
-                System.out.print("\t"+(i+1) + ". " + communities[i].getName() + "\n");
+                message += "\t"+(i+1) + ". " + communities[i].getName() + "\n";
             }
         }
         return message;
@@ -633,10 +633,10 @@ public class Controller {
     * @return A string holding all the numbered names of the available communities.
     */
     public String displayPlaces(){
-        String message = "Available places: ";
+        String message = "Available places: \n";
         for(int i = 0; i < places.length; i++){
             if(places[i]!=null){
-                System.out.print("\t"+(i+1) + ". " + places[i].getName() + "\n");
+                message += "\t"+(i+1) + ". " + places[i].getName() + "\n";
             }
         }
         return message;

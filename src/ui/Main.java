@@ -478,7 +478,7 @@ public class Main{
 
         if (existingPlace){
             System.out.println(controller.displayPlaces());
-            System.out.println("Enter the place the species is in: ");
+            System.out.print("Enter the place the species is in: ");
             int intPlace = sk.nextInt();
             sk.nextLine();
         
@@ -493,7 +493,7 @@ public class Main{
             sk.nextLine();
             
             System.out.println(controller.displaySpeciesTypes());
-            System.out.println("Enter the the type of species: ");
+            System.out.print("Enter the the type of species: ");
             int intSpeciesType = sk.nextInt();
             sk.nextLine();
 
