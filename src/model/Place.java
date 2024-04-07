@@ -71,6 +71,55 @@ public class Place {
         return message;
     }
 
+    //MODIFY A SPECIES WITHIN A PLACE
+    /**
+    * <p><b>deleteProduct</b></p>
+    * <b>Description:</b> Deletes a product from the community based on the specified product index.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code intProduct} must be an int representing a valid index of a product within the community.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The product at the specified index is removed from the community, and a success message is returned.</li>
+    * </ul>
+    * 
+    * @param intProduct The index of the product to be deleted from the community.
+    * @return A message indicating that the product was successfully deleted.
+    */   
+    public String modifySpecies(int intSpecies, int intModification, 
+    String newName, String newPhoto, int newLocalPop, 
+    int newSpeciesType){
+        String message = "";
+
+        Species species = intToSpecies(intSpecies);
+
+        switch(intModification) {
+            case 1:
+                species.setName(newName);
+                message = "The new name has been set successfully.";
+                break;
+            case 2:
+                species.setPhoto(newPhoto);
+                message = "The new photo has been set successfully.";
+                break;
+            case 3:
+                species.setLocalPop(newLocalPop);
+                message = "The new local population has been set successfully.";
+                break;
+            case 4:
+                species.setType(Species.intToSpeciesType(newSpeciesType));
+                message = "The new species type been set successfully.";
+                break;
+
+        }
+
+        return message;
+    }
+
+
     //TO GET THE INFO FROM ENUMERATIONS
 
     /**
@@ -197,6 +246,91 @@ public class Place {
         //If there is no more space, a -1 will be returned
         return -1;
     }   
+
+    //CHECK IF THERE IS ATLEAST ON SPECIES REGISTERED
+    /**
+    * <p><b>oneMinProduct</b></p>
+    * <b>Description:</b> Checks if at least one product was registered already.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Array} of products must already exist.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A boolean value indicating if the first position in the products array is occupied or not is returned.</li>
+    * </ul>
+    * 
+    * @return {@code true} if the first position of the products array is filled, {@code false} otherwise.
+    */      
+    public boolean oneMinSpecies() {
+        boolean oneSpecies = false;
+
+        if(species[0] != null){
+            oneSpecies = true;
+        }
+
+        return oneSpecies;
+    }
+
+
+    //DISPLAY ALL CURRENTLY SAVED SPECIES
+    /**
+    * <p><b>displayProducts</b></p>
+    * <b>Description:</b> Concatenates and returns a string that holds all the descriptions of the products within the community.
+    * It iterates through the products array, assigns a number to each product, and extracts the product names.
+    * It makes sure that no null product is passed on to prevent a Null Exception.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li> {@code products} must be in place and initialized.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A String holding all the numbered product names in order will be returned.</li>
+    * </ul>
+    * 
+    * @return A String containing all the numbered product names within the community.
+    */
+    public String displaySpecies(){
+        String message = "Species within this place:\n\t";
+
+        for(int i = 0; i < species.length; i++){
+
+            if(species[i]!=null){
+                message += (i + 1) + ". " + species[i].getName() + "\n\t";
+            }
+        }
+
+        return message;
+    }
+
+    //CHANGE AN INT TO A SPECIES
+    /**
+    * <p><b>intToPlace</b></p>
+    * <b>Description:</b> Retrieves the place associated with the selected option from the list of places.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code intPlace} must be an int within the range of places printed.</li>
+    * </ul>
+    *
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The place associated with the entered option is returned.</li>
+    * </ul>
+    *
+    * @param intPlace An int representing the selected option from the list of places.
+    * @return The place that corresponds to the selected option from the list of places. 
+    */   
+    public Species intToSpecies(int intSpecies){
+        Species species = this.species[intSpecies-1];
+    
+        return species;
+    } 
+
 
     //CONSTRUCTOR
     /**

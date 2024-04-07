@@ -274,6 +274,17 @@ public class Controller {
         return message;
     }
 
+
+    public String modifySpecies(int intPlace, int intSpecies, int intModification, 
+    String newName, String newPhoto, int newLocalPop, 
+    int newSpeciesType){   
+
+        Place place = intToPlace(intPlace);
+        
+        return place.modifySpecies(intSpecies, intModification, newName, 
+        newPhoto, newLocalPop, newSpeciesType);
+    }
+
     //SEARCH METHODS
 
     /**
@@ -663,6 +674,29 @@ public class Controller {
         return community.displayProducts();
     }
 
+    //DISPLAYING LIST OF SPECIES
+    /**
+    * <p><b>displayProducts</b></p>
+    * <b>Description:</b> Concatenates and returns a string that holds all the descriptions of products associated with the specified community.
+    * It delegates the task of displaying products to the {@link Community#displayProducts()} method by passing the selected community.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>The {@code community} parameter must be a valid instance of the Community class.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A string containing all the descriptions of products associated with the specified community is returned.</li>
+    * </ul>
+    * 
+    * @param community The community whose products are to be displayed.
+    * @return A string holding all the names of products associated with the specified community.
+    */
+    public String displaySpecies(Place place){
+        return place.displaySpecies();
+    }
+    
     //SEARCH IF AT LEAST ONE OF SOMETHING IS REGISTERED
     /**
 	* <p><b>oneMinCommunity</b></p>
@@ -740,6 +774,32 @@ public class Controller {
         } 
     
         return onePlace;
+    }
+
+    /**
+    * <p><b>oneMinProduct</b></p>
+    * <b>Description:</b> Checks if the specified community has at least one product registered.
+    * It delegates the task of checking to the {@link Community#oneMinProduct()} method by giving it the selected community.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>The {@code community} parameter must be a valid instance of the Community class.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A boolean value indicating whether the specified community has at least one product registered inse a communities inventory or not is returned.</li>
+    * </ul>
+    * 
+    * @param community The community to check for the existence of at least one product.
+    * @return A boolean indicating if the specified community has at least one product registered.
+    */   
+    public boolean oneMinSpecies(Place place) {
+        boolean oneSpecies = false;
+
+        oneSpecies = place.oneMinSpecies();
+    
+        return oneSpecies;
     }
 
     //CHANGE AN INT TO A COMMUNITY

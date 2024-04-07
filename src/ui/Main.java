@@ -59,6 +59,7 @@ public class Main{
                                 break;
                             case 6:
                                 //Modify a species data in a place
+                                modifySpecies(controller);
                                 break;
 
                             case 9:
@@ -455,7 +456,7 @@ public class Main{
         if(existingProduct){
             int intProduct = 0;
             System.out.println(controller.displayProducts(controller.intToCommunity(intCommunity)));
-            System.out.print("Enter the name of the product: ");
+            System.out.print("Enter the name of the product (represented as a number from the list): ");
             intProduct = sk.nextInt();
             sk.nextLine();
     
@@ -529,4 +530,75 @@ public class Main{
             System.out.println("There are no registered places to add a species to. Please enter one.");
         }
     }
+
+    public static void modifySpecies(Controller controller){
+        System.out.println("MODIFYING SPECIES DATA:");
+
+        boolean existingPlace = controller.oneMinPlace();
+
+        if (existingPlace){
+
+            System.out.println(controller.displayPlaces());
+            System.out.print("Enter the place the species is in: ");
+            int intPlace = sk.nextInt();
+            sk.nextLine();
+
+            boolean existingSpecies = controller.oneMinSpecies(controller.intToPlace(intPlace));
+
+            if(existingSpecies){
+                System.out.println(controller.displaySpecies(controller.intToPlace(intPlace)));
+                System.out.print("Enter the name of the species (represented as a number from the list): ");
+                int intSpecies = sk.nextInt();
+                sk.nextLine();
+
+                System.out.println("Enter which piece of information you want to modify:\n\t1. Name\n\t2. Photo\n\t3. Local Population\n\t4. SpeciesType.");
+                System.out.print("Enter one of the options: ");
+                int intModification = sk.nextInt();
+                sk.nextLine();
+
+                String newName = "";
+                String newPhoto = "";
+                int newLocalPop = 0;
+                int newSpeciesType = 0;
+
+                switch(intModification) {
+                    case 1:
+                        System.out.println("CHANGING NAME: ");
+                        System.out.print("Enter the new name: ");
+                        newName = sk.nextLine();
+                        break;
+                    case 2:
+                        System.out.println("CHANGING PHOTO: ");
+                        System.out.print("Enter the new photo's URL: ");
+                        newPhoto = sk.nextLine();
+                        break;
+                    case 3:
+                        System.out.println("CHANGING LOCAL POPULATION: ");
+                        System.out.print("Enter the new local population number: ");
+                        newLocalPop = sk.nextInt();
+                        sk.nextLine();
+                        break;
+                    case 4:
+                        System.out.println("CHANGING SPECIES TYPE: ");
+                        System.out.println(controller.displaySpeciesTypes());
+                        System.out.print("Enter the new Species Type: ");
+                        newSpeciesType = sk.nextInt();
+                        sk.nextLine();
+                        break;
+                }
+        
+                String message = controller.modifySpecies(intPlace, intSpecies, intModification, 
+                newName, newPhoto, newLocalPop, newSpeciesType);
+        
+                System.out.println(message);
+            } else {
+                System.out.println("There are no registered species within this place. Please add one.");
+            }
+
+
+        } else {
+            System.out.println("There are no registered places so there are no registered species to modify its information. Please enter a place and a species");
+        }
+    }
+
 }

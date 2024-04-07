@@ -37,7 +37,7 @@ public enum SpeciesType {
         return descriptions;
     }
 
-    //CHANGE AN INT TO A PLACERTYPE
+    //CHANGE AN INT TO A SPECIESTYPE
     /**
     * <p><b>intToSpeciesType</b></p>
     * <b>Description:</b> Takes the selected option from the list of literals (printed as descriptions) and then uses a switch to return the corresponding value as a literal from the SpeciesType enumeration.

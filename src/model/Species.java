@@ -33,6 +33,30 @@ public class Species {
         return SpeciesType.getSpeciesTypes();
     }
 
+
+    //CHANGE AN INT TO A SPECIES TYPE
+    /**
+    * <p><b>displayProducts</b></p>
+    * <b>Description:</b> Concatenates and returns a string that holds all the descriptions of products associated with the specified community.
+    * It delegates the task of displaying products to the {@link Community#displayProducts()} method by passing the selected community.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>The {@code community} parameter must be a valid instance of the Community class.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A string containing all the descriptions of products associated with the specified community is returned.</li>
+    * </ul>
+    * 
+    * @param community The community whose products are to be displayed.
+    * @return A string holding all the names of products associated with the specified community.
+    */
+    public static SpeciesType intToSpeciesType(int intType){
+        return SpeciesType.intToSpeciesType(intType);
+    }
+
     //CONSTRUCTOR
     /**
     * <p><b>Species</b></p>
