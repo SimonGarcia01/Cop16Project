@@ -12,22 +12,22 @@ public enum SpeciesType {
     
     //TO EXTRACT THE LIST OF DESCRIPTIONS
     /**
-    * <p><b>getPlaceTypes</b></p>
-    * <b>Description:</b> Extracts all the descriptions that are associated to the literals of the PlaceType enumeration and returns a String[] holding them. 
-    * The method loops through each PlaceType, extracting its description, and concatenates everything.
-    * 
+    * <p><b>getSpeciesTypes</b></p>
+    * <b>Description:</b> Extracts the array from SpeciesType holding every description associated with a SpeciesType literal and returns it.
+    * The method delegates to the descriptions provided by {@link SpeciesType#getSpeciesTypes()}.
+    *
     * <p><b>Preconditions:</b></p>
     * <ul>
-    *   <li>{@code literals} must have an associated description.</li>
+    *   <li>{@code getSpeciesTypes} method in SpeciesType must be implemented.</li>
     * </ul>
     * 
     * <p><b>Postconditions:</b></p>
     * <ul>
-    *   <li>An String array is returned holding the descriptions of every Literal.</li>
+    *   <li>Returns a String array holding the descriptions of every literal.</li>
     * </ul>
     * 
-    * @return A string[] holding all the descriptions representing the PlaceType literals.
-    */
+    * @return A String array holding all the descriptions representing the SpeciesType literals.
+    */ 
     public static String[] getSpeciesTypes() {
         SpeciesType[] speciesTypes = SpeciesType.values();
         String[] descriptions = new String[speciesTypes.length];
@@ -39,21 +39,21 @@ public enum SpeciesType {
 
     //CHANGE AN INT TO A PLACERTYPE
     /**
-    * <p><b>intToPlaceType</b></p>
-    * <b>Description:</b> Takes in the selected option from the list of literals (printed as descriptions) and then runs a switch to return the value as a literal from the enumeration.
+    * <p><b>intToSpeciesType</b></p>
+    * <b>Description:</b> Takes the selected option from the list of literals (printed as descriptions) and then uses a switch to return the corresponding value as a literal from the SpeciesType enumeration.
     * 
     * <p><b>Preconditions:</b></p>
     * <ul>
-    *   <li>{@code intType} must be an int between 1 and 3.</li>
+    *   <li>{@code intType} must be an integer between 1 and 2.</li>
     * </ul>
     * 
     * <p><b>Postconditions:</b></p>
     * <ul>
-    *   <li>A PlaceType literal is returned associated to the list of literals.</li>
+    *   <li>Returns a SpeciesType literal associated with the list of literals.</li>
     * </ul>
     * 
-    * @param intType An int that the user entered to choose one of the PlaceType types.
-    * @return PlaceType literal associated to the list of PlaceType descriptions.
+    * @param intType An integer representing the user's selection for one of the SpeciesType types.
+    * @return A SpeciesType literal associated with the list of SpeciesType descriptions.
     */
     public static SpeciesType intToSpeciesType(int intType){
         SpeciesType speciesType = null;
@@ -73,8 +73,8 @@ public enum SpeciesType {
 
     //CONSTRUCTOR
     /**
-    * <p><b>PlaceType</b></p>
-    * <b>Description:</b> Initializes the PlaceType literals with an associated String description.
+    * <p><b>SpeciesType</b></p>
+    * <b>Description:</b> Initializes the SpeciesType literals with an associated String description.
     * 
     * <p><b>Preconditions:</b></p>
     * <ul>
@@ -83,10 +83,10 @@ public enum SpeciesType {
     * 
     * <p><b>Postconditions:</b></p>
     * <ul>
-    *   <li>The literals inside PlaceType are initialized with associated descriptions.</li>
+    *   <li>The literals inside SpeciesType are initialized with associated descriptions.</li>
     * </ul>
     * 
-    * @param description String that comes from the PlaceType literal list.  
+    * @param description The string associated with the SpeciesType literal.
     */
     private SpeciesType(String description){
         this.description = description;
@@ -95,7 +95,7 @@ public enum SpeciesType {
     //GET THE DESCRIPTION FOR ONE LITERAL
     /**
 	* <p><b>getDescription</b></p>
-	* <b>Description:</b> Extracts the description associated to the Department's literal in the enumeration.
+	* <b>Description:</b> Extracts the description associated to the SpeciesType literal in the enumeration.
 	*	
 	* <p><b>Preconditions:</b></p>
 	* <ul>
@@ -107,7 +107,7 @@ public enum SpeciesType {
 	* 	<li>A string that holds the description to a literal is returned.</li>
 	* </ul>
 	*
-	* @return A String with the description of a Department literal.
+	* @return A String with the description of a SpeciesType literal.
 	*/
     public String getDescription(){
         return description;
