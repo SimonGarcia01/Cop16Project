@@ -55,6 +55,7 @@ public class Main{
                                 break;
                             case 5:
                                 //Add a species to a place
+                                addSpecies(controller);
                                 break;
                             case 6:
                                 //Modify a species data in a place
@@ -213,7 +214,6 @@ public class Main{
 
     //ADMINISTRATIVE MENU METHODS
 
-    //EDIT
     /**
     * <p><b>registerCommunity</b></p>
     * <b>Description:</b> The method prints and registers all the necessary information to register a community. 
@@ -471,4 +471,37 @@ public class Main{
 
     }
 
+    public static void addSpecies(Controller controller){
+        System.out.println("ADDING A SPECIES TO A PLACE:");
+        
+        boolean existingPlace = controller.oneMinPlace();
+
+        if (existingPlace){
+            System.out.println(controller.displayPlaces());
+            System.out.println("Enter the place the species is in: ");
+            int intPlace = sk.nextInt();
+            sk.nextLine();
+        
+            System.out.print("Enter the species's name: ");
+            String name = sk.nextLine();
+        
+            System.out.print("Enter the URL of a photo: ");
+            String photo = sk.nextLine();
+            
+            System.out.print("Enter the local population: ");
+            int localPop = sk.nextInt();
+            sk.nextLine();
+            
+            System.out.println(controller.displaySpeciesTypes());
+            System.out.println("Enter the the type of species: ");
+            int intSpeciesType = sk.nextInt();
+            sk.nextLine();
+
+            String message = controller.addSpecies(intPlace, name, photo, localPop, intSpeciesType);
+
+            System.out.println(message);
+        } else {
+            System.out.println("There are no registered places to add a species to. Please enter one.");
+        }
+    }
 }

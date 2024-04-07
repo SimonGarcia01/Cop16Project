@@ -16,8 +16,8 @@ public class Controller {
     //MAIN METHODS
     //ADMINISTRATIVE MENU
     
-    //EDITTT
-/**
+
+    /**
     * <p><b>registerCommunity</b></p>
     * <b>Description:</b> Initializes and creates an instance of Community, saves it in the communities array, and returns a success message. 
     * First, it is checked if there is a community with the same name already stored. If there is a duplicate, it returns a duplicate message.
@@ -241,6 +241,40 @@ public class Controller {
         return message;
     }
 
+    /**
+    * <p><b>addProduct</b></p>
+    * <b>Description:</b> Associates a new product with the specified community and returns a success message. 
+    * First, it retrieves the community based on the provided index.
+    * Then, it creates a new Product instance using the provided parameters.
+    * Finally, it associates the new product with the specified community.
+    *
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code intCommunity} must be an int representing an existing community.</li>
+    *   <li>{@code productName} must be a non-null String.</li> 
+    *   <li>{@code naturePercent} must be a double.</li>   
+    *   <li>{@code handcraft} must be "yes" or "no" String.</li>
+    *   <li>{@code intProductType} must be an int representing the type of the product.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A Product instance is created with all the necessary parameters, associated with the specified community, and a success message is returned.</li>
+    * </ul>
+    * 
+    * @param intCommunity The index of the community where the product will be associated.
+    * @param productName The name of the product.
+    * @param naturePercent The percentage of natural products used to make the product.
+    * @param handcraft Stating if the product was handcrafted or not
+    * @param intProductType The type of the product.
+    * @return A message stating if the product was added successfully or not. The appropiate message is returned after other checks in the {@link Community#addProduct(Product)} 
+    */
+    public String addSpecies(int intPlace, String name, String photo, 
+    int localPop, int intSpeciesType){
+        Place speciesPlace = intToPlace(intPlace);
+        String message = speciesPlace.addSpecies(name, photo, localPop, intSpeciesType);
+        return message;
+    }
 
     //SEARCH METHODS
 
@@ -520,6 +554,35 @@ public class Controller {
         return message;
     }
 
+    /**
+    * <p><b>displayProductTypes</b></p>
+    * <b>Description:</b> Concatenates and returns a string that holds all the descriptions that represent every ProductType literal. 
+    * It will loop through the product types, put a number, and extract the String array containing all the descriptions.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code literals} and {@code descriptions} must have been initialized and the {@code getDescription} method must be in place.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A String holding all the numbered descriptions in order will be returned.</li>
+    * </ul>
+    * 
+    * @return A String that holds all the numbered descriptions of the ProductType enumeration.
+    */
+    public String displaySpeciesTypes(){
+        String message = "Types of species:\n\t";
+
+        String[] speciesTypes = Place.getSpeciesTypes();
+    
+        for (int i = 0; i < speciesTypes.length; i++) {
+            message += (i + 1) + ". " + speciesTypes[i] + "\n\t";
+        }
+    
+        // Return the constructed message
+        return message;
+    }
 
     //DISPLAYING LIST OF COMMUNITIES
     /**
@@ -545,6 +608,35 @@ public class Controller {
         for(int i = 0; i < communities.length; i++){
             if(communities[i]!=null){
                 System.out.print("\t"+(i+1) + ". " + communities[i].getName() + "\n");
+            }
+        }
+        return message;
+    }
+
+    //DISPLAYING LIST OF PLACE
+    /**
+    * <p><b>displayCommunities</b></p>
+    * <b>Description:</b> Concatenates and returns a string that holds all the names of the available communities. 
+    * It iterates through the communities array, appending the index and name of each community to the message.
+    * It makes sure that no null community is passed on to prevent a Null Exception.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code communities} must have been initialized.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A string containing all the numbered names of the available communities is returned.</li>
+    * </ul>
+    * 
+    * @return A string holding all the numbered names of the available communities.
+    */
+    public String displayPlaces(){
+        String message = "Available places: ";
+        for(int i = 0; i < places.length; i++){
+            if(places[i]!=null){
+                System.out.print("\t"+(i+1) + ". " + places[i].getName() + "\n");
             }
         }
         return message;
@@ -626,6 +718,31 @@ public class Controller {
         return oneProduct;
     }
 
+    /**
+	* <p><b>oneMinCommunity</b></p>
+	* <b>Description:</b> Will check if at least one community was registered already (first position of communities).
+	*	
+	* <p><b>Preconditions:</b></p>
+	* <ul>
+    *   <li> {@code Array} of communities must already exist. </li>
+	* </ul>
+	*
+	* <p><b>Postconditions:</b></p>
+	* <ul>
+	* 	<li>A boolean stating if the first position in the community array was occupied or not.</li>
+	* </ul>
+	*
+	* @return A boolean stating if the first position of communities is filled.
+	*/      
+    public boolean oneMinPlace() {
+        boolean onePlace = false;
+
+        if (places[0] != null) {
+            onePlace = true;
+        } 
+    
+        return onePlace;
+    }
 
     //CHANGE AN INT TO A COMMUNITY
     /**
@@ -650,6 +767,31 @@ public class Controller {
     
         return communityType;
     }   
+
+    //CHANGE AN INT TO A PLACE
+    /**
+	* <p><b>intToCommunity</b></p>
+	* <b>Description:</b> Takes in the selected option from the list of communities and then extracts the community in the communities array.
+	*	
+	* <p><b>Preconditions:</b></p>
+	* <ul>
+	* 	<li> {@code intType} must be an int within the range of communities printed.</li>
+	* </ul>
+	*
+	* <p><b>Postconditions:</b></p>
+	* <ul>
+	* 	<li> A community is returned that was associated to the entered option.</li>
+	* </ul>
+	*
+	* @param intCommunity an int that the user entered to choose one of the communities.
+    * @return The community that was selected from the community list. 
+	*/   
+    public Place intToPlace(int intPlace){
+        Place place = places[intPlace-1];
+    
+        return place;
+    }   
+
 
     //CONSTRUCTOR
     /**

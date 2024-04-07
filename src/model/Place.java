@@ -20,6 +20,51 @@ public class Place {
 
     //Methods
 
+    //ADD A PRODUCT TO A COMMUNITY
+    /**
+    * <p><b>addProduct</b></p>
+    * <b>Description:</b> Uses the entered product to then save in the producs array and returns a success message. 
+    * First, it checks if there is a duplicate product with the same name already existing within the community. If so, a duplicate message is returned.
+    * Second, it checks if there is space to register a new product within the community. If not, a no space message will be returned.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code newProduct} must be a valid instance of Product. Non-null.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>If a product with the same name already exists within the community, a duplicate message is returned.</li>
+    *   <li>If there is no more space to register a new product within the community, a no space message is returned.</li>
+    *   <li>Otherwise, the new product is added to the products array, and a success message is returned.</li>
+    * </ul>
+    * 
+    * @param newProduct The product instance to be added to the community.
+    * @return A message stating if the product was added successfully or not (stating the reason if it wasn't successful).
+    */
+    public String addSpecies(String name, String photo, int localPop, int intSpeciesType){
+        String message = "";
+
+        boolean duplicate = searchSpecies(name);
+
+        if(duplicate){
+            message = "A species with that name already exist within the place.";
+        } else {
+
+            int space = availableSpecies();
+
+            if (space == -1){
+                message = "There is no more space to register a new species within the place.";
+            } else {
+                species[space] = new Species(name, photo, localPop, intSpeciesType);
+                message = "The product has been added successfully to the community's inventory.";
+            }
+
+        }
+
+        return message;
+    }
+
     //TO GET THE INFO FROM ENUMERATIONS
 
     /**
@@ -61,6 +106,91 @@ public class Place {
     public static String[] getPlaceTypes(){
         return PlaceType.getPlaceTypes();
     }
+
+    /**
+    * <p><b>getPlaceTypes</b></p>
+    * <b>Description:</b> Retrieves the array of place types from the PlaceType class and returns it.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code getPlaceTypes} method in the PlaceType class must be in place.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>An array of place type names is returned containing all available place types.</li>
+    * </ul>
+    * 
+    * @return A String[] holding all the descriptions representing the PlaceType literals.
+    */  
+    public static String[] getSpeciesTypes(){
+        return Species.getSpeciesTypes();
+    }
+
+       
+    //SEARCH METHODS
+    /**
+    * <p><b>searchProduct</b></p>
+    * <b>Description:</b> Verifies if the entered product name already exists in the array of products. 
+    * It will loop through all the existing products and check if the name matches the entered product name.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Array} holding the products must already exist.</li>
+    *   <li>{@code productName} has to be a String.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A boolean indicating if a duplicate was found or not.</li>
+    * </ul>
+    * 
+    * @param productName The name of the product to be searched for in the products array.
+    * @return A boolean indicating if there is a duplicate or not.
+    */
+    
+    public boolean searchSpecies(String speciesName){
+
+        boolean duplicate = false;
+
+        for (Species species : this.species) {
+            if (species != null && species.getName().equals(speciesName)) {
+                duplicate = true;
+            }
+        }
+
+        return duplicate;
+    }
+
+        //AVAILABLE SPACE METHODS
+
+    /**
+    * <p><b>availableProduct</b></p>
+    * <b>Description:</b> Verifies if there is an empty space in the array of products in order to save another product afterwards. 
+    * It will loop through the products array and check if each element is equal to null. If an element is null, it returns the index of that element.
+    * If there are no null elements, it will return -1.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Array} holding the products must already exist.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>An int holding the index of the last null element in the products array will be returned. If there is no more space, -1 will be returned instead.</li>
+    * </ul>
+    * 
+    * @return An int holding the index of the last null element in the products array (if there is no more space, -1 will be returned).
+    */
+    public int availableSpecies(){
+        for (int i = 0; i < species.length; i++) {
+            if (species[i] == null) {
+                return i;
+            }
+        }
+        //If there is no more space, a -1 will be returned
+        return -1;
+    }   
 
     //CONSTRUCTOR
     /**
