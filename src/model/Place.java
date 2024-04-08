@@ -102,10 +102,10 @@ public class Place {
                 {
                     species.setName(newName);
                     message = "The new name has been set successfully.";
-                    break;
                 } else {
                     message = "A species with that name already exists. Please enter other one.";
                 }
+                break;
             case 2:
                 species.setPhoto(newPhoto);
                 message = "The new photo has been set successfully.";
