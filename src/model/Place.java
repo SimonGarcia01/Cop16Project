@@ -98,9 +98,14 @@ public class Place {
 
         switch(intModification) {
             case 1:
-                species.setName(newName);
-                message = "The new name has been set successfully.";
-                break;
+                if(!searchSpecies(newName))
+                {
+                    species.setName(newName);
+                    message = "The new name has been set successfully.";
+                    break;
+                } else {
+                    message = "A species with that name already exists. Please enter other one.";
+                }
             case 2:
                 species.setPhoto(newPhoto);
                 message = "The new photo has been set successfully.";

@@ -551,7 +551,7 @@ public class Main{
                 int intSpecies = sk.nextInt();
                 sk.nextLine();
 
-                System.out.println("Enter which piece of information you want to modify:\n\t1. Name\n\t2. Photo\n\t3. Local Population\n\t4. SpeciesType.");
+                System.out.println("Enter which piece of information you want to modify:\n\t1. Name\n\t2. Photo\n\t3. Local Population\n\t4. SpeciesType");
                 System.out.print("Enter one of the options: ");
                 int intModification = sk.nextInt();
                 sk.nextLine();
