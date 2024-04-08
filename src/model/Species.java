@@ -36,22 +36,21 @@ public class Species {
 
     //CHANGE AN INT TO A SPECIES TYPE
     /**
-    * <p><b>displayProducts</b></p>
-    * <b>Description:</b> Concatenates and returns a string that holds all the descriptions of products associated with the specified community.
-    * It delegates the task of displaying products to the {@link Community#displayProducts()} method by passing the selected community.
+    * <p><b>intToSpeciesType</b></p>
+    * <b>Description:</b> Converts the selected option from the list of literals (printed as descriptions) into a SpeciesType enumeration value.
     * 
     * <p><b>Preconditions:</b></p>
     * <ul>
-    *   <li>The {@code community} parameter must be a valid instance of the Community class.</li>
+    *   <li>{@code intType} must be an integer representing an option from the list of SpeciesType literals.</li>
     * </ul>
     * 
     * <p><b>Postconditions:</b></p>
     * <ul>
-    *   <li>A string containing all the descriptions of products associated with the specified community is returned.</li>
+    *   <li>A SpeciesType enumeration value associated with the selected option is returned.</li>
     * </ul>
     * 
-    * @param community The community whose products are to be displayed.
-    * @return A string holding all the names of products associated with the specified community.
+    * @param intType An integer representing the selected option from the list of literals.
+    * @return The SpeciesType enumeration value associated with the selected option.
     */
     public static SpeciesType intToSpeciesType(int intType){
         return SpeciesType.intToSpeciesType(intType);
@@ -111,6 +110,22 @@ public class Species {
         return name;
     }
 
+    /**
+    * <p><b>setName</b></p>
+    * <b>Description:</b> Sets the name of the species to a new provided value.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code name} must be a non-null String.</li>
+    * </ul>
+    *
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The name of the species is updated to the provided value.</li>
+    * </ul>
+    *
+    * @param name The new name for the species.
+    */  
     public void setName(String name) {
         this.name = name;
     }
@@ -119,6 +134,22 @@ public class Species {
         return photo;
     }
 
+    /**
+    * <p><b>setPhoto</b></p>
+    * <b>Description:</b> Sets the photo of the species to a new provided value.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code photo} must be String representing the photo URL for the species.</li>
+    * </ul>
+    *
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The photo URL of the species is updated to the provided value.</li>
+    * </ul>
+    *
+    * @param photo The new photo URL for the species.
+    */  
     public void setPhoto(String photo) {
         this.photo = photo;
     }
@@ -127,6 +158,22 @@ public class Species {
         return localPop;
     }
 
+    /**
+    * <p><b>setLocalPop</b></p>
+    * <b>Description:</b> Sets the local population of the species to a new provided value.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code localPop} must be an integer representing the local population of the species.</li>
+    * </ul>
+    *
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The local population of the species is updated to the provided value.</li>
+    * </ul>
+    *
+    * @param localPop The new local population for the species.
+    */  
     public void setLocalPop(int localPop) {
         this.localPop = localPop;
     }
@@ -135,6 +182,22 @@ public class Species {
         return type;
     }
 
+    /**
+    * <p><b>setType</b></p>
+    * <b>Description:</b> Sets the type of the species to a new provided value.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code type} must be a non-null value representing the species type.</li>
+    * </ul>
+    *
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The type of the species is updated to the provided value.</li>
+    * </ul>
+    *
+    * @param type The new species type for the species.
+    */  
     public void setType(SpeciesType type) {
         this.type = type;
     }

@@ -531,6 +531,31 @@ public class Main{
         }
     }
 
+    
+    /**
+    * <p><b>modifySpecies</b></p>
+    * <b>Description:</b> Allows modification of species data by selecting an existing community and species, and then modifying the species information based on user input.
+    * The method ensures there is at least one registered place  and one registered species to modify their information. If no place or species are registered, appropriate error messages are displayed. 
+    * It will print 3 menus: 
+    * <ul>
+    *   <li> To select a place. </li>
+    *   <li> To select a species.</li>
+    *   <li> To select to select a species type (given if the user wants to change the speciesType)</li>
+	*</ul>
+    *
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code controller} must be initialized.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>If there are no registered place or species, error messages will be printed.</li>
+    *   <li>If the species modification is successful, a message indicating success or failure will be printed.</li>
+    * </ul>
+    * 
+    * @param controller The general controller of the application.
+    */    
     public static void modifySpecies(Controller controller){
         System.out.println("MODIFYING SPECIES DATA:");
 

@@ -71,24 +71,38 @@ public class Place {
         return message;
     }
 
-    //MODIFY A SPECIES WITHIN A PLACE
-    /**
-    * <p><b>deleteProduct</b></p>
-    * <b>Description:</b> Deletes a product from the community based on the specified product index.
-    * 
-    * <p><b>Preconditions:</b></p>
-    * <ul>
-    *   <li>{@code intProduct} must be an int representing a valid index of a product within the community.</li>
-    * </ul>
-    * 
-    * <p><b>Postconditions:</b></p>
-    * <ul>
-    *   <li>The product at the specified index is removed from the community, and a success message is returned.</li>
-    * </ul>
-    * 
-    * @param intProduct The index of the product to be deleted from the community.
-    * @return A message indicating that the product was successfully deleted.
-    */   
+//MODIFY A SPECIES WITHIN A PLACE
+/**
+* <p><b>modifySpecies</b></p>
+* <b>Description:</b> Helps in the process of modifying species data within the specified place and returns a message indicating success or failure. 
+* The method retrieves the species based on the provided index and passes it on to the appropriate species's method to perform the modification).
+* Based on the modification int, it will go and set the newName, newPhoto, newLocalPopulation or newSpeciesType.
+* In case of changing the name, the method will check if the newName that is being entered already exists.
+*
+* <p><b>Preconditions:</b></p>
+* <ul>
+*   <li>{@code intSpecies} must be an integer representing an existing species.</li>
+*   <li>{@code intModification} must be an integer representing the type of modification (e.g., name, photo, local population, species type).</li>
+*   <li>{@code newName} must be a String.</li>
+*   <li>{@code newPhoto} must be a String.</li>
+*   <li>{@code newLocalPop} must be an int.</li>
+*   <li>{@code newSpeciesType} must be an int between one and two.</li>
+* </ul>
+* 
+* <p><b>Postconditions:</b></p>
+* <ul>
+*   <li>If the species data is successfully modified, a success message is returned.</li>
+*   <li>If the user wants to change the speciesName it will first be checked if that name is already used.</li>
+* </ul>
+* 
+* @param intSpecies The index of the species to be modified.
+* @param intModification The type of modification to be performed (e.g., name, photo, local population, species type).
+* @param newName The new name for the species.
+* @param newPhoto The new photo URL for the species.
+* @param newLocalPop The new local population for the species.
+* @param newSpeciesType The new species type for the species.
+* @return A message indicating if the species data was successfully modified or not.
+*/
     public String modifySpecies(int intSpecies, int intModification, 
     String newName, String newPhoto, int newLocalPop, 
     int newSpeciesType){
@@ -209,7 +223,6 @@ public class Place {
     * @param speciesName The name of the species to be searched for in the species array.
     * @return A boolean indicating if there is a duplicate species name or not.
     */
-    
     public boolean searchSpecies(String speciesName){
 
         boolean duplicate = false;
@@ -314,21 +327,21 @@ public class Place {
 
     //CHANGE AN INT TO A SPECIES
     /**
-    * <p><b>intToPlace</b></p>
-    * <b>Description:</b> Retrieves the place associated with the selected option from the list of places.
+    * <p><b>intToSpecies</b></p>
+    * <b>Description:</b> Retrieves the species associated with the selected option from the list of species.
     * 
     * <p><b>Preconditions:</b></p>
     * <ul>
-    *   <li>{@code intPlace} must be an int within the range of places printed.</li>
+    *   <li>{@code intSpecies} must be an integer within the range of species printed.</li>
     * </ul>
     *
     * <p><b>Postconditions:</b></p>
     * <ul>
-    *   <li>The place associated with the entered option is returned.</li>
+    *   <li>The species associated with the entered option is returned.</li>
     * </ul>
     *
-    * @param intPlace An int representing the selected option from the list of places.
-    * @return The place that corresponds to the selected option from the list of places. 
+    * @param intSpecies An integer representing the selected option from the list of species.
+    * @return The species that corresponds to the selected option from the list of species. 
     */   
     public Species intToSpecies(int intSpecies){
         Species species = this.species[intSpecies-1];

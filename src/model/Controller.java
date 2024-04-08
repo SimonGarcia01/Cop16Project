@@ -274,7 +274,37 @@ public class Controller {
         return message;
     }
 
-
+    /**
+    * <p><b>modifySpecies</b></p>
+    * <b>Description:</b> Helps in the process of modifying species data within the specified place and returns a message indicating success or failure. 
+    * The method retrieves the place based on the provided index and passes it on to the appropriate place's method ({@link Place#modifySpecies(int, int, String, String, int, int)})to perform the modification.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code intPlace} must be an integer representing an existing place.</li>
+    *   <li>{@code intSpecies} must be an integer representing an existing species within the place.</li>
+    *   <li>{@code intModification} must be an integer representing the type of modification (e.g., name, photo, local population, species type).</li>
+    *   <li>{@code newName} must be a String.</li>
+    *   <li>{@code newPhoto} must be a String.</li>
+    *   <li>{@code newLocalPop} must be an int.</li>
+    *   <li>{@code newSpeciesType} must be an int between one and two.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>If the species data is successfully modified, a success message is returned.</li>
+    *   <li>If the specified place or species does not exist, an appropriate error message is returned.</li>
+    * </ul>
+    * 
+    * @param intPlace The index of the place where the species data will be modified.
+    * @param intSpecies The index of the species to be modified within the place.
+    * @param intModification The type of modification to be performed (e.g., name, photo, local population, species type).
+    * @param newName The new name for the species.
+    * @param newPhoto The new photo URL for the species.
+    * @param newLocalPop The new local population for the species.
+    * @param newSpeciesType The new species type for the species.
+    * @return A message indicating if the species data was successfully modified or not.
+    */
     public String modifySpecies(int intPlace, int intSpecies, int intModification, 
     String newName, String newPhoto, int newLocalPop, 
     int newSpeciesType){   
@@ -676,22 +706,22 @@ public class Controller {
 
     //DISPLAYING LIST OF SPECIES
     /**
-    * <p><b>displayProducts</b></p>
-    * <b>Description:</b> Concatenates and returns a string that holds all the descriptions of products associated with the specified community.
-    * It delegates the task of displaying products to the {@link Community#displayProducts()} method by passing the selected community.
+    * <p><b>displaySpecies</b></p>
+    * <b>Description:</b> Concatenates and returns a string that holds all the descriptions of species associated with the specified place.
+    * It delegates the task of displaying species to the {@link Place#displaySpecies()} method by passing the selected place.
     * 
     * <p><b>Preconditions:</b></p>
     * <ul>
-    *   <li>The {@code community} parameter must be a valid instance of the Community class.</li>
+    *   <li>The {@code place} parameter must be a valid instance of the Place class.</li>
     * </ul>
     * 
     * <p><b>Postconditions:</b></p>
     * <ul>
-    *   <li>A string containing all the descriptions of products associated with the specified community is returned.</li>
+    *   <li>A string containing all the descriptions of species associated with the specified place is returned.</li>
     * </ul>
     * 
-    * @param community The community whose products are to be displayed.
-    * @return A string holding all the names of products associated with the specified community.
+    * @param place The place whose species are to be displayed.
+    * @return A string holding all the names of species associated with the specified place.
     */
     public String displaySpecies(Place place){
         return place.displaySpecies();
@@ -775,24 +805,24 @@ public class Controller {
     
         return onePlace;
     }
-
+    
     /**
-    * <p><b>oneMinProduct</b></p>
-    * <b>Description:</b> Checks if the specified community has at least one product registered.
-    * It delegates the task of checking to the {@link Community#oneMinProduct()} method by giving it the selected community.
+    * <p><b>oneMinSpecies</b></p>
+    * <b>Description:</b> Checks if the specified place has at least one species registered.
+    * It delegates the task of checking to the {@link Place#oneMinSpecies()} method by providing it the selected place.
     * 
     * <p><b>Preconditions:</b></p>
     * <ul>
-    *   <li>The {@code community} parameter must be a valid instance of the Community class.</li>
+    *   <li>The {@code place} parameter must be a valid instance of the Place class.</li>
     * </ul>
     * 
     * <p><b>Postconditions:</b></p>
     * <ul>
-    *   <li>A boolean value indicating whether the specified community has at least one product registered inse a communities inventory or not is returned.</li>
+    *   <li>A boolean value indicating whether the specified place has at least one species registered within a place or not is returned.</li>
     * </ul>
     * 
-    * @param community The community to check for the existence of at least one product.
-    * @return A boolean indicating if the specified community has at least one product registered.
+    * @param place The place to check for the existence of at least one species.
+    * @return A boolean indicating if the specified place has at least one species registered.
     */   
     public boolean oneMinSpecies(Place place) {
         boolean oneSpecies = false;
