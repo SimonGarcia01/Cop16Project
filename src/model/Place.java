@@ -449,68 +449,324 @@ public class Place {
     public String getName() {
         return name;
     }
-
+    
+    /**
+    * <p><b>setName</b></p>
+    * <b>Description:</b> Sets the name of the place to a new provided value.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code name} must be a non-null String.</li>
+    * </ul>
+    *
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The name of the place is updated to the provided value.</li>
+    * </ul>
+    *
+    * @param name The new name for the place.
+    */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+    * <p><b>getArea</b></p>
+    * <b>Description:</b> Retrieves the area of the place.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+        *   <li>{@code Null} search can't be done on a null object. Null Pointer Exception.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The area of the place is returned.</li>
+    * </ul>
+    * 
+    * @return The area of the place.
+    */
     public double getArea() {
         return area;
     }
 
+    /**
+    * <p><b>setArea</b></p>
+    * <b>Description:</b> Sets the area of the place to a new provided value.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code area} must be a valid double value.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The area of the place is updated to the provided value.</li>
+    * </ul>
+    * 
+    * @param area The new area for the place.
+    */
     public void setArea(double area) {
         this.area = area;
     }
 
+    /**
+    * <p><b>getInaugurationDate</b></p>
+    * <b>Description:</b> Retrieves the inauguration date of the place.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Null} search can't be done on a null object. Null Pointer Exception.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The inauguration date of the place is returned.</li>
+    * </ul>
+    * 
+    * @return The inauguration date of the place.
+    */
     public Calendar getInaugurationDate() {
         return inaugurationDate;
     }
 
+    /**
+    * <p><b>setInaugurationDate</b></p>
+    * <b>Description:</b> Sets the inauguration date of the place to a new provided value.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code inaugurationDate} must be a valid Calendar object.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The inauguration date of the place is updated to the provided value.</li>
+    * </ul>
+    * 
+    * @param inaugurationDate The new inauguration date for the place.
+    */
     public void setInaugurationDate(Calendar inaugurationDate) {
         this.inaugurationDate = inaugurationDate;
     }
 
+    /**
+    * <p><b>getPhoto</b></p>
+    * <b>Description:</b> Retrieves the photo URL of the place.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Null} search can't be done on a null object. Null Pointer Exception.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The photo URL of the place is returned.</li>
+    * </ul>
+    * 
+    * @return The photo URL of the place.
+    */
     public String getPhoto() {
         return photo;
     }
 
+    /**
+    * <p><b>setPhoto</b></p>
+    * <b>Description:</b> Sets the photo URL of the place to a new provided value.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code photo} must be a non-null String.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The photo URL of the place is updated to the provided value.</li>
+    * </ul>
+    * 
+    * @param photo The new photo URL for the place.
+    */
     public void setPhoto(String photo) {
         this.photo = photo;
     }
 
+    /**
+    * <p><b>getResources</b></p>
+    * <b>Description:</b> Retrieves the resources allocated to maintain the place.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Null} search can't be done on a null object. Null Pointer Exception.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The resources allocated to maintain the place are returned.</li>
+    * </ul>
+    * 
+    * @return The resources allocated to maintain the place.
+    */ 
     public double getResources() {
         return resources;
     }
 
+    /**
+    * <p><b>setResources</b></p>
+    * <b>Description:</b> Sets the resources allocated to maintain the place to a new provided value.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code resources} must be a valid double value.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The resources allocated to maintain the place are updated to the provided value.</li>
+    * </ul>
+    * 
+    * @param resources The new resources allocated to maintain the place.
+    */
     public void setResources(double resources) {
         this.resources = resources;
     }
 
+    /**
+    * <p><b>getType</b></p>
+    * <b>Description:</b> Retrieves the type of the place.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Null} search can't be done on a null object. Null Pointer Exception.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The type of the place is returned.</li>
+    * </ul>
+    * 
+    * @return The type of the place.
+    */
     public PlaceType getType() {
         return type;
     }
 
+    /**
+    * <p><b>setType</b></p>
+    * <b>Description:</b> Sets the type of the place to a new provided value.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code type} must be a valid PlaceType object.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The type of the place is updated to the provided value.</li>
+    * </ul>
+    * 
+    * @param type The new type for the place.
+    */
     public void setType(PlaceType type) {
         this.type = type;
     }
 
+    /**
+    * <p><b>getDepartment</b></p>
+    * <b>Description:</b> Retrieves the department where the place is located.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Null} search can't be done on a null object. Null Pointer Exception.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The department where the place is located is returned.</li>
+    * </ul>
+    * 
+    * @return The department where the place is located.
+    */    
     public Department getDepartment() {
         return department;
     }
 
+    /**
+    * <p><b>setDepartment</b></p>
+    * <b>Description:</b> Sets the department where the place is located to a new provided value.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code department} must be a valid Department object.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The department where the place is located is updated to the provided value.</li>
+    * </ul>
+    * 
+    * @param department The new department for the place.
+    */
     public void setDepartment(Department department) {
         this.department = department;
     }
 
+    /**
+    * <p><b>getCaregivingCommunity</b></p>
+    * <b>Description:</b> Retrieves the caregiving community associated with the place.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Null} search can't be done on a null object. Null Pointer Exception.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The caregiving community associated with the place is returned.</li>
+    * </ul>
+    * 
+    * @return The caregiving community associated with the place.
+    */
     public Community getCaregivingCommunity() {
         return caregivingCommunity;
     }
 
+    /**
+    * <p><b>setCaregivingCommunity</b></p>
+    * <b>Description:</b> Sets the caregiving community associated with the place to a new provided value.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code caregivingCommunity} must be a valid Community object.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The caregiving community associated with the place is updated to the provided value.</li>
+    * </ul>
+    * 
+    * @param caregivingCommunity The new caregiving community for the place.
+    */
     public void setCaregivingCommunity(Community caregivingCommunity) {
         this.caregivingCommunity = caregivingCommunity;
     }
 
     //No need for a set since the species are added by another method
+    /**
+    * <p><b>getSpecies</b></p>
+    * <b>Description:</b> Retrieves the array of species associated with the place.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Null} search can't be done on a null object. Null Pointer Exception.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The array of species associated with the place is returned.</li>
+    * </ul>
+    * 
+    * @return The array of species associated with the place.
+    */    
     public Species[] getSpecies() {
         return species;
     }

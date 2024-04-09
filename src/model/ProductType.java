@@ -1,6 +1,7 @@
 package model;
 
 public enum ProductType {
+    //Enumeration literals
     FOOD("Food"),
     CRAFT("Craft");
 
@@ -67,7 +68,6 @@ public enum ProductType {
 
         return productType;
     }
-
 
     //CONSTRUCTOR
     /**

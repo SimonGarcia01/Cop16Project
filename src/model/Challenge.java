@@ -1,7 +1,8 @@
 package model;
 
 public enum Challenge {
-    HOSPITALS("Absence of hospitals"),
+    //Enumeration literals
+	HOSPITALS("Absence of hospitals"),
     SCHOOLS("Lack of schools"),
     WATER("Inadequate access to clean water"),
     FOOD("Insufficient access to food");
@@ -117,6 +118,4 @@ public enum Challenge {
     public String getDescription(){
         return description;
     }
-
-
 }

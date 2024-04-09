@@ -150,8 +150,6 @@ public class Community {
         return Product.getProductTypes();
     }
 
-
-
     //SEARCH METHODS
 
     /**
@@ -173,7 +171,6 @@ public class Community {
     * @param productName The name of the product to be searched for in the products array.
     * @return A boolean indicating if there is a duplicate or not.
     */
-
     public boolean searchProduct(String productName){
 
         boolean duplicate = false;
@@ -277,8 +274,6 @@ public class Community {
     }
 
     //CONSTRUCTOR
-
-
     /**
     * <p><b>Community</b></p>
     * <b>Description:</b> Initializes and creates an instance of Community. 
@@ -327,8 +322,7 @@ public class Community {
     }
 
 
-    //SETTER AND GETTERS
-    
+    //SETTERS AND GETTERS
     /**
 	* <p><b>getName</b></p>
 	* <b>Description:</b> Allows the extraction of the name from a Community instance as a String.
@@ -349,56 +343,227 @@ public class Community {
         return name;
     }
 
+    /**
+    * <p><b>setName</b></p>
+    * <b>Description:</b> Sets the name of the community to the provided value.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code name} must be a non-null String.</li>
+    * </ul>
+    *
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The name of the community is updated to the provided value.</li>
+    * </ul>
+    *
+    * @param name The new name for the community.
+    */  
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+    * <p><b>getRepresentantName</b></p>
+    * <b>Description:</b> Retrieves the name of the representative associated with the community.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Null} search can't be done on a null object. Null Pointer Exception.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The name of the representative associated with the community is returned.</li>
+    * </ul>
+    * 
+    * @return The name of the representative associated with the community.
+    */
     public String getRepresentantName() {
         return representantName;
     }
 
+    /**
+    * <p><b>setRepresentantName</b></p>
+    * <b>Description:</b> Sets the name of the representative associated with the community.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code representantName} must be a non-null String.</li>
+    * </ul>
+    *
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The name of the representative associated with the community is updated to the provided value.</li>
+    * </ul>
+    *
+    * @param representantName The new name of the representative associated with the community.
+    */  
     public void setRepresentantName(String representantName) {
         this.representantName = representantName;
     }
 
+    /**
+    * <p><b>getRepresentantPhone</b></p>
+    * <b>Description:</b> Retrieves the phone number of the representative associated with the community.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Null} search can't be done on a null object. Null Pointer Exception.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The phone number of the representative associated with the community is returned.</li>
+    * </ul>
+    * 
+    * @return The phone number of the representative associated with the community.
+    */   
     public String getRepresentantPhone() {
         return representantPhone;
     }
 
+    /**
+    * <p><b>setRepresentantPhone</b></p>
+    * <b>Description:</b> Sets the phone number of the representative associated with the community.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code representantPhone} must be a non-null String.</li>
+    * </ul>
+    *
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The phone number of the representative associated with the community is updated to the provided value.</li>
+    * </ul>
+    *
+    * @param representantPhone The new phone number of the representative associated with the community.
+    */ 
     public void setRepresentantPhone(String representantPhone) {
         this.representantPhone = representantPhone;
     }
 
+    /**
+    * <p><b>getPopulation</b></p>
+    * <b>Description:</b> Retrieves the population of the community.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Null} search can't be done on a null object. Null Pointer Exception.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The population of the community is returned.</li>
+    * </ul>
+    * 
+    * @return The population of the community.
+    */
     public int getPopulation() {
         return population;
     }
 
+    /**
+    * <p><b>setPopulation</b></p>
+    * <b>Description:</b> Sets the population of the community.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code population} must be an integer.</li>
+    * </ul>
+    *
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The population of the community is updated to the provided value.</li>
+    * </ul>
+    *
+    * @param population The new population of the community.
+    */  
     public void setPopulation(int population) {
         this.population = population;
     }
 
-    //To get the challenge from a community
-    public Challenge[] getChallenge() {
-        return challenges;
-    }
-
-    public void setChallenge(Challenge[] challenges) {
-        this.challenges = challenges;
-    }
-
+    /**
+    * <p><b>getType</b></p>
+    * <b>Description:</b> Retrieves the type of the community.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Null} search can't be done on a null object. Null Pointer Exception.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The type of the community is returned.</li>
+    * </ul>
+    * 
+    * @return The type of the community.
+    */    
     public CommunityType getType() {
         return type;
     }
 
+    /**
+    * <p><b>setType</b></p>
+    * <b>Description:</b> Sets the type of the community.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code type} must be a non-null instance of CommunityType.</li>
+    * </ul>
+    *
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The type of the community is updated to the provided value.</li>
+    * </ul>
+    *
+    * @param type The new type of the community.
+    */      
     public void setType(CommunityType type) {
         this.type = type;
     }
 
 
     //No need for a setter for products because they will be added by another method
+    /**
+    * <p><b>getProducts</b></p>
+    * <b>Description:</b> Retrieves the array of Products associated with the community.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Null} search can't be done on a null object. Null Pointer Exception.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>An array containing the Products associated with the community is returned.</li>
+    * </ul>
+    * 
+    * @return An array of Products associated with the community.
+    */   
     public Product[] getProducts() {
         return products;
     }
     
+    //No neeed for setter because the way to enter the challenges is done by another method
+    /**
+    * <p><b>getChallenge</b></p>
+    * <b>Description:</b> Retrieves the array of challenges associated with the community.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Null} search can't be done on a null object. Null Pointer Exception.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>An array containing the challenges associated with the community is returned.</li>
+    * </ul>
+    * 
+    * @return An array of challenges associated with the community.
+    */    
+    public Challenge[] getChallenge() {
+        return challenges;
+    }
 
 }

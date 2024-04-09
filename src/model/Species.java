@@ -33,7 +33,6 @@ public class Species {
         return SpeciesType.getSpeciesTypes();
     }
 
-
     //CHANGE AN INT TO A SPECIES TYPE
     /**
     * <p><b>intToSpeciesType</b></p>
@@ -130,6 +129,22 @@ public class Species {
         this.name = name;
     }
 
+    /**
+* <p><b>getPhoto</b></p>
+* <b>Description:</b> Retrieves the photo URL of the species.
+* 
+* <p><b>Preconditions:</b></p>
+* <ul>
+*   <li>{@code Null} search can't be done on a null object. Null Pointer Exception.</li>
+* </ul>
+* 
+* <p><b>Postconditions:</b></p>
+* <ul>
+*   <li>The photo URL of the species is returned.</li>
+* </ul>
+* 
+* @return The photo URL of the species.
+*/ 
     public String getPhoto() {
         return photo;
     }
@@ -154,6 +169,22 @@ public class Species {
         this.photo = photo;
     }
 
+    /**
+    * <p><b>getLocalPop</b></p>
+    * <b>Description:</b> Retrieves the local population of the species.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Null} search can't be done on a null object. Null Pointer Exception.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The local population of the species is returned.</li>
+    * </ul>
+    * 
+    * @return The local population of the species.
+    */ 
     public int getLocalPop() {
         return localPop;
     }
@@ -178,6 +209,22 @@ public class Species {
         this.localPop = localPop;
     }
 
+    /**
+    * <p><b>getType</b></p>
+    * <b>Description:</b> Retrieves the type of the species.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Null} search can't be done on a null object. Null Pointer Exception.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The type of the species is returned.</li>
+    * </ul>
+    * 
+    * @return The type of the species.
+    */ 
     public SpeciesType getType() {
         return type;
     }

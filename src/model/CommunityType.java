@@ -114,5 +114,4 @@ public enum CommunityType {
     public String getDescription(){
         return description;
     }
-
 }

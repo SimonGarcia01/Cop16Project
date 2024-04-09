@@ -124,7 +124,7 @@ public class Main{
     //MENU METHODS
 
     /**
-	 * <p><b>generalMenu</b></p>
+	* <p><b>generalMenu</b></p>
 	* <b>Description:</b> prints the general menu and then registers the chosen option.
 	*	
 	* <p><b>Preconditions:</b></p>
@@ -139,7 +139,6 @@ public class Main{
 	*
 	* @return The option chosen from the menu.
 	*/
-
     public static int generalMenu(){
         int option = 0;
 
@@ -155,7 +154,7 @@ public class Main{
     }
     
     /**
-	 * <p><b>adminMenu</b></p>
+	* <p><b>adminMenu</b></p>
 	* <b>Description:</b> prints the administrative menu and then registers the chosen option.
 	*	
 	* <p><b>Preconditions:</b></p>

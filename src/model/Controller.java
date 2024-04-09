@@ -946,10 +946,23 @@ public class Controller {
         return communities;
     }
 
+    /**
+    * <p><b>getPlaces</b></p>
+    * <b>Description:</b> Retrieves the array of places stored in the controller.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Null} search can't be done on a null object. Null Pointer Exception.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>An array of places is returned.</li>
+    * </ul>
+    * 
+    * @return An array of places stored in the controller.
+    */
     public Place[] getPlaces() {
         return places;
     }
-
-    
-
 }

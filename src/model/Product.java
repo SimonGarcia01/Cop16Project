@@ -63,7 +63,6 @@ public class Product {
         this.type = ProductType.intToProductType(intType);
     }
 
-
     //SETTERS AND GETTERS
     
     /**
@@ -86,33 +85,143 @@ public class Product {
         return name;
     }
 
+    /**
+    * <p><b>setName</b></p>
+    * <b>Description:</b> Sets the name of the product to the provided value.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code name} must be a non-null String.</li>
+    * </ul>
+    *
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The name of the product is updated to the provided value.</li>
+    * </ul>
+    *
+    * @param name The new name for the product.
+    */  
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+    * <p><b>getNaturePercent</b></p>
+    * <b>Description:</b> Retrieves the nature percentage of the product.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Null} search can't be done on a null object. Null Pointer Exception.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The nature percentage of the product is returned.</li>
+    * </ul>
+    * 
+    * @return The nature percentage of the product.
+    */ 
     public double getNaturePercent() {
         return naturePercent;
     }
 
+    /**
+    * <p><b>setNaturePercent</b></p>
+    * <b>Description:</b> Sets the nature percentage of the product to the provided value.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code naturePercent} must be a double.</li>
+    * </ul>
+    *
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The nature percentage of the product is updated to the provided value.</li>
+    * </ul>
+    *
+    * @param naturePercent The new nature percentage for the product.
+    */ 
     public void setNaturePercent(double naturePercent) {
         this.naturePercent = naturePercent;
     }
 
+    /**
+    * <p><b>getHandcraft</b></p>
+    * <b>Description:</b> Retrieves the handcraft condition of the product.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Null} search can't be done on a null object. Null Pointer Exception.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The handcraft condition of the product is returned.</li>
+    * </ul>
+    * 
+    * @return The handcraft condition of the product.
+    */ 
     public String getHandcraft() {
         return handcraft;
     }
 
+    /**
+    * <p><b>setHandcraft</b></p>
+    * <b>Description:</b> Sets the handcraft condition of the product to the provided value.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code handcraft} must be a non-null String (yes or no).</li>
+    * </ul>
+    *
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The handcraft of condition the product is updated to the provided value.</li>
+    * </ul>
+    *
+    * @param handcraft The new handcraft condition for the product.
+    */ 
     public void setHandcraft(String handcraft) {
         this.handcraft = handcraft;
     }
 
+    /**
+    * <p><b>getType</b></p>
+    * <b>Description:</b> Retrieves the type of the product.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Null} search can't be done on a null object. Null Pointer Exception.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The type of the product is returned.</li>
+    * </ul>
+    * 
+    * @return The type of the product.
+    */ 
     public ProductType getType() {
         return type;
     }
 
+    /**
+    * <p><b>setType</b></p>
+    * <b>Description:</b> Sets the type of the product to the provided value.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code type} must be a non-null {@code ProductType} object.</li>
+    * </ul>
+    *
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The type of the product is updated to the provided value.</li>
+    * </ul>
+    *
+    * @param type The new type for the product.
+    */ 
     public void setType(ProductType type) {
         this.type = type;
     }
-    
-
 }

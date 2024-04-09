@@ -114,6 +114,4 @@ public enum PlaceType {
     public String getDescription() {
         return description;
     }
-
-
 }

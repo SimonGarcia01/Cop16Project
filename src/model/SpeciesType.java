@@ -69,8 +69,6 @@ public enum SpeciesType {
         return speciesType;
     }
 
-
-
     //CONSTRUCTOR
     /**
     * <p><b>SpeciesType</b></p>
@@ -112,7 +110,4 @@ public enum SpeciesType {
     public String getDescription(){
         return description;
     }
-
-
-
 }

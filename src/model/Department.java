@@ -1,7 +1,7 @@
 package model;
 
 public enum Department {
-    //Enumeration ligerals
+    //Enumeration literals
     CHOCO("Choco"),
     VALLE("Valle del Cauca"),
     CAUCA("Cauca"),
