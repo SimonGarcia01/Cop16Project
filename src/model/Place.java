@@ -1,5 +1,6 @@
 package model;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Place {
@@ -71,8 +72,8 @@ public class Place {
         return message;
     }
 
-//MODIFY A SPECIES WITHIN A PLACE
-/**
+    //MODIFY A SPECIES WITHIN A PLACE
+    /**
 * <p><b>modifySpecies</b></p>
 * <b>Description:</b> Helps in the process of modifying species data within the specified place and returns a message indicating success or failure. 
 * The method retrieves the species based on the provided index and passes it on to the appropriate species's method to perform the modification).
@@ -138,6 +139,17 @@ public class Place {
         return message;
     }
 
+    //TO STRING METHOD
+    public String toString(){
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        String formattedDate = dateFormat.format(this.inaugurationDate.getTime());
+
+        String placeInfo = String.format("\n\tName: %s\n\tArea: %d\n\tInauguration Date: %s\n\tPhoto: %s\n\tResources: %.2f\n\tPlace Type: %s\n\tDepartment: %s\n\tCaregiving Community: %s\n\t%s",
+        name, area, formattedDate, photo, resources, type.getDescription(), department.getDescription(), caregivingCommunity.getName(), displaySpecies());
+
+        return placeInfo;
+    }
 
     //TO GET THE INFO FROM ENUMERATIONS
 

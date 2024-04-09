@@ -315,6 +315,11 @@ public class Controller {
         newPhoto, newLocalPop, newSpeciesType);
     }
 
+    public String accessPlace(int intPlace){
+        Place place = intToPlace(intPlace);
+        return place.toString();
+    }
+
     //SEARCH METHODS
 
     /**

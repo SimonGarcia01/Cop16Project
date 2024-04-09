@@ -80,6 +80,7 @@ public class Main{
                         switch(queryOption){
                             case 1:
                                 //Access the information from a place
+                                accessPlace(controller);
                                 break;
                             case 2:
                                 //Access the information of the communities in a department
@@ -626,4 +627,23 @@ public class Main{
         }
     }
 
+    
+    public static void accessPlace(Controller controller){
+        System.out.println("DISPLAYING THE INFORMATION OF A PLACE: ");
+        
+        boolean existingPlace = controller.oneMinPlace();
+
+        if (existingPlace){
+
+            System.out.println(controller.displayPlaces());
+            System.out.print("Enter the place (represented by a number): ");
+            int intPlace = sk.nextInt();
+            sk.nextLine();
+
+            System.out.println(controller.accessPlace(intPlace));
+
+        } else {
+            System.out.println("There are no registered places. Please enter a place.");
+        }
+    }
 }
