@@ -34,6 +34,7 @@ public class Main{
                 case 1:
                     
                     do{
+                        adminLoop = true;
                         adminOption = adminMenu();
 
                         switch(adminOption){
@@ -75,6 +76,7 @@ public class Main{
                 case 2:
                     
                     do{
+                        queryLoop = true;
                         queryOption = queryMenu();
 
                         switch(queryOption){

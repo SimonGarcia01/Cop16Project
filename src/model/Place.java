@@ -145,7 +145,7 @@ public class Place {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         String formattedDate = dateFormat.format(this.inaugurationDate.getTime());
 
-        String placeInfo = String.format("\n\tName: %s\n\tArea: %d\n\tInauguration Date: %s\n\tPhoto: %s\n\tResources: %.2f\n\tPlace Type: %s\n\tDepartment: %s\n\tCaregiving Community: %s\n\t%s",
+        String placeInfo = String.format("\n\tName: %s\n\tArea: %.2f\n\tInauguration Date: %s\n\tPhoto: %s\n\tResources: %.2f\n\tPlace Type: %s\n\tDepartment: %s\n\tCaregiving Community: %s\n\n\t%s",
         name, area, formattedDate, photo, resources, type.getDescription(), department.getDescription(), caregivingCommunity.getName(), displaySpecies());
 
         return placeInfo;
