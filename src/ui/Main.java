@@ -629,7 +629,26 @@ public class Main{
         }
     }
 
-    
+    /**
+    * <p><b>accessPlace</b></p>
+    * <b>Description:</b> Allows access to the information of a place by selecting an existing place and displaying its information.
+    * The diplaying information include all its attributes and relations.
+    * In the case of the caregiving community and the species it will only print their names.
+    * The method ensures there is at least one registered place. If no place is registered, an appropriate error message is displayed.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code controller} must be initialized.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>If there are no registered places, an error message will be printed.</li>
+    *   <li>If the place selection is successful, the information of the selected place will be displayed.</li>
+    * </ul>
+    * 
+    * @param controller The general controller of the application.
+    */       
     public static void accessPlace(Controller controller){
         System.out.println("DISPLAYING THE INFORMATION OF A PLACE: ");
         

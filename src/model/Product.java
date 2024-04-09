@@ -33,6 +33,29 @@ public class Product {
     }
 
     //CONSTRUCTOR
+    /**
+    * <p><b>Product</b></p>
+    * <b>Description:</b> Initializes and creates an instance of a Product with the specified parameters.
+    * The constructor sets the attributes of the Product object using the provided parameters.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code name} must be a non-null String.</li>
+    *   <li>{@code naturePercent} must be a double.</li>
+    *   <li>{@code handcraft} must be a String.</li>
+    *   <li>{@code intType} must be an int between 1 and 2.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>An instance of a Product is created with all the specified parameters set.</li>
+    * </ul>
+    * 
+    * @param name The name of the product.
+    * @param naturePercent The percentage of natural ingredients in the product.
+    * @param handcraft The handcraft information related to the product.
+    * @param intType The type of the product.
+    */
     public Product(String name, double naturePercent, String handcraft, int intType) {
         this.name = name;
         this.naturePercent = naturePercent;

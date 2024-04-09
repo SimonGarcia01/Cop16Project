@@ -140,6 +140,28 @@ public class Place {
     }
 
     //TO STRING METHOD
+    /**
+    * <p><b>toString</b></p>
+    * <b>Description:</b> Generates a string representation of the place, including various attributes such as name, area, inauguration date, photo, resources, place type, department, caregiving community, and species information.
+    * This method follows these steps to construct the string representation:
+    * <ol>
+    *   <li>Formats the inauguration date into a string representation using the specified date format.</li>
+    *   <li>Constructs a string representation of the place with placeholders for the attributes.</li>
+    *   <li>Returns the formatted string containing all the information about the place, including: the descriptions for the department and type literals, and the species information obtained through the {@link Place#displaySpecies()} method.</li>
+    * </ol>
+    *
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code intPlace} must be an integer representing an existing place.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A string containing the information about the specified place is returned.</li>
+    * </ul>
+    * 
+    * @return A string containing the information about the specified place.
+    */
     public String toString(){
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");

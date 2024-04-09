@@ -315,6 +315,24 @@ public class Controller {
         newPhoto, newLocalPop, newSpeciesType);
     }
 
+    /**
+    * <p><b>accessPlace</b></p>
+    * <b>Description:</b> Retrieves and returns the string representation of the specified place.
+    * It retrieves the place based on the provided index and passes it on to the {@link Place#toString()} method.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code intPlace} must be an integer representing an existing place.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A string containing the information about the specified place is returned.</li>
+    * </ul>
+    * 
+    * @param intPlace The index of the place to retrieve.
+    * @return A string containing the information about the specified place.
+    */
     public String accessPlace(int intPlace){
         Place place = intToPlace(intPlace);
         return place.toString();
@@ -340,7 +358,6 @@ public class Controller {
 	* @param name the String entered for the community that wants to be registered. 
 	* @return A boolean showing if there is a duplicate or not.
 	*/
-
     public boolean searchCommunity(String name){
 
         boolean duplicate = false;
@@ -373,7 +390,6 @@ public class Controller {
 	* @param name the String entered for the place that wants to be registered. 
 	* @return A boolean showing if there is a duplicate or not.
 	*/
-
     public boolean searchPlace(String name){
 
         boolean duplicate = false;
@@ -599,9 +615,9 @@ public class Controller {
     }
 
     /**
-    * <p><b>displayProductTypes</b></p>
-    * <b>Description:</b> Concatenates and returns a string that holds all the descriptions that represent every ProductType literal. 
-    * It will loop through the product types, put a number, and extract the String array containing all the descriptions.
+    * <p><b>displaySpeciesTypes</b></p>
+    * <b>Description:</b> Concatenates and returns a string that holds all the descriptions that represent every SpeciesType literal. 
+    * It will loop through the Species Types, put a number, and extract the String array containing all the descriptions.
     * 
     * <p><b>Preconditions:</b></p>
     * <ul>
@@ -659,22 +675,22 @@ public class Controller {
 
     //DISPLAYING LIST OF PLACE
     /**
-    * <p><b>displayCommunities</b></p>
-    * <b>Description:</b> Concatenates and returns a string that holds all the names of the available communities. 
-    * It iterates through the communities array, appending the index and name of each community to the message.
-    * It makes sure that no null community is passed on to prevent a Null Exception.
+    * <p><b>displayPlaces</b></p>
+    * <b>Description:</b> Concatenates and returns a string that holds all the names of the available places. 
+    * It iterates through the places array, appending the index and name of each place to the message.
+    * It ensures that no null place is included to prevent a NullPointerException.
     * 
     * <p><b>Preconditions:</b></p>
     * <ul>
-    *   <li>{@code communities} must have been initialized.</li>
+    *   <li>{@code places} must have been initialized.</li>
     * </ul>
     * 
     * <p><b>Postconditions:</b></p>
     * <ul>
-    *   <li>A string containing all the numbered names of the available communities is returned.</li>
+    *   <li>A string containing all the numbered names of the available places is returned.</li>
     * </ul>
     * 
-    * @return A string holding all the numbered names of the available communities.
+    * @return A string holding all the numbered names of the available places.
     */
     public String displayPlaces(){
         String message = "Available places: \n";
@@ -786,21 +802,21 @@ public class Controller {
     }
 
     /**
-	* <p><b>oneMinCommunity</b></p>
-	* <b>Description:</b> Will check if at least one community was registered already (first position of communities).
-	*	
-	* <p><b>Preconditions:</b></p>
-	* <ul>
-    *   <li> {@code Array} of communities must already exist. </li>
-	* </ul>
-	*
-	* <p><b>Postconditions:</b></p>
-	* <ul>
-	* 	<li>A boolean stating if the first position in the community array was occupied or not.</li>
-	* </ul>
-	*
-	* @return A boolean stating if the first position of communities is filled.
-	*/      
+    * <p><b>oneMinPlace</b></p>
+    * <b>Description:</b> Checks if at least one place was registered.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code places} must be an array of places.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A boolean value indicating whether the first position in the place array is occupied or not is returned.</li>
+    * </ul>
+    * 
+    * @return A boolean indicating if the first position of places is filled.
+    */        
     public boolean oneMinPlace() {
         boolean onePlace = false;
 
