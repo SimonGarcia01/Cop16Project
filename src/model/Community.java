@@ -112,7 +112,7 @@ public class Community {
                 challengeList += "\n\t--" + challenge.getDescription();
             }
         }
-        return String.format("\n\tName: %s\n\tRepresentant's Name: %s\n\tRepresentant's Phone Numer: %s\n\tPopulation: %d\n\tChallenges: %s\n\tType: %s", 
+        return String.format("\n\tName: %s\n\tRepresentant's Name: %s\n\tRepresentant's Phone Number: %s\n\tPopulation: %d\n\tChallenges: %s\n\tType: %s", 
         name, representantName, representantPhone, population, challengeList, type.getDescription());
     }
     
