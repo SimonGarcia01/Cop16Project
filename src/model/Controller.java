@@ -701,7 +701,24 @@ public class Controller {
         return message;
     }
 
-    
+    /**
+    * <p><b>displayCommunities</b></p>
+    * <b>Description:</b> Concatenates and returns a string that holds all the names of the available communities. 
+    * It iterates through the communities array, appending the index and name of each community to the message.
+    * It makes sure that no null community is passed on to prevent a Null Exception.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code communities} must have been initialized.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A string containing all the numbered names of the available communities is returned.</li>
+    * </ul>
+    * 
+    * @return A string holding all the numbered names of the available communities.
+    */
     public String displayDeptCommunities(int intDepartment){
         String message = "";
 
@@ -723,12 +740,11 @@ public class Controller {
                 }
             }
         } else {
-            message = "There are no registered communities for this department. ";
+            message = "There are no registered communities for this department.";
         }
 
         return message;
     }
-
 
     public Place[] deptPlaceList(int intDepartment){
         Place[] listPlaces = new Place[200];   

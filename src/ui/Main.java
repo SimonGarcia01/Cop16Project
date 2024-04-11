@@ -169,7 +169,6 @@ public class Main{
 	*
 	* @return The option chosen from the menu.
 	*/
-
     public static int adminMenu(){
         int option = 0;
 
@@ -200,7 +199,6 @@ public class Main{
 	*
 	* @return The option chosen from the menu.
 	*/
-
     public static int queryMenu(){
         int option = 0;
 
@@ -234,8 +232,6 @@ public class Main{
     * <ul>
     *     <li>A message stating if the community was successfully registered or not. If the community is not registered, the appropriate messages will be returned.</li>
     * </ul>
-    *
-    * @param controller The general controller of the application.
     */  
     public static void registerCommunity(){
         System.out.println("REGISTERING A COMMUNITY");
@@ -293,8 +289,6 @@ public class Main{
 	* 	<li>If there is not one registered community, an error message will be printed and the method will skip itself.</li>	
     * 	<li> A message stating if the place was successfully registered or not. If the place was not registered, the appropiate messages will be returned.</li>
 	* </ul>
-	*
-	* @param controller The general controller of the application. 
 	*/        
     public static void registerPlace(){
         System.out.println("REGISTERING A PLACE");
@@ -376,8 +370,6 @@ public class Main{
 	* 	<li>If there is not one registered community, an error message will be printed and the method will skip itself.</li>
 	* 	<li>A message stating if the product was successfully registered or not. If the place was not registered, the appropiate messages will be returned.</li>
 	* </ul>
-	*
-	* @param controller The general controller of the application. 
 	*/  
     public static void addProduct(){
         System.out.println("REGISTERING A PRODUCT TO A COMMUNITY:");
@@ -437,8 +429,6 @@ public class Main{
     *   <li>If there are no registered communities, an error message is displayed, and the method terminates without further action.</li>
     *   <li>A message indicating whether the product was successfully deleted or not is printed.</li>
     * </ul>
-    * 
-    * @param controller The general controller of the application. 
     */
     public static void deleteProduct(){
     System.out.println("DELETING A PRODUCT FROM A COMMUNITY:");
@@ -495,8 +485,6 @@ public class Main{
     *     <li>If there are no registered places, an error message is printed, and the method exits.</li>
     *     <li>A message stating whether the species was successfully added or not is printed. If the species was not successfully added, appropriate error messages are displayed.</li>
     * </ul>
-    *
-    * @param controller The general controller of the application.
     */
     public static void addSpecies(){
         System.out.println("ADDING A SPECIES TO A PLACE:");
@@ -553,8 +541,6 @@ public class Main{
     *   <li>If there are no registered place or species, error messages will be printed.</li>
     *   <li>If the species modification is successful, a message indicating success or failure will be printed.</li>
     * </ul>
-    * 
-    * @param controller The general controller of the application.
     */    
     public static void modifySpecies(){
         System.out.println("MODIFYING SPECIES DATA:");
@@ -643,8 +629,6 @@ public class Main{
     *   <li>If there are no registered places, an error message will be printed.</li>
     *   <li>If the place selection is successful, the information of the selected place will be displayed.</li>
     * </ul>
-    * 
-    * @param controller The general controller of the application.
     */       
     public static void accessPlace(){
         System.out.println("DISPLAYING THE INFORMATION OF A PLACE: ");
@@ -665,6 +649,26 @@ public class Main{
         }
     }
 
+    /**
+    * <p><b>accessDeptCommunity</b></p>
+    * <b>Description:</b> Allows access to the information of a community by selecting an existing department and community, and displaying its information.
+    * The displayed information includes all attributes and relations of the selected community.
+    * The method ensures there is at least one registered place. If no place is registered, an appropriate error message is displayed.
+    * If the selected department does not have any communities, an error message is displayed.
+    * The additional checks are done by {@link Controller#displayDeptCommunities(int)}.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code controller} must be initialized.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>If there are no registered places, an error message will be printed.</li>
+    *   <li>If the selected department does not have any communities, an error message will be printed.</li>
+    *   <li>If the community selection is successful, the information of the selected community will be displayed.</li>
+    * </ul>
+    */       
     public static void accessDeptCommunity(){
         System.out.println("DISPLAYING COMMUNITIES INFO BASED ON DEPARTMENT: ");
         
@@ -677,12 +681,18 @@ public class Main{
             int intDepartment = sk.nextInt();
             sk.nextLine();
 
-            System.out.println(controller.displayDeptCommunities(intDepartment));
-            System.out.print("Enter the community for which you'd like to access information: ");
-            int intDeptCommunity = sk.nextInt();
-            sk.nextLine();
+            String message = controller.displayDeptCommunities(intDepartment);
 
-            System.out.println(controller.accessDeptCommunity(intDepartment, intDeptCommunity));
+            if(!message.equals("There are no registered communities for this department.")){
+                System.out.println(message);
+                System.out.print("Enter the community for which you'd like to access information: ");
+                int intDeptCommunity = sk.nextInt();
+                sk.nextLine();
+    
+                System.out.println(controller.accessDeptCommunity(intDepartment, intDeptCommunity));
+            } else {
+                System.out.println(message);
+            }
         } else {
             System.out.println("There are no registered places so a department can't be referenced. Please enter a place.");
         }
