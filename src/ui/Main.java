@@ -88,7 +88,8 @@ public class Main{
                                 accessDeptCommunity();
                                 break;
                             case 3:
-                                //Access the information of communities based on their biggest problematic
+                                //Access the information of communities which the biggest problems they face are: absence of hospitals and lack of schools.
+                                accessHospSchooCommunities();
                                 break;
                             case 4:
                                 //Display the name of the place with the most species diversity
@@ -204,7 +205,7 @@ public class Main{
 
         System.out.println("-----------------------------------------------------------");
 		System.out.println("Menu for Queries: ");
-		System.out.println("\t1. Access the information from a place\n\t2. Access the information of the communities in a department\n\t3. Access the information of communities based on their biggest problematic\n\t4. Display the name of the place with the most species diversity\n\t5. Display the three places with the biggest area\n\t9. Leave menu");
+		System.out.println("\t1. Access the information from a place\n\t2. Access the information of the communities in a department\n\t3. Access the information of communities that face an absence of hospitals and a lack of schools.\n\t4. Display the name of the place with the most species diversity\n\t5. Display the three places with the biggest area\n\t9. Leave menu");
 		System.out.println("-----------------------------------------------------------");
 		System.out.print("Enter the option: ");
 		option = sk.nextInt();
@@ -696,5 +697,23 @@ public class Main{
         } else {
             System.out.println("There are no registered places so a department can't be referenced. Please enter a place.");
         }
+    }
+
+    public static void accessHospSchooCommunities(){
+        System.out.println("DISPLAYING THE INFORMATION OF THE COMMUNITIES THAT FACE THE FOLLOWING PROBLEMATICS:");
+        System.out.println("\t-ABSENCE OF HOSPITALS\n\t-LACK OF SCHOOLS");
+
+        String[] communitiesInfo = controller.accessHospSchooCommunities();
+
+        if(communitiesInfo[0] != null){
+            for(int n = 0; n < communitiesInfo.length; n++){
+                if(communitiesInfo[n] != null){
+                    System.out.println(communitiesInfo[n]);
+                }
+            }
+        } else {
+            System.out.println("There are no registered communities at the moment that face both challenges.");
+        }
+
     }
 }

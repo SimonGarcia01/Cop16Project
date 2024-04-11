@@ -369,6 +369,20 @@ public class Controller {
         return deptCommunity.toString();
     }
 
+    public String[] accessHospSchooCommunities(){
+        String[] communitiesInfo = new String[50];
+        int placeCounter = 0;
+
+        for(Community community : communities){
+            if(community!=null && community.getChallenge()[0]!=null && community.getChallenge()[1]!=null){
+                communitiesInfo[placeCounter] = community.toString();
+                placeCounter++;
+            }
+        }
+
+        return communitiesInfo;
+    }
+
     //SEARCH METHODS
 
     /**
