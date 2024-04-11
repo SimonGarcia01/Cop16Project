@@ -14,7 +14,7 @@ public enum Challenge {
 
     //TO EXTRACT THE LIST OF DESCRIPTIONS
     /**
-	* <p><b>getChallenges</b></p>
+	* <p><b>getChallengesString</b></p>
 	* <b>Description:</b> Extracts all the descriptions that are associated to the literals of the enumeration and returns a String[] holding them. 
     * The method loops extracting the description and concatenates everything.
 	*	
@@ -30,7 +30,7 @@ public enum Challenge {
 	*
 	* @return A string[] holding all the descriptions representing the Challenge literals.
 	*/
-    public static String[] getChallenges() {
+    public static String[] getChallengesString() {
         Challenge[] challenges = Challenge.values();
         String[] descriptions = new String[challenges.length];
         for (int i = 0; i < challenges.length; i++) {

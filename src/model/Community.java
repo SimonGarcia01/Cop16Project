@@ -134,8 +134,8 @@ public class Community {
     *
 	* @return A string[] holding all the descriptions representing the Challenge literals.
 	*/   
-    public static String[] getChallenges(){
-        return Challenge.getChallenges();
+    public static String[] getChallengesString(){
+        return Challenge.getChallengesString();
     }
 
     /**
@@ -552,7 +552,6 @@ public class Community {
         this.type = type;
     }
 
-
     //No need for a setter for products because they will be added by another method
     /**
     * <p><b>getProducts</b></p>
@@ -591,7 +590,7 @@ public class Community {
     * 
     * @return An array of challenges associated with the community.
     */    
-    public Challenge[] getChallenge() {
+    public Challenge[] getChallenges() {
         return challenges;
     }
 

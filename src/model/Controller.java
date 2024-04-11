@@ -374,7 +374,7 @@ public class Controller {
         int placeCounter = 0;
 
         for(Community community : communities){
-            if(community!=null && community.getChallenge()[0]!=null && community.getChallenge()[1]!=null){
+            if(community!=null && community.getChallenges()[0]!=null && community.getChallenges()[1]!=null){
                 communitiesInfo[placeCounter] = community.toString();
                 placeCounter++;
             }
@@ -529,7 +529,7 @@ public class Controller {
     public String displayChallengeTypes(){
         String message = "Available challenges: \n\t";
 
-        String[] challenges = Community.getChallenges();
+        String[] challenges = Community.getChallengesString();
     
         for (int i = 0; i < challenges.length; i++) {
             message += (i + 1) + ". " + challenges[i] + "\n\t";
