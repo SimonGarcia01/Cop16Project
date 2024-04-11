@@ -339,22 +339,25 @@ public class Controller {
     }
     
     /**
-    * <p><b>accessPlace</b></p>
-    * <b>Description:</b> Retrieves and returns the string representation of the specified place.
-    * It retrieves the place based on the provided index and passes it on to the {@link Place#toString()} method.
+    * <p><b>accessDeptCommunity</b></p>
+    * <b>Description:</b> Retrieves and returns a string holding all the information of the specified community within the specified department.
+    * It retrieves the list of places associated with the department using the {@link #deptPlaceList(int)} method.
+    * Then, it accesses the specified community within the department based on the provided index.
     * 
     * <p><b>Preconditions:</b></p>
     * <ul>
-    *   <li>{@code intPlace} must be an integer representing an existing place.</li>
+    *   <li>{@code intDepartment} must be an int between 1 and 4.</li>
+    *   <li>{@code intDeptCommunity} must be an int representing a valid community name chosen from the displayed list {@link #displayDeptCommunities(int)}.</li>
     * </ul>
     * 
     * <p><b>Postconditions:</b></p>
     * <ul>
-    *   <li>A string containing the information about the specified place is returned.</li>
+    *   <li>The string representation of the specified community within the department is returned.</li>
     * </ul>
     * 
-    * @param intPlace The index of the place to retrieve.
-    * @return A string containing the information about the specified place.
+    * @param intDepartment The int representing the department.
+    * @param intDeptCommunity The number that represents the community extracted from the list of communities in the department.
+    * @return A string with all the information of the specified community within the department.
     */
     public String accessDeptCommunity(int intDepartment, int intDeptCommunity){
 
@@ -702,23 +705,24 @@ public class Controller {
     }
 
     /**
-    * <p><b>displayCommunities</b></p>
-    * <b>Description:</b> Concatenates and returns a string that holds all the names of the available communities. 
-    * It iterates through the communities array, appending the index and name of each community to the message.
-    * It makes sure that no null community is passed on to prevent a Null Exception.
+    * <p><b>displayDeptCommunities</b></p>
+    * <b>Description:</b> Retrieves and returns a message containing the communities associated with the specified department.
+    * It retrieves the list of places associated with the department using the {@link #deptPlaceList(int)} method.
+    * Then, it constructs a message displaying the names of the communities within that department.
     * 
     * <p><b>Preconditions:</b></p>
     * <ul>
-    *   <li>{@code communities} must have been initialized.</li>
+    *   <li>{@code intDepartment} must be an integer representing a valid department.</li>
     * </ul>
     * 
     * <p><b>Postconditions:</b></p>
     * <ul>
-    *   <li>A string containing all the numbered names of the available communities is returned.</li>
+    *   <li>A message containing the names of the communities in the specified department (retrieved from the place list) is returned.</li>
     * </ul>
     * 
-    * @return A string holding all the numbered names of the available communities.
-    */
+    * @param intDepartment The integer representing the department.
+    * @return A message containing the names of the communities in the specified department.
+    */    
     public String displayDeptCommunities(int intDepartment){
         String message = "";
 
@@ -746,6 +750,26 @@ public class Controller {
         return message;
     }
 
+    /**
+    * <p><b>deptPlaceList</b></p>
+    * <b>Description:</b> Retrieves and returns an array of places associated with the specified department.
+    * It creates an array to store the places, initializes a counter, and determines the department based on the provided integer.
+    * Then, it iterates through the places array, checking if each place belongs to the specified department.
+    * If a unique place belonging to the department is found, it adds it to the list of places to return.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code intDepartment} must be an integer representing a valid department.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>An array containing the places associated with the specified department is returned.</li>
+    * </ul>
+    * 
+    * @param intDepartment The integer representing the department.
+    * @return An array containing the places associated with the specified department.
+    */
     public Place[] deptPlaceList(int intDepartment){
         Place[] listPlaces = new Place[200];   
         int placeCounter = 0;

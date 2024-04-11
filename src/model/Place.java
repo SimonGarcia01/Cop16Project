@@ -173,7 +173,24 @@ public class Place {
         return placeInfo;
     }
 
-    
+    /**
+    * <p><b>intToDepartment</b></p>
+    * <b>Description:</b> Converts the integer representation of a department to its corresponding Department literal.
+    * It delegates the conversion to the {@link Department#intToDepartment(int)} method.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code intDepartment} must be an int between 1 and 4.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The corresponding Department literal value is returned based on the provided integer.</li>
+    * </ul>
+    * 
+    * @param intDepartment The int representing the department.
+    * @return The Department enum value corresponding to the provided int.
+    */    
     public static Department intToDepartment(int intDepartment){
         return Department.intToDepartment(intDepartment);
     }

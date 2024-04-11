@@ -87,6 +87,24 @@ public class Community {
         return message;
     }   
 
+    /**
+    * <p><b>toString</b></p>
+    * <b>Description:</b> Generates and returns a string representation of the community.
+    * It constructs a string containing various details about the community, including its name, representative's name, representative's phone number, population, challenges, and type.
+    * It makes a for-loop to retrieve the list of descriptions of the challenges the community faces.
+    *
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>The community object must be initialized with appropriate values.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A string representation of the community object is returned.</li>
+    * </ul>
+    * 
+    * @return A string representation of the community object.
+    */
     public String toString(){
         String challengeList = "";
         for(Challenge challenge : challenges) {
