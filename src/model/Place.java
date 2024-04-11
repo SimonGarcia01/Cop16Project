@@ -173,6 +173,11 @@ public class Place {
         return placeInfo;
     }
 
+    
+    public static Department intToDepartment(int intDepartment){
+        return Department.intToDepartment(intDepartment);
+    }
+    
     //TO GET THE INFO FROM ENUMERATIONS
 
     /**

@@ -337,6 +337,34 @@ public class Controller {
         Place place = intToPlace(intPlace);
         return place.toString();
     }
+    
+    /**
+    * <p><b>accessPlace</b></p>
+    * <b>Description:</b> Retrieves and returns the string representation of the specified place.
+    * It retrieves the place based on the provided index and passes it on to the {@link Place#toString()} method.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code intPlace} must be an integer representing an existing place.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A string containing the information about the specified place is returned.</li>
+    * </ul>
+    * 
+    * @param intPlace The index of the place to retrieve.
+    * @return A string containing the information about the specified place.
+    */
+    public String accessDeptCommunity(int intDepartment, int intDeptCommunity){
+
+        Place[] listPlaces = deptPlaceList(intDepartment);
+        Place deptPlace = listPlaces[intDeptCommunity-1];
+
+        Community deptCommunity = deptPlace.getCaregivingCommunity();
+        
+        return deptCommunity.toString();
+    }
 
     //SEARCH METHODS
 
@@ -671,6 +699,61 @@ public class Controller {
             }
         }
         return message;
+    }
+
+    
+    public String displayDeptCommunities(int intDepartment){
+        String message = "";
+
+        Place[] listPlaces = deptPlaceList(intDepartment);
+
+        if(listPlaces[0] != null){
+            message = "Communities in that department: ";
+            
+            //Making a loop that stops after the first null because the rest after should be null too
+            boolean stopPlaces = true;
+            int placeCounter = 0;
+
+            while(stopPlaces){ 
+                if(listPlaces[placeCounter] != null){
+                    message += "\n\t" + (placeCounter+1) + ". " + listPlaces[placeCounter].getCaregivingCommunity().getName();
+                    placeCounter ++;
+                } else {
+                    stopPlaces = false;
+                }
+            }
+        } else {
+            message = "There are no registered communities for this department. ";
+        }
+
+        return message;
+    }
+
+
+    public Place[] deptPlaceList(int intDepartment){
+        Place[] listPlaces = new Place[200];   
+        int placeCounter = 0;
+        Department department = Place.intToDepartment(intDepartment);
+
+        for(int i = 0; i < places.length; i ++){
+            if(places[i] != null && places[i].getDepartment() == department){
+                boolean duplicate = false;
+                String name = places[i].getCaregivingCommunity().getName();
+
+                for(Place place: listPlaces){
+                    if(place != null && place.getCaregivingCommunity().getName().equals(name)){
+                        duplicate = true;
+                    }
+                }
+
+                if(!duplicate){
+                    listPlaces[placeCounter] = places[i];
+                    placeCounter ++;
+                }
+            }
+        }
+        
+        return listPlaces;
     }
 
     //DISPLAYING LIST OF PLACE

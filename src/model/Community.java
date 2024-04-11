@@ -87,6 +87,17 @@ public class Community {
         return message;
     }   
 
+    public String toString(){
+        String challengeList = "";
+        for(Challenge challenge : challenges) {
+            if(challenge != null){
+                challengeList += "\n\t--" + challenge.getDescription();
+            }
+        }
+        return String.format("\n\tName: %s\n\tRepresentant's Name: %s\n\tRepresentant's Phone Numer: %s\n\tPopulation: %d\n\tChallenges: %s\n\tType: %s", 
+        name, representantName, representantPhone, population, challengeList, type.getDescription());
+    }
+    
     //TO GET THE INFO FROM ENUMERATIONS
 
     /**

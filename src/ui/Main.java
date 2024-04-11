@@ -9,9 +9,8 @@ import java.text.ParseException;
 public class Main{
     
     public static Scanner sk = new Scanner(System.in);
+    public static Controller  controller = new Controller();
     public static void main(String[] args){
-
-        Controller controller = new Controller();
 
         //Variables for the general menu
         int generalOption = 0;
@@ -40,27 +39,27 @@ public class Main{
                         switch(adminOption){
                             case 1:
                                 //Register a community
-                                registerCommunity(controller);
+                                registerCommunity();
                                 break;
                             case 2:
                                 //Register a place
-                                registerPlace(controller);
+                                registerPlace();
                                 break;
                             case 3:
                                 //Add a product to a commmunity
-                                addProduct(controller);
+                                addProduct();
                                 break;
                             case 4:
                                 //delete a product from a community
-                                deleteProduct(controller);
+                                deleteProduct();
                                 break;
                             case 5:
                                 //Add a species to a place
-                                addSpecies(controller);
+                                addSpecies();
                                 break;
                             case 6:
                                 //Modify a species data in a place
-                                modifySpecies(controller);
+                                modifySpecies();
                                 break;
 
                             case 9:
@@ -82,10 +81,11 @@ public class Main{
                         switch(queryOption){
                             case 1:
                                 //Access the information from a place
-                                accessPlace(controller);
+                                accessPlace();
                                 break;
                             case 2:
                                 //Access the information of the communities in a department
+                                accessDeptCommunity();
                                 break;
                             case 3:
                                 //Access the information of communities based on their biggest problematic
@@ -237,7 +237,7 @@ public class Main{
     *
     * @param controller The general controller of the application.
     */  
-    public static void registerCommunity(Controller controller){
+    public static void registerCommunity(){
         System.out.println("REGISTERING A COMMUNITY");
         
         System.out.print("Enter the community's name: ");
@@ -296,7 +296,7 @@ public class Main{
 	*
 	* @param controller The general controller of the application. 
 	*/        
-    public static void registerPlace(Controller controller){
+    public static void registerPlace(){
         System.out.println("REGISTERING A PLACE");
         
         boolean existingCommunity = controller.oneMinCommunity();
@@ -357,7 +357,6 @@ public class Main{
         }
     }
 
-
     /**
 	* <p><b>addProduct</b></p>
 	* <b>Description:</b>The method starts by checking if there is atleast one registered community (showing an error if there isn't), 
@@ -380,7 +379,7 @@ public class Main{
 	*
 	* @param controller The general controller of the application. 
 	*/  
-    public static void addProduct(Controller controller){
+    public static void addProduct(){
         System.out.println("REGISTERING A PRODUCT TO A COMMUNITY:");
 
         boolean existingCommunity = controller.oneMinCommunity();
@@ -441,7 +440,7 @@ public class Main{
     * 
     * @param controller The general controller of the application. 
     */
-    public static void deleteProduct(Controller controller){
+    public static void deleteProduct(){
     System.out.println("DELETING A PRODUCT FROM A COMMUNITY:");
 
     boolean existingCommunity = controller.oneMinCommunity();
@@ -499,7 +498,7 @@ public class Main{
     *
     * @param controller The general controller of the application.
     */
-    public static void addSpecies(Controller controller){
+    public static void addSpecies(){
         System.out.println("ADDING A SPECIES TO A PLACE:");
         
         boolean existingPlace = controller.oneMinPlace();
@@ -533,7 +532,6 @@ public class Main{
         }
     }
 
-    
     /**
     * <p><b>modifySpecies</b></p>
     * <b>Description:</b> Allows modification of species data by selecting an existing community and species, and then modifying the species information based on user input.
@@ -558,7 +556,7 @@ public class Main{
     * 
     * @param controller The general controller of the application.
     */    
-    public static void modifySpecies(Controller controller){
+    public static void modifySpecies(){
         System.out.println("MODIFYING SPECIES DATA:");
 
         boolean existingPlace = controller.oneMinPlace();
@@ -648,7 +646,7 @@ public class Main{
     * 
     * @param controller The general controller of the application.
     */       
-    public static void accessPlace(Controller controller){
+    public static void accessPlace(){
         System.out.println("DISPLAYING THE INFORMATION OF A PLACE: ");
         
         boolean existingPlace = controller.oneMinPlace();
@@ -664,6 +662,29 @@ public class Main{
 
         } else {
             System.out.println("There are no registered places. Please enter a place.");
+        }
+    }
+
+    public static void accessDeptCommunity(){
+        System.out.println("DISPLAYING COMMUNITIES INFO BASED ON DEPARTMENT: ");
+        
+        boolean existingPlace = controller.oneMinPlace();
+
+        if (existingPlace){
+
+            System.out.println(controller.displayDepartments());
+            System.out.print("Enter the department for which you'd like to access information about the communities: ");
+            int intDepartment = sk.nextInt();
+            sk.nextLine();
+
+            System.out.println(controller.displayDeptCommunities(intDepartment));
+            System.out.print("Enter the community for which you'd like to access information: ");
+            int intDeptCommunity = sk.nextInt();
+            sk.nextLine();
+
+            System.out.println(controller.accessDeptCommunity(intDepartment, intDeptCommunity));
+        } else {
+            System.out.println("There are no registered places so a department can't be referenced. Please enter a place.");
         }
     }
 }
