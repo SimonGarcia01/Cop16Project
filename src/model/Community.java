@@ -119,7 +119,7 @@ public class Community {
     //TO GET THE INFO FROM ENUMERATIONS
 
     /**
-	* <p><b>getChallenges</b></p>
+	* <p><b>getChallengesString</b></p>
 	* <b>Description:</b> Extracts the array from Challenge holding every description associated to a Challenge literal and returns it.
 	*	
 	* <p><b>Preconditions:</b></p>
@@ -573,10 +573,12 @@ public class Community {
         return products;
     }
     
-    //No neeed for setter because the way to enter the challenges is done by another method
+    //No need for setter because the way to enter the challenges is done by another method
     /**
-    * <p><b>getChallenge</b></p>
-    * <b>Description:</b> Retrieves the array of challenges associated with the community.
+    * <p><b>getChallenges</b></p>
+    * <b>Description:</b> Retrieves the array of challenges associated with the community. 
+    * The array contains in order of the Challenge literals the problematics of the community.
+    * If the community doesn't face an specific challenge, a null will be placed in that position.
     * 
     * <p><b>Preconditions:</b></p>
     * <ul>

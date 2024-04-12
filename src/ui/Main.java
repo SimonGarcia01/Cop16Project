@@ -699,6 +699,22 @@ public class Main{
         }
     }
 
+    /**
+    * <p><b>accessHospSchooCommunities</b></p>
+    * <b>Description:</b> Retrieves and displays information about communities facing challenges related to the absence of hospitals and lack of schools.
+    * It retrieves the information about such communities using the {@link Controller#accessHospSchooCommunities()} method.
+    * Then, it iterates through the array of community information and prints each entry.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Controller} object must be initialized.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The information about communities facing the specified challenges is displayed.</li>
+    * </ul>
+    */
     public static void accessHospSchooCommunities(){
         System.out.println("DISPLAYING THE INFORMATION OF THE COMMUNITIES THAT FACE THE FOLLOWING PROBLEMATICS:");
         System.out.println("\t-ABSENCE OF HOSPITALS\n\t-LACK OF SCHOOLS");

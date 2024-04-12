@@ -369,6 +369,25 @@ public class Controller {
         return deptCommunity.toString();
     }
 
+    /**
+    * <p><b>accessHospSchooCommunities</b></p>
+    * <b>Description:</b> Retrieves information about communities facing challenges related to the absence of hospitals and lack of schools.
+    * This method searches through the communities stored in the controller and identifies those facing both challenges.
+    * For each qualifying community found, it generates a string representation using the {@link Community#toString()} method.
+    * The information about these communities is stored in an array and returned.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Communities} array in the controller must be initialized.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A String array containing information about communities facing challenges related to the absence of hospitals and lack of schools is returned.</li>
+    * </ul>
+    * 
+    * @return An array containing information about communities facing the specified challenges.
+    */
     public String[] accessHospSchooCommunities(){
         String[] communitiesInfo = new String[50];
         int placeCounter = 0;
