@@ -745,12 +745,12 @@ public class Main{
     * 
     * <p><b>Preconditions:</b></p>
     * <ul>
-    *   <li>The controller object must be initialized.</li>
+    *   <li>{@code Controller} object must be initialized.</li>
     * </ul>
     * 
     * <p><b>Postconditions:</b></p>
     * <ul>
-    *   <li>Information about the most diverse place is displayed .if at least one place is registered; otherwise, a message indicating no registered places is printed.</li>
+    *   <li>Information about the most diverse place is displayed if at least one place is registered; otherwise, a message indicating no registered places is printed.</li>
     * </ul>
     */    
     public static void mostDiverse(){
@@ -765,7 +765,24 @@ public class Main{
         }
     }
 
-
+    /**
+    * <p><b>biggestArea</b></p>
+    * <b>Description:</b> Displays name of the top three places with the biggest area.
+    * It checks if there are at least three registered places using the {@link Controller#threeMinPlaces()} method.
+    * If there are at least three registered places, it retrieves information about the three places with the biggest area using the {@link Controller#biggestArea()} method and prints it.
+    * If there are fewer than three registered places, it prints a message indicating that at least three places are required to display the top three biggest places .
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Controller} object must be initialized.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The names of the top three places with the biggest area are displayed if at least three places are registered.</li>
+    *   <li>If there are less than 3 preregistered places a message indicating that at least three places are required is printed. </li>
+    * </ul>
+    */    
     public static void biggestArea(){
         System.out.println("DISPLAYING THE THREE PLACES WITH THE BIGGEST AREA:");
 

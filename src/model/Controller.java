@@ -444,6 +444,27 @@ public class Controller {
         return message + mostDiverse;
     }
 
+
+    /**
+    * <p><b>biggestArea</b></p>
+    * <b>Description:</b> Retrieves  the name and ranks the three places with the biggest area.
+    * This method iterates through the array of places stored in the controller to find the top three places with the biggest area.
+    * It maintains an array to keep track of the positions of the already identified top places.
+    * For each rank (first, second, and third), it finds the place with the largest area that has not been previously identified as one of the top places.
+    * After each loop, it adds the name of the place that had the biggest area (per loop, excluding the previous ones) with the ranking number by the name.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code places}places array in the controller must be initialized.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A list containing the name of  the top three places with the biggest area is returned.</li>
+    * </ul>
+    * 
+    * @return A message containing name of the top three places with the biggest area.
+    */
     public String biggestArea() {
         String message = "The top three places with the biggest area are: ";
         int position[] = {-1, -1, -1}; 
@@ -1045,6 +1066,22 @@ public class Controller {
         return onePlace;
     }
     
+    /**
+    * <p><b>threeMinPlaces</b></p>
+    * <b>Description:</b> Checks if at least three places were registered.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code places} array must be in place.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>A boolean value indicating whether the first three positions in the place array are occupied or not is returned.</li>
+    * </ul>
+    * 
+    * @return A boolean indicating if the first three positions of places are filled.
+    */
     public boolean threeMinPlaces(){
         boolean threePlaces = false;
 
