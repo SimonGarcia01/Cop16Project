@@ -402,7 +402,26 @@ public class Controller {
         return communitiesInfo;
     }
 
-
+    /**
+    * <p><b>mostDiverse</b></p>
+    * <b>Description:</b> Determines and returns the name of the most diverse place.
+    * This method iterates through the array of places stored in the controller and identifies the place with the highest species count (using {@link Place#speciesCount()})
+    * If multiple places have the same highest species count, it selects the first one encountered.
+    * It then constructs a message indicating the most diverse place and returns it.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code places} array in the controller must be initialized.</li>
+    *   <li>There should be atleast one place preregistered. (use {@link #oneMinPlace()})</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The name of the most diverse place is returned.</li>
+    * </ul>
+    * 
+    * @return The name of the most diverse place.
+    */
     public String mostDiverse(){
         String message = "The most diverse place is: ";
 

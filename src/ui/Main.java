@@ -734,7 +734,24 @@ public class Main{
 
     }
 
-
+    /**
+    * <p><b>mostDiverse</b></p>
+    * <b>Description:</b> Displays information about the most diverse place.
+    * This method prints a message indicating that it will display information about the most diverse place.
+    * It checks if there is at least one registered place using the {@link Controller#oneMinPlace()} method.
+    * If there is at least one registered place, it retrieves information about the most diverse place using the {@link Controller#mostDiverse()} method and prints it.
+    * If there are no registered places, it prints a message indicating that no places are registered and prompts the user to enter a place.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>The controller object must be initialized.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>Information about the most diverse place is displayed .if at least one place is registered; otherwise, a message indicating no registered places is printed.</li>
+    * </ul>
+    */    
     public static void mostDiverse(){
         System.out.println("DISPLAYING THE MOST DIVERSE PLACE:");
         

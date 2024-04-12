@@ -174,6 +174,23 @@ public class Place {
     }
 
     //COUNT AMOUNT OF SPECIES
+    /**
+    * <p><b>speciesCount</b></p>
+    * <b>Description:</b> Calculates and returns the number of species associated with the place.
+    * This method counts the non-null elements in the array of species belonging to the place.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code species} array in the place object must be initialized.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>The number of species associated with the place is returned.</li>
+    * </ul>
+    * 
+    * @return The number of species associated with the place.
+    */    
     public int speciesCount(){
         int counter = 0;
 
