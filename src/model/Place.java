@@ -173,6 +173,19 @@ public class Place {
         return placeInfo;
     }
 
+    //COUNT AMOUNT OF SPECIES
+    public int speciesCount(){
+        int counter = 0;
+
+        for(Species species : this.species){
+            if(species != null){
+                counter ++;
+            }
+        }
+
+        return counter;
+    }
+
     /**
     * <p><b>intToDepartment</b></p>
     * <b>Description:</b> Converts the integer representation of a department to its corresponding Department literal.

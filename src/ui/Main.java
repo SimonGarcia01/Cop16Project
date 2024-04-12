@@ -93,6 +93,7 @@ public class Main{
                                 break;
                             case 4:
                                 //Display the name of the place with the most species diversity
+                                mostDiverse();
                                 break;
                             case 5:
                                 //Display the three places with the biggest area
@@ -731,5 +732,18 @@ public class Main{
             System.out.println("There are no registered communities at the moment that face both challenges.");
         }
 
+    }
+
+
+    public static void mostDiverse(){
+        System.out.println("DISPLAYING THE MOST DIVERSE PLACE:");
+        
+        boolean existingPlace = controller.oneMinPlace();
+
+        if (existingPlace){
+            System.out.println("\n\t"+controller.mostDiverse());
+        } else {
+            System.out.println("There are no registered places. Please enter a place.");
+        }
     }
 }

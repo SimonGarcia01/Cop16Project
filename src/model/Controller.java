@@ -402,6 +402,29 @@ public class Controller {
         return communitiesInfo;
     }
 
+
+    public String mostDiverse(){
+        String message = "The most diverse place is: ";
+
+        String mostDiverse = "";
+        int speciesCounter = 0;
+
+        for(int n = 0; n < places.length ; n ++){
+            if(places[n] != null){
+                if(n == 0){
+                    mostDiverse = places[0].getName();
+                    speciesCounter = places[0].speciesCount();
+                } else {
+                    if(places[n].speciesCount() >= speciesCounter){
+                        mostDiverse = places[n].getName();
+                        speciesCounter = places[n].speciesCount();
+                    }
+                }
+            }
+        }
+        return message + mostDiverse;
+    }
+
     //SEARCH METHODS
 
     /**
