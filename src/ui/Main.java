@@ -97,6 +97,7 @@ public class Main{
                                 break;
                             case 5:
                                 //Display the three places with the biggest area
+                                biggestArea();
                                 break;
                             case 9:
                                 //Exit query menu
@@ -761,6 +762,17 @@ public class Main{
             System.out.println("\n\t"+controller.mostDiverse());
         } else {
             System.out.println("There are no registered places. Please enter a place.");
+        }
+    }
+
+
+    public static void biggestArea(){
+        System.out.println("DISPLAYING THE THREE PLACES WITH THE BIGGEST AREA:");
+
+        if(controller.threeMinPlaces()){
+            System.out.println(controller.biggestArea());
+        } else {
+            System.out.println("There must be at least three places registered in order to display the top THREE biggest places.");
         }
     }
 }

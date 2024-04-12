@@ -444,6 +444,26 @@ public class Controller {
         return message + mostDiverse;
     }
 
+    public String biggestArea() {
+        String message = "The top three places with the biggest area are: ";
+        int position[] = {-1, -1, -1}; 
+        
+        for (int ranking = 0; ranking < 3; ranking++) {
+            String topName = "";
+            double topArea = 0;
+            for (int n = 0; n < places.length; n++) {
+                if (places[n] != null && places[n].getArea() > topArea && n != position[0] && n != position[1] && n != position[2]) {
+                    topName = places[n].getName();
+                    topArea = places[n].getArea();
+                    position[ranking] = n;
+                }
+            }
+            message += "\n\t" + (ranking + 1) + ". " + topName;
+        }
+    
+        return message;
+    }
+
     //SEARCH METHODS
 
     /**
@@ -1025,6 +1045,15 @@ public class Controller {
         return onePlace;
     }
     
+    public boolean threeMinPlaces(){
+        boolean threePlaces = false;
+
+        if(places[0]!=null && places[1] != null && places[2] != null){
+            threePlaces = true;
+        }
+        return threePlaces;
+    }
+
     /**
     * <p><b>oneMinSpecies</b></p>
     * <b>Description:</b> Checks if the specified place has at least one species registered.
