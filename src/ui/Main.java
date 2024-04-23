@@ -65,6 +65,7 @@ public class Main{
                             case 7:
                                 //Register test cases
                                 registerTestCases();
+                                break;
 
                             case 9:
                                 //Exit admin menu
@@ -92,7 +93,7 @@ public class Main{
                                 accessDeptCommunity();
                                 break;
                             case 3:
-                                //Access the information of communities which the biggest problems they face are: absence of hospitals and lack of schools.
+                                //Access the information of communities which the biggest problems they face are: absence of hospitals or lack of schools.
                                 accessHospSchooCommunities();
                                 break;
                             case 4:
@@ -211,7 +212,7 @@ public class Main{
 
         System.out.println("-----------------------------------------------------------");
 		System.out.println("Menu for Queries: ");
-		System.out.println("\t1. Access the information from a place\n\t2. Access the information of the communities in a department\n\t3. Access the information of communities that face an absence of hospitals and a lack of schools.\n\t4. Display the name of the place with the most species diversity\n\t5. Display the three places with the biggest area\n\t9. Leave menu");
+		System.out.println("\t1. Access the information from a place\n\t2. Access the information of the communities in a department\n\t3. Access the information of communities that face an absence of hospitals or a lack of schools.\n\t4. Display the name of the place with the most species diversity\n\t5. Display the three places with the biggest area\n\t9. Leave menu");
 		System.out.println("-----------------------------------------------------------");
 		System.out.print("Enter the option: ");
 		option = sk.nextInt();
@@ -707,7 +708,7 @@ public class Main{
 
     /**
     * <p><b>accessHospSchooCommunities</b></p>
-    * <b>Description:</b> Retrieves and displays information about communities facing challenges related to the absence of hospitals and lack of schools.
+    * <b>Description:</b> Retrieves and displays information about communities facing challenges related to the absence of hospitals or lack of schools.
     * It retrieves the information about such communities using the {@link Controller#accessHospSchooCommunities()} method.
     * Then, it iterates through the array of community information and prints each entry.
     * 
@@ -734,7 +735,7 @@ public class Main{
                 }
             }
         } else {
-            System.out.println("There are no registered communities at the moment that face both challenges.");
+            System.out.println("There are no registered communities at the moment that face either challenges.");
         }
 
     }

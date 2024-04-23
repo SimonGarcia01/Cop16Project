@@ -371,7 +371,7 @@ public class Controller {
 
     /**
     * <p><b>accessHospSchooCommunities</b></p>
-    * <b>Description:</b> Retrieves information about communities facing challenges related to the absence of hospitals and lack of schools.
+    * <b>Description:</b> Retrieves information about communities facing challenges related to the absence of hospitals or lack of schools.
     * This method searches through the communities stored in the controller and identifies those facing both challenges.
     * For each qualifying community found, it generates a string representation using the {@link Community#toString()} method.
     * The information about these communities is stored in an array and returned.
@@ -383,7 +383,7 @@ public class Controller {
     * 
     * <p><b>Postconditions:</b></p>
     * <ul>
-    *   <li>A String array containing information about communities facing challenges related to the absence of hospitals and lack of schools is returned.</li>
+    *   <li>A String array containing information about communities facing challenges related to the absence of hospitals or lack of schools is returned.</li>
     * </ul>
     * 
     * @return An array containing information about communities facing the specified challenges.
@@ -393,7 +393,7 @@ public class Controller {
         int placeCounter = 0;
 
         for(Community community : communities){
-            if(community!=null && community.getChallenges()[0]!=null && community.getChallenges()[1]!=null){
+            if(community!=null && (community.getChallenges()[0]!=null || community.getChallenges()[1]!=null)){
                 communitiesInfo[placeCounter] = community.toString();
                 placeCounter++;
             }
