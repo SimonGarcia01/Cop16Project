@@ -485,6 +485,23 @@ public class Controller {
         return message;
     }
 
+    /**
+    * <p><b>registerTestCases</b></p>
+    * <b>Description:</b> Registers test cases for every class in the application.
+    * This method registers various test cases including communities, places, products, and species for testing purposes.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>{@code Controller} must have been initialized.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>Test cases for communities, places, products, and species are registered in the application.</li>
+    * </ul>
+    * 
+    * @return A message indicating that the test cases have been registered.
+    */
     public String registerTestCases(){
         
         registerCommunity("TestCommunity", "Michael Johnson", "3125091252", 100, "yes", "yes", "no", "no", 1);

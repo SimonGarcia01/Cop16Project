@@ -797,6 +797,21 @@ public class Main{
         }
     }
 
+    /**
+    * <p><b>registerTestCases</b></p>
+    * <b>Description:</b> Initiates the registration of test cases for the application.
+    * This method prints a message indicating the start of registering test cases and then invokes the {@link Controller#registerTestCases()} method in the controller class to perform the registration process.
+    * 
+    * <p><b>Preconditions:</b></p>
+    * <ul>
+    *   <li>The {@code Controller} instance must be initialized.</li>
+    * </ul>
+    * 
+    * <p><b>Postconditions:</b></p>
+    * <ul>
+    *   <li>Test cases for communities, places, products, and species are registered in the application.</li>
+    * </ul>
+    */
     public static void registerTestCases(){
         System.out.println("REGISTERING TEST CASES: ");
 
