@@ -61,6 +61,10 @@ public class Main{
                                 //Modify a species data in a place
                                 modifySpecies();
                                 break;
+                            
+                            case 7:
+                                //Register test cases
+                                registerTestCases();
 
                             case 9:
                                 //Exit admin menu
@@ -177,7 +181,7 @@ public class Main{
 
         System.out.println("-----------------------------------------------------------");
 		System.out.println("Menu of Administrative Options: ");
-		System.out.println("\t1. Register a community\n\t2. Register a place\n\t3. Add a product to a community\n\t4. Delete a product from a community\n\t5. Add a species in a place\n\t6. Modify a species data in a place\n\t9. Leave menu");
+		System.out.println("\t1. Register a community\n\t2. Register a place\n\t3. Add a product to a community\n\t4. Delete a product from a community\n\t5. Add a species in a place\n\t6. Modify a species data in a place\n\t7. Register test cases\n\t9. Leave menu");
 		System.out.println("-----------------------------------------------------------");
 		System.out.print("Enter the option: ");
 		option = sk.nextInt();
@@ -791,5 +795,11 @@ public class Main{
         } else {
             System.out.println("There must be at least three places registered in order to display the top THREE biggest places.");
         }
+    }
+
+    public static void registerTestCases(){
+        System.out.println("REGISTERING TEST CASES: ");
+
+        System.out.println(controller.registerTestCases());
     }
 }

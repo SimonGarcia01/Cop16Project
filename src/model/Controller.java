@@ -485,6 +485,42 @@ public class Controller {
         return message;
     }
 
+    public String registerTestCases(){
+        
+        registerCommunity("TestCommunity", "Michael Johnson", "3125091252", 100, "yes", "yes", "no", "no", 1);
+        registerCommunity("Community X", "John Doe", "5551234567", 50, "no", "yes", "yes", "no", 2);
+        registerCommunity("Randomville", "Jane Smith", "9876543210", 200, "yes", "no", "no", "yes", 3);
+
+        Calendar calendar = Calendar.getInstance();
+
+        calendar.set(Calendar.YEAR, 2001);
+        calendar.set(Calendar.MONTH, Calendar.AUGUST); // Months are zero-based, so March is 2
+        calendar.set(Calendar.DAY_OF_MONTH, 21);
+
+        registerPlace(1, "RandomPlace", 10, calendar, "https: xd", 200, 1, 1);
+        registerPlace(1, "Central Park", 50, calendar, "https://example.com/central_park.jpg", 1000, 1, 2);
+        registerPlace(2, "Downtown Library", 75, calendar, "https://example.com/library_photo.jpg", 500, 2, 3);
+        registerPlace(3, "City Museum", 30, calendar, "https://example.com/museum_photo.jpg", 1500, 1, 1);
+
+        addProduct(1, "Soap", 20,"yes", 1);
+        addProduct(1, "Shampoo", 15, "no", 2);
+        addProduct(2, "Toothpaste", 25, "yes", 2);
+
+        addSpecies(1, "Frog", "Https:xd", 15, 1);
+        addSpecies(2, "Dog", "https://example.com/dog.jpg", 20, 1);
+        addSpecies(3, "Parrot", "https://example.com/parrot.jpg", 10, 2);
+        addSpecies(4, "Rabbit", "https://example.com/rabbit.jpg", 12, 1);
+        addSpecies(1, "Goldfish", "https://example.com/goldfish.jpg", 30, 2);
+        addSpecies(2, "Hamster", "https://example.com/hamster.jpg", 8, 1);
+        addSpecies(3, "Turtle", "https://example.com/turtle.jpg", 5, 1);
+        addSpecies(4, "Lizard", "https://example.com/lizard.jpg", 18, 2);
+        addSpecies(1, "Snake", "https://example.com/snake.jpg", 7, 1);
+        addSpecies(2, "Horse", "https://example.com/horse.jpg", 15, 1);
+        addSpecies(3, "Cat", "https://example.com/cat.jpg", 25, 1);
+
+        return "The test cases have been registered.";
+    }
+    
     //SEARCH METHODS
 
     /**
